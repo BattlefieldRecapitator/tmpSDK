@@ -6,7 +6,7 @@
 #include "GameFramework/Actor.h"
 #include "Engine.h"
 #include "MordhauActor.generated.h"
-UENUM(BlueprintType)
+/*UENUM(BlueprintType)
 enum class EAttackMove : uint8
 {
 	RightStrike = 0,
@@ -28,7 +28,7 @@ enum class EMordhauDamageType : uint8
 	Fall = 3,
 	Fire = 4,
 	EMordhauDamageType_MAX = 5
-};
+};*/
 UCLASS()
 class MORDHAU_API AMordhauActor : public AActor
 {

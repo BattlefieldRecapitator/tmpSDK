@@ -95,7 +95,7 @@ public:
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	float                                              AvoidanceRangeMultiplier;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	TEnumAsByte<ECrowdAvoidanceQuality>                AvoidanceQuality;
+	ECrowdAvoidanceQuality                AvoidanceQuality;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	class UClass*                                      DefaultNavQueryFilter;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)

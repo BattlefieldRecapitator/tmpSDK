@@ -5,12 +5,13 @@
 #include "CoreMinimal.h"
 #include "AdvancedCharacterMovement.h"
 #include "Engine.h"
+#include "Mordhau.h"
 #include "MordhauMovementComponent.generated.h"
 
 /**
  * 
  */
-UENUM(BlueprintType)
+/*UENUM(BlueprintType)
 enum class EMovementModifier : uint8
 {
 	Walk = 0,
@@ -22,7 +23,7 @@ enum class EMovementModifier : uint8
 	Chasing = 6,
 	Supersprint = 7,
 	EMovementModifier_MAX = 8
-};
+};*/
 UCLASS()
 class MORDHAU_API UMordhauMovementComponent : public UAdvancedCharacterMovement
 {

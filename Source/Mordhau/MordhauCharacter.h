@@ -14,7 +14,7 @@
  * 
  */
 
-USTRUCT(BlueprintType)
+/*USTRUCT(BlueprintType)
 struct FEquipmentCustomization
 {
 	GENERATED_BODY()
@@ -28,7 +28,7 @@ struct FEquipmentCustomization
 	uint8                                      Skin;
 	UPROPERTY(BlueprintReadWrite)
 	uint8                                      Pattern;
-};
+};*/
 /*USTRUCT(BlueprintType)
 struct FWearableCustomization
 {

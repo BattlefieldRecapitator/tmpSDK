@@ -9,7 +9,7 @@
 /**
  * 
  */
-UENUM(BlueprintType)
+/*UENUM(BlueprintType)
 enum class EWearableSlot : uint8
 {
 	Head = 0,
@@ -23,8 +23,8 @@ enum class EWearableSlot : uint8
 	Feet = 8,
 	Total = 9,
 	Invalid = 10,
-};
-UENUM(BlueprintType)
+};*/
+/*UENUM(BlueprintType)
 enum class EMainWearableSlot : uint8
 {
 	//UPROPERTY(BlueprintReadWrite)
@@ -35,7 +35,7 @@ enum class EMainWearableSlot : uint8
 	Legs = 2,
 	//UPROPERTY(BlueprintReadWrite)
 	EMainWearableSlot_MAX = 3
-};
+};*/
 USTRUCT(BlueprintType)
 struct FWearableCustomization
 {
