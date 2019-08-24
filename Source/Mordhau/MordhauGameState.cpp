@@ -46,7 +46,10 @@ void AMordhauGameState::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > &
 	DOREPLIFETIME(AMordhauGameState, LastBotEmoteTime)
 	DOREPLIFETIME(AMordhauGameState, LastBotClimbTime)
 }
+void AMordhauGameState::GetPlayerCountsPerTeam(TArray<int> &arrayTmp, bool bOnlyLiving, bool bOnlyWithValidProfiles)
+{
 
+}
 void AMordhauGameState::UpdateCapturePointData()
 {
 
