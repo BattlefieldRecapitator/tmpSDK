@@ -66,7 +66,12 @@ bool AMordhauActor::CanHeldInteract(class AMordhauCharacter* Character)
 {
 	return 1;
 }
-
+void AMordhauActor::OnUsedToKillOther_Implementation(class AAdvancedCharacter* Character, EMordhauDamageType Type, uint8 SubType, const FName& bone, const struct FVector& Point, class AActor* Source)
+{}
+void AMordhauActor::OnLocalPlayerUsedToKillOther_Implementation(class AAdvancedCharacter* Character, EMordhauDamageType Type, uint8 SubType, const FName& bone, const struct FVector& Point, class AActor* Source)
+{}
+void AMordhauActor::OnReceiveCosmeticHit_Implementation(class AActor* Source, class AActor* Agent, EAttackMove Move, const struct FHitResult& Hit)
+{}
 void AMordhauActor::OnThud_Implementation()
 {
 
