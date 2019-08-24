@@ -46,8 +46,8 @@ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
  UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bIsParentInFirstPerson;
 
-// UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-//	struct FName                                       AttachedToSocket;
+ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	FName                                       AttachedToSocket;
 
  UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bWantsToRebuildParts;
@@ -91,8 +91,8 @@ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
  //UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//EEquipmentCategory                                 EquipmentUICategory;
 
- //UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-//	struct FText                                       EquipmentName;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	FText                                       EquipmentName;
 
  UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bIsRightHanded;
@@ -241,8 +241,8 @@ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
  UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bPartsUseAuxiliaryMesh;
 
- //UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//TArray<TWeakObjectPtr<class UMeshComponent>>       MeshComponents;
+ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	TArray<class UMeshComponent*>       MeshComponents;
 
  UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	class UClass*                                      Quiver;
@@ -909,8 +909,8 @@ UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
  void LateTick(float DeltaSeconds);
 //UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
 // struct FEquipmentCustomization GetRandomCustomization(bool bOnlyColors);
-//UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
-// class AMordhauCharacter* GetParentCharacter();
+UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
+class AMordhauCharacter* GetParentCharacter();
 UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
  uint8 GetCurrentMaxAmmo();
 UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
@@ -933,10 +933,10 @@ UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
  //void AssignCustomization(const struct FEquipmentCustomization& Customization, uint8 CustomizationEmblem, uint8 CustomizationEmblemColor1, uint8 CustomizationEmblemColor2);
 //UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
  //struct FBoxSphereBounds ComputeAccurateBounds();
-//UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
-//bool CanPerformAttack(class AMordhauCharacter* Character, EAttackMove Move);
-//UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
-  //void RequestAttack(EAttackMove Move, float Angle);
+UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
+bool CanPerformAttack(class AMordhauCharacter* Character, EAttackMove Move);
+UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
+void RequestAttack(EAttackMove Move, float Angle);
 
 };
 

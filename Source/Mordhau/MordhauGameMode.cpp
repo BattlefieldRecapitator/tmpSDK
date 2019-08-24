@@ -44,6 +44,18 @@ void AMordhauGameMode::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & 
 
 
 
+void AMordhauGameMode::GetNextMaps(TArray<FString>& string1, int Count)
+{
+
+}
+FString AMordhauGameMode::GetNextMap()
+{
+	return "1";
+}
+void AMordhauGameMode::GetMapVoteMaps(TArray<FString>& string2)
+{}
+void AMordhauGameMode::GetMapVoteCounts(TArray<uint8>& byte1)
+{}
 
 
 void AMordhauGameMode::SetTeamScore(int Team, float Amount)
@@ -56,21 +68,23 @@ void AMordhauGameMode::RequestedAssignTeam(class AController* Controller, int Te
 void AMordhauGameMode::RemoveBots(int Amount, int Team)
 {
 }
-void AMordhauGameMode::OnTeamScoreChanged(int Team, float OldValue)
+void AMordhauGameMode::OnTeamScoreChanged_Implementation(int Team, float OldValue)
 {
 }
-void AMordhauGameMode::OnScoreChanged(class APlayerState* Mode, float OldValue)
+void AMordhauGameMode::OnScoreChanged_Implementation(class APlayerState* Mode, float OldValue)
 {
 }
-void AMordhauGameMode::OnKillsChanged(class APlayerState* Mode, int OldValue)
-{
-
-}
-void AMordhauGameMode::OnDeathsChanged(class APlayerState* Mode, int OldValue)
+void AMordhauGameMode::OnKilled_Implementation(class AController* Killer, class AController* KilledPlayer, class APawn* KilledPawn, EMordhauDamageType Type, uint8 SubType, class AActor* DamageSource, class AActor* DamageAgent)
+{}
+void AMordhauGameMode::OnKillsChanged_Implementation(class APlayerState* Mode, int OldValue)
 {
 
 }
-void AMordhauGameMode::OnAssistsChanged(class APlayerState* Mode, int OldValue)
+void AMordhauGameMode::OnDeathsChanged_Implementation(class APlayerState* Mode, int OldValue)
+{
+
+}
+void AMordhauGameMode::OnAssistsChanged_Implementation(class APlayerState* Mode, int OldValue)
 {
 
 }
@@ -107,7 +121,7 @@ bool AMordhauGameMode::CanChamber(class APawn* Source, class APawn* Target)
 {
 	return 1;
 }
-//void AMordhauGameMode::Broadcast(class AActor* Sender, const struct FString& Msg, const struct FName& Type)
+//void AMordhauGameMode::Broadcast(class AActor* Sender, const FString& Msg, const FName& Type)
 //{
 
 //}

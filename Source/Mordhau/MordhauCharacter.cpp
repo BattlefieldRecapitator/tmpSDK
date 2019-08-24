@@ -45,6 +45,11 @@ void AMordhauCharacter::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > &
 	DOREPLIFETIME(AMordhauCharacter, UseHoldTime)
 
 }
+
+bool AMordhauCharacter::PickUpToSlot(class AMordhauEquipment* ToEquip, uint8 Slot)
+{
+	return 1;
+}
 void AMordhauCharacter::AssignProfile(const struct FCharacterProfile& NewProfile)
 {}
 void AMordhauCharacter :: LeftTeamArea(int OwningTeam)

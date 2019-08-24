@@ -11,6 +11,7 @@
 /**
  * 
  */
+/*UENUM(BlueprintType)
 enum class EMordhauDamageType : uint8
 {
 	Generic,
@@ -19,8 +20,8 @@ enum class EMordhauDamageType : uint8
 	Fall,
 	Fire
 };
-
-/*UENUM()
+*/
+/*UENUM(BlueprintType)
 enum class EMordhauDamageType : uint8
 {
 	Generic = 0,
@@ -30,15 +31,38 @@ enum class EMordhauDamageType : uint8
 	Fire = 4,
 	EMordhauDamageType_MAX = 5
 };*/
+/*USTRUCT(BlueprintType)
+struct FSoftObjectPath
+{
+	FName                                       AssetPathName;                                            // 0x0000(0x0008) (ZeroConstructor, IsPlainOldData)
+	FString                                     SubPathString;                                            // 0x0008(0x0010) (ZeroConstructor)
+};*/
+/*USTRUCT(BlueprintType)
+struct FSoftClassPath : public FSoftObjectPath
+{
+
+};*/
+/*USTRUCT(BlueprintType)
+struct FGameModeName
+{
+	FString                                     Name;
+	FSoftClassPath                              GameMode;
+};*/
 UCLASS()
 class MORDHAU_API AMordhauGameMode : public AGameMode
 {
 	GENERATED_BODY()
 public:
-	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//TWeakObjectPtr<class AController>           CurrentlySpawningController;
-	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//class AActor*                               CurrentlySpawningPlayerStart;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	//TArray<FGameModeName>                       MapPrefixes;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<FString>                             MapRotation;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<class AController*>          SpawnQueue;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class AController*           CurrentlySpawningController;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	class AActor*                               CurrentlySpawningPlayerStart;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	int                                         CurrentlySpawningStage;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
@@ -99,17 +123,17 @@ public:
 		void RequestedAssignTeam(class AController* Controller, int Team);
 		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
 		void RemoveBots(int Amount, int Team);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+		UFUNCTION(BlueprintNativeEvent, Category = "GameModeEvents")
 		void OnTeamScoreChanged(int Team, float OldValue);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+		UFUNCTION(BlueprintNativeEvent, Category = "GameModeEvents")
 		void OnScoreChanged(class APlayerState* State, float OldValue);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+		UFUNCTION(BlueprintNativeEvent, Category = "GameModeEvents")
 		void OnKillsChanged(class APlayerState* State, int OldValue);
-		//UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		//void OnKilled(class AController* Killer, class AController* KilledPlayer, class APawn* KilledPawn, EMordhauDamageType Type, unsigned char SubType, class AActor* DamageSource, class AActor* DamageAgent);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+		UFUNCTION(BlueprintNativeEvent, Category = "GameModeEvents")
+		void OnKilled(class AController* Killer, class AController* KilledPlayer, class APawn* KilledPawn, EMordhauDamageType Type, uint8 SubType, class AActor* DamageSource, class AActor* DamageAgent);
+		UFUNCTION(BlueprintNativeEvent, Category = "GameModeEvents")
 		void OnDeathsChanged(class APlayerState* State, int OldValue);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+		UFUNCTION(BlueprintNativeEvent, Category = "GameModeEvents")
 		void OnAssistsChanged(class APlayerState* State, int OldValue);
 		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
 		void MatchTimeRanOut();
@@ -117,20 +141,14 @@ public:
 		bool IsSpawnpointAllowed(class APlayerStart* PlayerStart, class AController* Player);
 		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
 		float GetSpawnpointPreference(class APlayerStart* PlayerStart, class AController* Player);
-
-		
-		//UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		//TArray<struct FString> GetNextMaps(int Count);
-		//UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		//struct FString GetNextMap();
-		//UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		//TArray<struct FString> GetMapVoteMaps();
-		//UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		//TArray<unsigned char> GetMapVoteCounts();
-		
-		
-		
-		
+		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+		void GetNextMaps(TArray<FString>& string1, int Count);
+		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+		FString GetNextMap();
+		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+		void GetMapVoteMaps(TArray<FString>& string2);
+		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+		void GetMapVoteCounts(TArray<uint8>& byte1);
 		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
 		float GetDamageFactor(class AActor* DamageSource, class AActor* DamageTarget);
 		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
@@ -145,6 +163,7 @@ public:
 		void AddTeamScore(int Team, float Amount);
 		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
 		void AddBots(int Amount, int Team);
-		
+		//UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+		//void Broadcast(class AActor* Sender, const FString& Msg, const FName& Type);
 		
 		};

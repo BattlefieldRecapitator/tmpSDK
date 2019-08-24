@@ -58,10 +58,10 @@ public:
 	bool                                               bFirstRun;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	float                                              RandomFloat;
-	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//class UBotProfile*                                 BotProfile;
-	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//class UBotBehaviorProfile*                         BehaviorProfile;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	class UBotProfile*                                 BotProfile;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	class UBotBehaviorProfile*                         BehaviorProfile;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	float                                              EnemyScanInterval;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
@@ -101,27 +101,33 @@ public:
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	class UClass*                                      Team1NavQueryFilter;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	class UClass*                                      Team2NavQueryFilter;
-
+	class UClass*                         Team2NavQueryFilter;
 	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+	void UpdatePerceptionInfo(class AAdvancedCharacter* InCharacter, FPerceptionInfo PerceptionInfo);
+	UFUNCTION(BlueprintNativeEvent, Category = "MordhauAIControllerEvents")
+	void OnCharacterDiedOrDestroyed(class AAdvancedCharacter* AdvancedCharacter);
+	UFUNCTION(BlueprintNativeEvent, Category = "MordhauAIControllerEvents")
 	void OnAfterUnPossess();
-	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
-	void OnStartedPerceivingCharacter(class AAdvancedCharacter* PerceivedCharacter, struct FPerceptionInfo PerceptionInfo);
-	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
-	void OnStoppedPerceivingCharacter(class AAdvancedCharacter* PerceivedCharacter, struct FPerceptionInfo PerceptionInfo);
+	UFUNCTION(BlueprintNativeEvent, Category = "MordhauAIControllerEvents")
+	void OnStartedPerceivingCharacter(class AAdvancedCharacter* PerceivedCharacter, FPerceptionInfo PerceptionInfo);
+	UFUNCTION(BlueprintNativeEvent, Category = "MordhauAIControllerEvents")
+	void OnStoppedPerceivingCharacter(class AAdvancedCharacter* PerceivedCharacter, FPerceptionInfo PerceptionInfo);
 	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
 	int GetTeam();
-	//UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
-	TArray<class AMordhauCharacter*> GetPerceivedEnemies();
-	//UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
-	TArray<class AMordhauCharacter*> GetPerceivedAllies();
+	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+	void GetPerceivedEnemies(TArray<class AMordhauCharacter*>& enemies);
+	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+	void GetPerceivedAllies(TArray<class AMordhauCharacter*>& allies);
 	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
 	float GetMotionBasedRandom();
 	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
 	int GetAllyClearanceSides();
 	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
 	void DestroyController();
-
+	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+	class AMordhauCharacter* GetClosestEnemy();
+	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+	class AMordhauCharacter* GetClosestAlly();
 
 
 

@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "MordhauAIController.h"
+#include "MordhauCharacter.h"
 #include "UnrealNetwork.h"
 
 void AMordhauAIController::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
@@ -27,30 +28,37 @@ void AMordhauAIController::GetLifetimeReplicatedProps(TArray< FLifetimeProperty 
 	DOREPLIFETIME(AMordhauAIController, AvoidanceRangeMultiplier)
 
 }
-//
 
-void AMordhauAIController::OnAfterUnPossess()
+void AMordhauAIController::OnAfterUnPossess_Implementation()
 {
 
 }
-void AMordhauAIController::OnStartedPerceivingCharacter(class AAdvancedCharacter* PerceivedCharacter, struct FPerceptionInfo PerceptionInfo)
+void AMordhauAIController::OnStartedPerceivingCharacter_Implementation(class AAdvancedCharacter* PerceivedCharacter, struct FPerceptionInfo PerceptionInfo)
 {
 
 }
-void AMordhauAIController::OnStoppedPerceivingCharacter(class AAdvancedCharacter* PerceivedCharacter, struct FPerceptionInfo PerceptionInfo)
+void AMordhauAIController::OnStoppedPerceivingCharacter_Implementation(class AAdvancedCharacter* PerceivedCharacter, struct FPerceptionInfo PerceptionInfo)
 {
 
 }
-//TArray<class AMordhauCharacter*> AMordhauAIController::GetPerceivedEnemies()
-//{
-//	return array;
-//}
-//TArray<class AMordhauCharacter*> AMordhauAIController::GetPerceivedAllies()
-//{
-//	return array;
-//}
+void AMordhauAIController::UpdatePerceptionInfo(class AAdvancedCharacter* InCharacter, FPerceptionInfo PerceptionInfo)
+{}
+void AMordhauAIController::OnCharacterDiedOrDestroyed_Implementation(class AAdvancedCharacter* AdvancedCharacter)
+{}
+void AMordhauAIController::GetPerceivedEnemies(TArray<class AMordhauCharacter*>& enemies)
+{}
+void AMordhauAIController::GetPerceivedAllies(TArray<class AMordhauCharacter*>& allies)
+{
 
-
+}
+class AMordhauCharacter* AMordhauAIController::GetClosestEnemy()
+{
+	return nullptr;
+}
+class AMordhauCharacter* AMordhauAIController::GetClosestAlly()
+{
+	return nullptr;
+}
 float AMordhauAIController::GetMotionBasedRandom()
 {
 	return 1;

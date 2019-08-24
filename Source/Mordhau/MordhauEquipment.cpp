@@ -265,3 +265,13 @@ void AMordhauEquipment::AssignCustomizationToProjectile(class AMordhauProjectile
 {
 
 }*/
+void AMordhauEquipment::RequestAttack(EAttackMove Move, float Angle)
+{}
+bool AMordhauEquipment::CanPerformAttack(class AMordhauCharacter* Character, EAttackMove Move)
+{
+	return 1;
+}
+class AMordhauCharacter* AMordhauEquipment::GetParentCharacter()
+{
+	return nullptr;
+}

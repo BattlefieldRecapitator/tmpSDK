@@ -44,10 +44,10 @@ public:
 		float                                              BeingChasedSlowdownTimeFactor;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 		float                                              MaxAngleToChase;
-	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		//struct FVector                                     ChasingMaxDistance;
-	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		//struct FVector                                     ChasedMaxDistance;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		FVector                                     ChasingMaxDistance;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		FVector                                     ChasedMaxDistance;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 		float                                              TimeToBreakUsChasing;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
@@ -95,7 +95,7 @@ public:
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 		float                                              EquipmentAccelerationBonusPercentage;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-		TEnumAsByte<EMovementModifier>                                  MovementModifier;
+		EMovementModifier                                  MovementModifier;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 		bool                                               bWantsSprint;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
