@@ -84,3 +84,7 @@ void AAdvancedCharacter::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > 
 	{}
 	void AAdvancedCharacter::StartRagdoll()
 	{}
+
+	void AAdvancedCharacter::OffsetHealth(int Amount, bool bReplicate)
+	{
+	}

@@ -92,4 +92,7 @@ public:
 		void EnteredOutOfBoundsArea();
 	UFUNCTION(BlueprintCallable, Category="AdvancedCharFns")
 		void StartRagdoll();
+
+	UFUNCTION(BlueprintCallable, Category="AdvancedCharFns")
+		void OffsetHealth(int Amount, bool bReplicate);
 };
