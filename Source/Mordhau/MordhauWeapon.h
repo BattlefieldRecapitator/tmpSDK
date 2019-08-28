@@ -10,6 +10,7 @@
 /**
  * 
  */
+
 UCLASS()
 class MORDHAU_API AMordhauWeapon : public AMordhauEquipment
 {

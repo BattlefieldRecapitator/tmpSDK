@@ -46,7 +46,34 @@ void AMordhauGameState::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > &
 	DOREPLIFETIME(AMordhauGameState, LastBotEmoteTime)
 	DOREPLIFETIME(AMordhauGameState, LastBotClimbTime)
 }
-void AMordhauGameState::GetPlayerCountsPerTeam(TArray<int> &arrayTmp, bool bOnlyLiving, bool bOnlyWithValidProfiles)
+//void AMordhauGameState::GetScoreboardTimeInProgress(struct FTimespan& Time)
+//{}
+//
+//void AMordhauGameState::GetScoreboardTime(struct FTimespan& Time)
+//{}
+//void AMordhauGameState::GetScoreboardObjectiveName(FText& NewParam)
+//{}
+//
+//void AMordhauGameState::OnRep_VoteKickInfo()
+//{}
+//void AMordhauGameState::GetScoreboardTeamObjectiveValue(int Team, FString& Output)
+//{}
+//void AMordhauGameState::OnRep_MatchEndInfo()
+//{}
+//void AMordhauGameState::HandleMatchEndInfo()
+//{}
+//
+//void AMordhauGameState::GetKillfeedColor(class APlayerState* PlayerState, struct FLinearColor& Color)
+//{}
+//void AMordhauGameState::GetChatColor(class APlayerState* PlayerState, struct FLinearColor& Color)
+//{}
+//void AMordhauGameState::ShouldHideSpawnInfoText(bool& Hide)
+//{}
+FString AMordhauGameState::GetTeamName(int Team)
+{
+	return "1";
+}
+void AMordhauGameState::GetPlayerCountsPerTeam(TArray<int>& ReturnValue, bool bOnlyLiving, bool bOnlyWithValidProfiles)
 {
 
 }
@@ -66,10 +93,10 @@ bool AMordhauGameState::ShouldPaintGearWithTeamColors()
 {
 	return 1;
 }
-bool AMordhauGameState::ShouldBlockPawnInput()
-{
-	return 1;
-}
+//bool AMordhauGameState::ShouldBlockPawnInput()
+//{
+//	return 1;
+//}
 void AMordhauGameState::ReserveCharacterRagdoll(class AAdvancedCharacter* Character)
 {
 
@@ -78,14 +105,14 @@ void AMordhauGameState::RemoveCharacterFromDistanceArray(class AAdvancedCharacte
 {
 
 }
-void AMordhauGameState::LocalPlayerChangedTeam()
-{
-
-}
-bool AMordhauGameState::IsFriendly(class AActor* ActorA, class AActor* ActorB)
-{
-	return 1;
-}
+//void AMordhauGameState::LocalPlayerChangedTeam()
+//{
+//
+//}
+//bool AMordhauGameState::IsFriendly(class AActor* ActorA, class AActor* ActorB)
+//{
+//	return 1;
+//}
 //TArray<int> AMordhauGameState::GetPlayerCountsPerTeam(bool bOnlyLiving, bool bOnlyWithValidProfiles)
 //{
 //	return nonsense;
@@ -94,15 +121,43 @@ int AMordhauGameState::GetCurrentFrame()
 {
 	return 1;
 }
-//class AAdvancedCharacter* AMordhauGameState::GetCharacterByDistanceRank(int DistanceRank)
+//FLinearColor AMordhauGameState::GetTeamColor(int Team)
 //{
-//	return;
+//	return { 0,0,0,0 };
 //}
+class USkeletalMesh* AMordhauGameState::GetEquipmentMeshFromCache(int ID, uint8 Skin, uint8 Part1, uint8 Part2, uint8 Part3, bool bUseAuxiliaryMesh)
+{
+	return nullptr;
+}
+int AMordhauGameState::GetEquipmentCacheHash(int ID, uint8 Skin, uint8 Part1, uint8 Part2, uint8 Part3, bool bUseAuxiliaryMesh)
+{
+	return 1;
+}
+class AAdvancedCharacter* AMordhauGameState::GetCharacterByDistanceRank(int DistanceRank)
+{
+	return nullptr;
+}
 bool AMordhauGameState::CanPlayerJoinTeam(class AMordhauPlayerState* Player, int Team)
 {
 	return 1;
 }
-bool AMordhauGameState::CanImmediatelyChangeProfile(class AController* Controller)
+//bool AMordhauGameState::CanImmediatelyChangeProfile(class AController* Controller)
+//{
+//	return 1;
+//}
+void AMordhauGameState::UnregisterParticleSystemActor(class AParticleSystemActor* ParticleActor)
+{}
+void AMordhauGameState::RegisterParticleSystemActor(class AParticleSystemActor* ParticleActor)
+{}
+void AMordhauGameState::StoreEquipmentMeshInCache(class USkeletalMesh* Mesh, int ID, uint8 Skin, uint8 Part1, uint8 Part2, uint8 Part3, bool bUseAuxiliaryMesh)
+{}
+void AMordhauGameState::GetBindPoseTransform(FTransform& transformTmp, class USkeletalMesh* Mesh, const FName& SocketName)
 {
-	return 1;
 }
+class AMapCameraActor* AMordhauGameState::GetAppropriateMapCameraActor(class APlayerController* Controller)
+{
+	return nullptr;
+}
+
+void AMordhauGameState::IncrementIntStatValueChecked(class UMordhauStats* Target, class UObject* World, struct FStatInt Stat)
+{}

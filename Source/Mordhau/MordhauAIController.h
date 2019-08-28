@@ -102,6 +102,8 @@ public:
 	class UClass*                                      Team1NavQueryFilter;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	class UClass*                         Team2NavQueryFilter;
+
+
 	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
 	void UpdatePerceptionInfo(class AAdvancedCharacter* InCharacter, FPerceptionInfo PerceptionInfo);
 	UFUNCTION(BlueprintNativeEvent, Category = "MordhauAIControllerEvents")

@@ -207,3 +207,5 @@ bool AMordhauPlayerController::GetDefaultTierCustomizationForSlot(EMainWearableS
 {
 	return 1;
 }
+void AMordhauPlayerController::ClientMessageBP(FString String)
+{}

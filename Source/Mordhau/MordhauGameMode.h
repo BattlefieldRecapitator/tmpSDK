@@ -6,6 +6,7 @@
 #include "GameFramework/GameModeBase.h"
 #include "GameFramework/GameMode.h"
 #include "Engine.h"
+#include "Mordhau.h"
 #include "MordhauGameMode.generated.h"
 
 /**
@@ -115,55 +116,67 @@ public:
 	bool                                        bTeamKillsIncrementKilledDeaths;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                        bSuicideDecrementsKills;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	TArray<FString>                             MapVoteMaps;
 
-	
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+	//struct SkirmishRoundInfo RoundInfo;
+
+	UFUNCTION(BlueprintCallable, Category = "GameModeFns")
 		void SetTeamScore(int Team, float Amount);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		void RequestedAssignTeam(class AController* Controller, int Team);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		void RemoveBots(int Amount, int Team);
-		UFUNCTION(BlueprintNativeEvent, Category = "GameModeEvents")
-		void OnTeamScoreChanged(int Team, float OldValue);
-		UFUNCTION(BlueprintNativeEvent, Category = "GameModeEvents")
-		void OnScoreChanged(class APlayerState* State, float OldValue);
-		UFUNCTION(BlueprintNativeEvent, Category = "GameModeEvents")
-		void OnKillsChanged(class APlayerState* State, int OldValue);
-		UFUNCTION(BlueprintNativeEvent, Category = "GameModeEvents")
-		void OnKilled(class AController* Killer, class AController* KilledPlayer, class APawn* KilledPawn, EMordhauDamageType Type, uint8 SubType, class AActor* DamageSource, class AActor* DamageAgent);
-		UFUNCTION(BlueprintNativeEvent, Category = "GameModeEvents")
-		void OnDeathsChanged(class APlayerState* State, int OldValue);
-		UFUNCTION(BlueprintNativeEvent, Category = "GameModeEvents")
-		void OnAssistsChanged(class APlayerState* State, int OldValue);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		void MatchTimeRanOut();
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		bool IsSpawnpointAllowed(class APlayerStart* PlayerStart, class AController* Player);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		float GetSpawnpointPreference(class APlayerStart* PlayerStart, class AController* Player);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+
+	UFUNCTION(BlueprintCallable, Category = "GameModeFns")
 		void GetNextMaps(TArray<FString>& string1, int Count);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		FString GetNextMap();
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+
+	UFUNCTION(BlueprintCallable, Category = "GameModeFns")
 		void GetMapVoteMaps(TArray<FString>& string2);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+	UFUNCTION(BlueprintCallable, Category = "GameModeFns")
 		void GetMapVoteCounts(TArray<uint8>& byte1);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		float GetDamageFactor(class AActor* DamageSource, class AActor* DamageTarget);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		bool ControllerCanRestart(class AController* Controller);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		bool CanDealDamage(class AActor* DamageSource, class AActor* DamageTarget);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		bool CanClash(class APawn* Source, class APawn* Target);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		bool CanChamber(class APawn* Source, class APawn* Target);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+	UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+		bool ChangeLevel(const FString& LevelName);
+
+	UFUNCTION(BlueprintCallable, Category = "GameModeFns")
 		void AddTeamScore(int Team, float Amount);
-		UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
 		void AddBots(int Amount, int Team);
-		//UFUNCTION(BlueprintCallable, Category = "GameModeFns")
-		//void Broadcast(class AActor* Sender, const FString& Msg, const FName& Type);
-		
-		};
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		void RemoveBots(int Amount, int Team);
+	//UFUNCTION(BlueprintCallable, Category = "GameModeFns")
+	//	void Broadcast(class AActor* Sender, const FString& Msg, const FName& Type);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		void OnTeamScoreChanged(int Team, float OldValue);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		void OnScoreChanged(class APlayerState* State, float OldValue);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		void OnKillsChanged(class APlayerState* State, int OldValue);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		void OnKilled(class AController* Killer, class AController* KilledPlayer, class APawn* KilledPawn, EMordhauDamageType Type, uint8 SubType, class AActor* DamageSource, class AActor* DamageAgent);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		void OnDeathsChanged(class APlayerState* State, int OldValue);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		void OnAssistsChanged(class APlayerState* State, int OldValue);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		void RequestedAssignTeam(class AController* Controller, int Team);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "GameModeEvents")
+		void OnMatchStateChanged(const FName& OldState, const FName& NewState);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		void MatchTimeRanOut();
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		bool IsSpawnpointAllowed(class APlayerStart* PlayerStart, class AController* Player);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		float GetSpawnpointPreference(class APlayerStart* PlayerStart, class AController* Player);
+//	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+//		FString GetNextMaps();
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		float GetDamageFactor(class AActor* DamageSource, class AActor* DamageTarget);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		bool ControllerCanRestart(class AController* Controller);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		bool CanDealDamage(class AActor* DamageSource, class AActor* DamageTarget);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		bool CanClash(class APawn* Source, class APawn* Target);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		bool CanChamber(class APawn* Source, class APawn* Target);
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
+		FString GetNextMap();
+
+};

@@ -38,7 +38,7 @@ void AMordhauActor::UpdateThudVelocity(float NewThudVelocity)
 {}
 void AMordhauActor::UnHighlight()
 {}
-void AMordhauActor::PostInteractionWidgetCreated()
+void AMordhauActor::PostInteractionWidgetCreated_Implementation()
 {}
 bool AMordhauActor::IsAnyInstanceOwner(TArray<class AMordhauPlayerController*> ControllerArray)
 {
@@ -54,15 +54,15 @@ void AMordhauActor::Highlight()
 {}
 void AMordhauActor::HeldInteractionStart(class AMordhauCharacter* Character)
 {}
-bool AMordhauActor::CanInteractPassively(class AMordhauCharacter* Character)
+bool AMordhauActor::CanInteractPassively_Implementation(class AMordhauCharacter* Character)
 {
 	return 1;
 }
-bool AMordhauActor::CanInteract(class AMordhauCharacter* Character)
+bool AMordhauActor::CanInteract_Implementation(class AMordhauCharacter* Character)
 {
 	return 1;
 }
-bool AMordhauActor::CanHeldInteract(class AMordhauCharacter* Character)
+bool AMordhauActor::CanHeldInteract_Implementation(class AMordhauCharacter* Character)
 {
 	return 1;
 }

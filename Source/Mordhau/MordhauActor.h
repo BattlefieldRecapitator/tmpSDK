@@ -113,7 +113,7 @@ public:
 	void UpdateThudVelocity(float NewThudVelocity);
 	UFUNCTION(BlueprintCallable, Category = "MordhauActorFns")
 	void UnHighlight();
-	UFUNCTION(BlueprintCallable, Category = "MordhauActorFns")
+	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorFns")
 	void PostInteractionWidgetCreated();
 	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorEvents")
 	void OnUsedToKillOther(class AAdvancedCharacter* Character, EMordhauDamageType Type, uint8 SubType, const FName& bone, const struct FVector& Point, class AActor* Source);
@@ -149,11 +149,11 @@ public:
 	void Highlight();
 	UFUNCTION(BlueprintCallable, Category = "MordhauActorFns")
 	void HeldInteractionStart(class AMordhauCharacter* Character);
-	UFUNCTION(BlueprintCallable, Category = "MordhauActorFns")
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauActorFns")
 	bool CanInteractPassively(class AMordhauCharacter* Character);
-	UFUNCTION(BlueprintCallable, Category = "MordhauActorFns")
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauActorFns")
 	bool CanInteract(class AMordhauCharacter* Character);
-	UFUNCTION(BlueprintCallable, Category = "MordhauActorFns")
+	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauActorFns")
 	bool CanHeldInteract(class AMordhauCharacter* Character);
 	
 	

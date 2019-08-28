@@ -7,6 +7,7 @@
 #include "AdvancedCharacter.h"
 #include "MordhauPlayerController.h"
 //#include "MordhauEquipment.h"
+#include "Mordhau.h"
 //#include "GameFramework/Actor.h"
 #include "MordhauCharacter.generated.h"
 
@@ -14,119 +15,18 @@
  * 
  */
 
-/*USTRUCT(BlueprintType)
-struct FEquipmentCustomization
-{
-	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
-		int                                                ID;
-	UPROPERTY(BlueprintReadWrite)
-	TArray<uint8>                              Colors;
-	UPROPERTY(BlueprintReadWrite)
-	TArray<uint8>                              Parts;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      Skin;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      Pattern;
-};*/
-/*USTRUCT(BlueprintType)
-struct FWearableCustomization
-{
-	GENERATED_BODY()
-		int                                                ID;
-	TArray<uint8>                              Colors;
-	TArray<uint8>                              Team1Colors;
-	TArray<uint8>                              Team2Colors;
-	uint8                                      Pattern;
-};*/
-USTRUCT(BlueprintType)
-struct FCharacterGearCustomization
-{
-	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
-	TArray<struct FWearableCustomization>              Wearables;
-	UPROPERTY(BlueprintReadWrite)
-	TArray<struct FEquipmentCustomization>             Equipment;
-};
-USTRUCT(BlueprintType)
-struct FFaceCustomization
-{
-	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
-		TArray<uint8>                                   Translate;
-	UPROPERTY(BlueprintReadWrite)
-		TArray<uint8>                                   Rotate;
-	UPROPERTY(BlueprintReadWrite)
-	TArray<uint8>                                   Scale;
-};
-USTRUCT(BlueprintType)
-struct FSkillsCustomization
-{
-	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
-	uint8                                          Perks;
-};
-USTRUCT(BlueprintType)
-struct FAppearanceCustomization
-{
-	
-	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
-		int                                                Emblem;
-	UPROPERTY(BlueprintReadWrite)
-	TArray<uint8>                              EmblemColors;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      MetalRoughnessScale;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      MetalTint;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      Age;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      Voice;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      VoicePitch;
-	UPROPERTY(BlueprintReadWrite)
-	bool                                               bIsFemale;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      Fat;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      Skinny;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      Strong;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      SkinColor;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      Face;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      EyeColor;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      HairColor;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      Hair;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      FacialHair;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      Eyebrows;
-};
-USTRUCT(BlueprintType)
-struct FCharacterProfile
-{
-	GENERATED_BODY()
-//	struct FText                                       Name;
-UPROPERTY(BlueprintReadWrite)
-	struct FCharacterGearCustomization                 GearCustomization;
-	UPROPERTY(BlueprintReadWrite)
-	struct FAppearanceCustomization                    AppearanceCustomization;
-	UPROPERTY(BlueprintReadWrite)
-	struct FFaceCustomization                          FaceCustomization;
-	UPROPERTY(BlueprintReadWrite)
-	struct FSkillsCustomization                        SkillsCustomization;
-};
+/**/
+/**/
+
 UCLASS()
 class MORDHAU_API AMordhauCharacter : public AAdvancedCharacter
 {
 	GENERATED_BODY()
 public:
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class USkeleton*                                   BodySkeleton;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		class USkeletalMesh*                               FPMesh;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	FCharacterProfile                           Profile;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)

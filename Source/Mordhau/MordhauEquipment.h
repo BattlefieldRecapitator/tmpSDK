@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "MordhauActor.h"
+#include "Mordhau.h"
 #include "MordhauEquipment.generated.h"
 
 /**
@@ -85,11 +86,11 @@ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
  UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bHeldInteractIsSwap;
 
- //UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//EEquipmentType                                     EquipmentUIType;
+ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+EEquipmentType                                     EquipmentUIType;
 
- //UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//EEquipmentCategory                                 EquipmentUICategory;
+ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+EEquipmentCategory                                 EquipmentUICategory;
 
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	FText                                       EquipmentName;
@@ -259,8 +260,8 @@ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
  UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bDestroyIfNoAmmo;
 
-// UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//EMovementRestriction                               MovementRestriction;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+EMovementRestriction                               MovementRestriction;
 
  UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bPreventsClimbing;
@@ -280,8 +281,8 @@ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
  UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	float                                              AccelerationBonusPercentageHolstered;
 
- //UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-//	struct FEquipmentCustomization                     AssignedCustomization;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+FEquipmentCustomization                     AssignedCustomization;
 
  UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	uint8                                       Colors;
@@ -325,9 +326,8 @@ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 
  UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bAutoAssignCustomizationOnBeginPlay;
-
-// UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-//	struct FEquipmentCustomization                     AutoAssignCustomization;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+FEquipmentCustomization                     AutoAssignCustomization;
 
  UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	uint8                                      AutoAssignCustomizationEmblem;
@@ -907,8 +907,8 @@ UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
  void LocalPlayerLateTick(float DeltaTime);
 UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
  void LateTick(float DeltaSeconds);
-//UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
-// struct FEquipmentCustomization GetRandomCustomization(bool bOnlyColors);
+UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
+void GetRandomCustomization(FEquipmentCustomization& customize,bool bOnlyColors);
 UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
 class AMordhauCharacter* GetParentCharacter();
 UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
@@ -929,14 +929,54 @@ UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
  bool BelongsToCharacter();
 UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
  void AssignCustomizationToProjectile(class AMordhauProjectile* Projectile);
-//UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
- //void AssignCustomization(const struct FEquipmentCustomization& Customization, uint8 CustomizationEmblem, uint8 CustomizationEmblemColor1, uint8 CustomizationEmblemColor2);
+UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
+ void AssignCustomization(const struct FEquipmentCustomization& Customization, uint8 CustomizationEmblem, uint8 CustomizationEmblemColor1, uint8 CustomizationEmblemColor2);
 //UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
  //struct FBoxSphereBounds ComputeAccurateBounds();
 UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
 bool CanPerformAttack(class AMordhauCharacter* Character, EAttackMove Move);
 UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
 void RequestAttack(EAttackMove Move, float Angle);
+
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+bool OnRequestModeSwitch(class AMordhauCharacter* Character);
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+bool OnRequestFire(class AMordhauCharacter* Character);
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnRep_Skin();
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnRep_Pattern();
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnRep_PartsId();
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnRep_EmblemColors();
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnRep_Emblem();
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnRep_Colors();
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnRep_IsUsingAlternateMode();
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnRep_IsLoaded();
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnRep_Ammo();
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnPickedUp(class AMordhauCharacter* Character);
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnPartsChanged();
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnLoadedChanged();
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnHolsteredOrDropped(class AMordhauCharacter* Character);
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnHolstered(class AMordhauCharacter* Character);
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnEquipped(class AMordhauCharacter* Character);
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnDropped(class AMordhauCharacter* Character);
+UFUNCTION(BlueprintNativeEvent, Category = "MordhauEquipmentEvents")
+void OnAmmoChanged();
+
 
 };
 

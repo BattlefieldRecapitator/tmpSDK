@@ -43,14 +43,13 @@ void AMordhauGameMode::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & 
 
 
 
-
+bool AMordhauGameMode::ChangeLevel(const FString& LevelName)
+{
+	return 1;
+}
 void AMordhauGameMode::GetNextMaps(TArray<FString>& string1, int Count)
 {
 
-}
-FString AMordhauGameMode::GetNextMap()
-{
-	return "1";
 }
 void AMordhauGameMode::GetMapVoteMaps(TArray<FString>& string2)
 {}
@@ -61,13 +60,10 @@ void AMordhauGameMode::GetMapVoteCounts(TArray<uint8>& byte1)
 void AMordhauGameMode::SetTeamScore(int Team, float Amount)
 {
 }
-void AMordhauGameMode::RequestedAssignTeam(class AController* Controller, int Team)
+void AMordhauGameMode::RequestedAssignTeam_Implementation(class AController* Controller, int Team)
 {
 }
 
-void AMordhauGameMode::RemoveBots(int Amount, int Team)
-{
-}
 void AMordhauGameMode::OnTeamScoreChanged_Implementation(int Team, float OldValue)
 {
 }
@@ -88,52 +84,54 @@ void AMordhauGameMode::OnAssistsChanged_Implementation(class APlayerState* Mode,
 {
 
 }
-void AMordhauGameMode::MatchTimeRanOut()
+void AMordhauGameMode::MatchTimeRanOut_Implementation()
 {
 
 }
-bool AMordhauGameMode::IsSpawnpointAllowed(class APlayerStart* PlayerStart, class AController* Player)
+bool AMordhauGameMode::IsSpawnpointAllowed_Implementation(class APlayerStart* PlayerStart, class AController* Player)
 {
 	return 1;
 }
-float AMordhauGameMode::GetSpawnpointPreference(class APlayerStart* PlayerStart, class AController* Player)
+float AMordhauGameMode::GetSpawnpointPreference_Implementation(class APlayerStart* PlayerStart, class AController* Player)
 {
 	return 2;
 }
 
-float AMordhauGameMode::GetDamageFactor(class AActor* DamageSource, class AActor* DamageTarget)
+float AMordhauGameMode::GetDamageFactor_Implementation(class AActor* DamageSource, class AActor* DamageTarget)
 {
 	return 2;
 }
-bool AMordhauGameMode::ControllerCanRestart(class AController* Controller)
+bool AMordhauGameMode::ControllerCanRestart_Implementation(class AController* Controller)
 {
 	return 1;
 }
-bool AMordhauGameMode::CanDealDamage(class AActor* DamageSource, class AActor* DamageTarget)
+bool AMordhauGameMode::CanDealDamage_Implementation(class AActor* DamageSource, class AActor* DamageTarget)
 {
 	return 1;
 }
-bool AMordhauGameMode::CanClash(class APawn* Source, class APawn* Target)
+bool AMordhauGameMode::CanClash_Implementation(class APawn* Source, class APawn* Target)
 {
 	return 1;
 }
-bool AMordhauGameMode::CanChamber(class APawn* Source, class APawn* Target)
+bool AMordhauGameMode::CanChamber_Implementation(class APawn* Source, class APawn* Target)
 {
 	return 1;
 }
 //void AMordhauGameMode::Broadcast(class AActor* Sender, const FString& Msg, const FName& Type)
-//{
-
-//}
+//{}
 void AMordhauGameMode::AddTeamScore(int Team, float Amount)
 {
 
 }
-void AMordhauGameMode::AddBots(int Amount, int Team)
+void AMordhauGameMode::AddBots_Implementation(int Amount, int Team)
+{}
+void AMordhauGameMode::RemoveBots_Implementation(int Amount, int Team)
 {}
 
-
-
-
-
+//void AMordhauGameMode::OnMatchStateChanged_Implementation(const FName& OldState, const FName& NewState)
+//{}
+FString AMordhauGameMode::GetNextMap_Implementation()
+{
+return "1";
+}
 

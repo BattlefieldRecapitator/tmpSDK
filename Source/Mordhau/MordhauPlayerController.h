@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "Mordhau.h"
 #include "MordhauPlayerController.generated.h"
 
 /**
@@ -36,27 +37,19 @@ enum class EMainWearableSlot : uint8
 	//UPROPERTY(BlueprintReadWrite)
 	EMainWearableSlot_MAX = 3
 };*/
-USTRUCT(BlueprintType)
-struct FWearableCustomization
-{
-	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
-	int                                                ID;
-	UPROPERTY(BlueprintReadWrite)
-	TArray<uint8>                              Colors;
-	UPROPERTY(BlueprintReadWrite)
-	TArray<uint8>                              Team1Colors;
-	UPROPERTY(BlueprintReadWrite)
-	TArray<uint8>                              Team2Colors;
-	UPROPERTY(BlueprintReadWrite)
-	uint8                                      Pattern;
-};
+
 UCLASS()
 class MORDHAU_API AMordhauPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 	
 public:
+
+
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		float TotalMordhauCharacterDamage;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+		float TotalMordhauCharacterTeamDamage;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bIsInventoryAvailableOnAuthority;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
@@ -65,26 +58,26 @@ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	int                                                SelectedCharacterProfile;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	int                                                SelectedDefaultProfile;
-//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//struct FCharacterProfile                           CharacterProfile;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	FCharacterProfile                           CharacterProfile;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bReceivedValidProfileFromClient;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	float                                              LastAskedForSpawnTime;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	int                                                SpawnToken;
-//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//struct FCharacterProfile                           LastSentCharacterProfile;
-//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//class ACustomizationReplicationActor*              CustomizationReplicationActor;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	FCharacterProfile                           LastSentCharacterProfile;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	class ACustomizationReplicationActor*              CustomizationReplicationActor;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bSendsDefaultCustomization;
-//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//TArray<struct FEquipmentCustomization>             DefaultCharacterEquipment;
-//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//TArray<struct FCharacterGearCustomization>         DefaultCharacterTier;
-//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//struct FCharacterProfile                           PendingCharacterProfile;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	TArray<struct FEquipmentCustomization>             DefaultCharacterEquipment;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	TArray<struct FCharacterGearCustomization>         DefaultCharacterTier;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	FCharacterProfile                           PendingCharacterProfile;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	TWeakObjectPtr<class AMordhauCharacter>            LastControlledCharacter;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
@@ -97,16 +90,16 @@ UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bOnlyAFKIfAlive;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	float                                              CurrentAFKTime;
-//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//struct FVector                                     LastAFKCheckCameraLocation;
-//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//struct FString                                     AuthTicket;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	struct FVector                                     LastAFKCheckCameraLocation;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	FString                                     AuthTicket;
 //UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//struct FServerStats                                ServerStats;
-//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//TArray<struct FString>                             MapVoteMaps;
-//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//TArray<unsigned char>                              MapVoteCounts;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	TArray<FString>                             MapVoteMaps;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	TArray<uint8>                              MapVoteCounts;
 
 UFUNCTION(BlueprintCallable, Category = "PlayerControllerFns")
 void Turn(float Value);
@@ -200,7 +193,8 @@ UFUNCTION(BlueprintCallable, Category="PlayerControllerFns")
 void RemoveBots(int Amount);
 UFUNCTION(BlueprintCallable, Category = "PlayerControllerFns")
 bool GetDefaultTierCustomizationForSlot(EMainWearableSlot MainSlot, uint8 ArmorTier, TMap<EWearableSlot, struct FWearableCustomization> OutMap);
-
+UFUNCTION(BlueprintCallable, Category = "PlayerControllerFns")
+void ClientMessageBP(FString String);
 //void RemoveAdmin(const struct FString& PlayerNameOrSteamID);
 //void ClientReceiveScoreBP(EScoreFeedReason Reason, uint8 ReasonParam, float ScoreAmount, class AMordhauPlayerState* AssociatedPlayer);
 //void ServerRemoveAdmin(uint64_t SteamID);

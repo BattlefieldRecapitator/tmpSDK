@@ -622,9 +622,20 @@ public:
 
 };
 
-
-
-
+/*UENUM(BlueprintType)
+enum class EAttachLocation : uint8
+{
+	KeepRelativeOffset = 0,
+	KeepWorldPosition = 1,
+	SnapToTarget = 2,
+	SnapToTargetIncludingScale = 3,
+	EAttachLocation_MAX = 4
+};*/
+USTRUCT(BlueprintType)
+struct FScriptMulticastDelegate
+{
+	GENERATED_USTRUCT_BODY()
+};
 USTRUCT(BlueprintType)
 struct FEquipmentSkinEntry
 {
@@ -656,7 +667,6 @@ struct FEquipmentCustomization
 
 public:
 
-	FEquipmentCustomization() {}
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		int ID;
@@ -679,78 +689,60 @@ USTRUCT(BlueprintType)
 struct FActorSetAndArray
 {
 	GENERATED_BODY()
+public:
+	UPROPERTY(BlueprintReadWrite)
 	TArray<class AActor*>                              Array;
 };
 USTRUCT(BlueprintType)
 struct FWoundInfo
 {
 	GENERATED_BODY()
+public:
+	UPROPERTY(BlueprintReadWrite)
 	struct FVector2D                                   WoundType;
+	UPROPERTY(BlueprintReadWrite)
 	struct FVector                                     WoundSize;
 };
-USTRUCT(BlueprintType)
-struct FAttackInfo
-{
-	GENERATED_BODY()
-	bool                                               bCanCombo;
-	bool                                               bNoFlinch;
-	float                                              Windup;
-	float                                              ComboWindupIncrease;
-	float                                              Release;
-	float                                              FeintLockOut;
-	int                                                FeintCost;
-	int                                                ChamberFeintCost;
-	int                                                ChamberCost;
-	int                                                MorphCost;
-	struct FVector2D                                   TurnCaps;
-	class UCurveFloat*                                 TurnCapCurve;
-	class UCurveFloat*                                 HitEffectIKWeightCurve;
-	float                                              HitEffectSpeedUpExponent;
-	float                                              StaminaDrain;
-	TArray<float>                                      Damage;
-	TArray<float>                                      HeadBonus;
-	TArray<float>                                      LegBonus;
-	float                                              WoodDamage;
-	float                                              StoneDamage;
-	bool                                               bStopOnHit;
-	bool                                               bDrainAllStamOnBlock;
-	bool                                               bRagdollOnBlock;
-	float                                              ChipDamagePercentageOnBlock;
-	bool                                               bRagdollOnHit;
-	bool                                               bDismountsHorseRider;
-	bool                                               bDismountsLadderUser;
-	float                                              MissStaminaCost;
-	float                                              HitStaminaReward;
-	float                                              MissRecovery;
-	float                                              HitKockbackFactor;
-	float                                              FollowAttackDirectionFactor;
-	TArray<struct FWoundInfo>                          WoundInfoArray;
-	class UClass*                                      HitShake;
-	class UClass*                                      HitStopShake;
-};
+
 
 USTRUCT(BlueprintType)
 struct FSpineSpaceAdditive
 {
 	GENERATED_BODY()
+public:
+	UPROPERTY(BlueprintReadWrite)
 	struct FRotator                                    head;
+	UPROPERTY(BlueprintReadWrite)
 	struct FRotator                                    Neck;
+	UPROPERTY(BlueprintReadWrite)
 	struct FRotator                                    Spine1;
+	UPROPERTY(BlueprintReadWrite)
 	struct FRotator                                    LeftShoulder;
+	UPROPERTY(BlueprintReadWrite)
 	struct FRotator                                    LeftArm;
+	UPROPERTY(BlueprintReadWrite)
 	struct FRotator                                    LeftForearm;
+	UPROPERTY(BlueprintReadWrite)
 	struct FRotator                                    LeftHand;
+	UPROPERTY(BlueprintReadWrite)
 	struct FRotator                                    RightShoulder;
+	UPROPERTY(BlueprintReadWrite)
 	struct FRotator                                    RightArm;
+	UPROPERTY(BlueprintReadWrite)
 	struct FRotator                                    RightForearm;
+	UPROPERTY(BlueprintReadWrite)
 	struct FRotator                                    RightHand;
 };
 USTRUCT(BlueprintType)
 struct FHighMidLowSpineSpaceAdditive
 {
 	GENERATED_BODY()
+public:
+	UPROPERTY(BlueprintReadWrite)
 	struct FSpineSpaceAdditive                         High;
+	UPROPERTY(BlueprintReadWrite)
 	struct FSpineSpaceAdditive                         Mid;
+	UPROPERTY(BlueprintReadWrite)
 	struct FSpineSpaceAdditive                         Low;
 };
 
@@ -758,6 +750,397 @@ USTRUCT(BlueprintType)
 struct FAnglingSpineSpaceAdditive
 {
 	GENERATED_BODY()
+public:
+		UPROPERTY(BlueprintReadWrite)
 	struct FHighMidLowSpineSpaceAdditive               Right;
+	UPROPERTY(BlueprintReadWrite)
 	struct FHighMidLowSpineSpaceAdditive               Left;
+};
+USTRUCT(BlueprintType)
+struct FAttackInfo
+{
+	GENERATED_BODY()
+public:
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bCanCombo;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bNoFlinch;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              Windup;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              ComboWindupIncrease;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              Release;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              FeintLockOut;
+	UPROPERTY(BlueprintReadWrite)
+	int                                                FeintCost;
+	UPROPERTY(BlueprintReadWrite)
+	int                                                ChamberFeintCost;
+	UPROPERTY(BlueprintReadWrite)
+	int                                                ChamberCost;
+	UPROPERTY(BlueprintReadWrite)
+	int                                                MorphCost;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector2D                                   TurnCaps;
+	UPROPERTY(BlueprintReadWrite)
+	class UCurveFloat*                                 TurnCapCurve;
+	UPROPERTY(BlueprintReadWrite)
+	class UCurveFloat*                                 HitEffectIKWeightCurve;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              HitEffectSpeedUpExponent;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              StaminaDrain;
+	UPROPERTY(BlueprintReadWrite)
+	TArray<float>                                      Damage;
+	UPROPERTY(BlueprintReadWrite)
+	TArray<float>                                      HeadBonus;
+	UPROPERTY(BlueprintReadWrite)
+	TArray<float>                                      LegBonus;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              WoodDamage;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              StoneDamage;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bStopOnHit;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bDrainAllStamOnBlock;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bRagdollOnBlock;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              ChipDamagePercentageOnBlock;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bRagdollOnHit;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bDismountsHorseRider;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bDismountsLadderUser;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              MissStaminaCost;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              HitStaminaReward;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              MissRecovery;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              HitKockbackFactor;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              FollowAttackDirectionFactor;
+	UPROPERTY(BlueprintReadWrite)
+	TArray<struct FWoundInfo>                          WoundInfoArray;
+	UPROPERTY(BlueprintReadWrite)
+	class UClass*                                      HitShake;
+	UPROPERTY(BlueprintReadWrite)
+	class UClass*                                      HitStopShake;
+};
+USTRUCT(BlueprintType)
+struct FSteamID
+{
+	GENERATED_BODY()
+};
+USTRUCT(BlueprintType)
+struct FWearableCustomization
+{
+	GENERATED_BODY()
+		int                                                ID;
+	TArray<uint8>                              Colors;
+	TArray<uint8>                              Team1Colors;
+	TArray<uint8>                              Team2Colors;
+	uint8                                      Pattern;
+};
+USTRUCT(BlueprintType)
+struct FCharacterGearCustomization
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+		TArray<FWearableCustomization>              Wearables;
+	UPROPERTY(BlueprintReadWrite)
+		TArray<FEquipmentCustomization>             Equipment;
+};
+USTRUCT(BlueprintType)
+struct FFaceCustomization
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+		TArray<uint8>                                   Translate;
+	UPROPERTY(BlueprintReadWrite)
+		TArray<uint8>                                   Rotate;
+	UPROPERTY(BlueprintReadWrite)
+		TArray<uint8>                                   Scale;
+};
+USTRUCT(BlueprintType)
+struct FSkillsCustomization
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+		uint8                                          Perks;
+};
+USTRUCT(BlueprintType)
+struct FAppearanceCustomization
+{
+
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+		int                                                Emblem;
+	UPROPERTY(BlueprintReadWrite)
+		TArray<uint8>                              EmblemColors;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      MetalRoughnessScale;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      MetalTint;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      Age;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      Voice;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      VoicePitch;
+	UPROPERTY(BlueprintReadWrite)
+		bool                                               bIsFemale;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      Fat;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      Skinny;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      Strong;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      SkinColor;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      Face;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      EyeColor;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      HairColor;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      Hair;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      FacialHair;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                      Eyebrows;
+};
+USTRUCT(BlueprintType)
+struct FCharacterProfile
+{
+	GENERATED_BODY()
+		FText                                       Name;
+		UPROPERTY(BlueprintReadWrite)
+		struct FCharacterGearCustomization                 GearCustomization;
+	UPROPERTY(BlueprintReadWrite)
+		struct FAppearanceCustomization                    AppearanceCustomization;
+	UPROPERTY(BlueprintReadWrite)
+		struct FFaceCustomization                          FaceCustomization;
+	UPROPERTY(BlueprintReadWrite)
+		struct FSkillsCustomization                        SkillsCustomization;
+};
+USTRUCT(BlueprintType)
+struct FStatBase
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	FName                                       Name;
+	UPROPERTY(BlueprintReadWrite)
+	EStatSetBy                                         SetBy;
+
+};
+USTRUCT(BlueprintType)
+struct FStatInt : public FStatBase
+{
+	GENERATED_BODY()
+};
+USTRUCT(BlueprintType)
+struct FAchievement
+{
+	GENERATED_BODY()
+	UPROPERTY(BlueprintReadWrite)
+	FName                                       Name;
+	UPROPERTY(BlueprintReadWrite)
+	EStatSetBy                                         SetBy;
+};
+USTRUCT(BlueprintType)
+struct FSoundMixInfo
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	class USoundMix*                                   SoundMix;
+	UPROPERTY(BlueprintReadWrite)
+	TArray<class USoundClass*>                         SoundClasses;
+};
+/*UENUM(BlueprintType)
+enum class EPhysicalSurface : uint8
+{
+	SurfaceType_Default = 0,
+	SurfaceType1 = 1,
+	SurfaceType2 = 2,
+	SurfaceType3 = 3,
+	SurfaceType4 = 4,
+	SurfaceType5 = 5,
+	SurfaceType6 = 6,
+	SurfaceType7 = 7,
+	SurfaceType8 = 8,
+	SurfaceType9 = 9,
+	SurfaceType10 = 10,
+	SurfaceType11 = 11,
+	SurfaceType12 = 12,
+	SurfaceType13 = 13,
+	SurfaceType14 = 14,
+	SurfaceType15 = 15,
+	SurfaceType16 = 16,
+	SurfaceType17 = 17,
+	SurfaceType18 = 18,
+	SurfaceType19 = 19,
+	SurfaceType20 = 20,
+	SurfaceType21 = 21,
+	SurfaceType22 = 22,
+	SurfaceType23 = 23,
+	SurfaceType24 = 24,
+	SurfaceType25 = 25,
+	SurfaceType26 = 26,
+	SurfaceType27 = 27,
+	SurfaceType28 = 28,
+	SurfaceType29 = 29,
+	SurfaceType30 = 30,
+	SurfaceType31 = 31,
+	SurfaceType32 = 32,
+	SurfaceType33 = 33,
+	SurfaceType34 = 34,
+	SurfaceType35 = 35,
+	SurfaceType36 = 36,
+	SurfaceType37 = 37,
+	SurfaceType38 = 38,
+	SurfaceType39 = 39,
+	SurfaceType40 = 40,
+	SurfaceType41 = 41,
+	SurfaceType42 = 42,
+	SurfaceType43 = 43,
+	SurfaceType44 = 44,
+	SurfaceType45 = 45,
+	SurfaceType46 = 46,
+	SurfaceType47 = 47,
+	SurfaceType48 = 48,
+	SurfaceType49 = 49,
+	SurfaceType50 = 50,
+	SurfaceType51 = 51,
+	SurfaceType52 = 52,
+	SurfaceType53 = 53,
+	SurfaceType54 = 54,
+	SurfaceType55 = 55,
+	SurfaceType56 = 56,
+	SurfaceType57 = 57,
+	SurfaceType58 = 58,
+	SurfaceType59 = 59,
+	SurfaceType60 = 60,
+	SurfaceType61 = 61,
+	SurfaceType62 = 62,
+	SurfaceType_Max = 63,
+	EPhysicalSurface_MAX = 64
+};*/
+USTRUCT(BlueprintType)
+struct FDecalInfo
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	class UMaterialInterface*                          Material;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector                                     Size;
+};
+USTRUCT(BlueprintType)
+struct FReplicatedProjectileInfo
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+		struct FVector_NetQuantize                         Location;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector_NetQuantize                         Orientation;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector_NetQuantizeNormal                   HitNormal;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              BounceForce;
+	UPROPERTY(BlueprintReadWrite)
+	TWeakObjectPtr<class AActor>                       Creator;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                      HitSurface;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bHasStopped;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bHasHitWorld;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                      HitCounter;
+};
+/* ALREADY EXISTS IN ENGINETYPES.h
+USTRUCT(BlueprintType)
+struct FHitResult
+{
+	GENERATED_BODY()
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                      bBlockingHit : 1;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                      bStartPenetrating : 1;
+	UPROPERTY(BlueprintReadWrite)
+	int                                                FaceIndex;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              Time;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              Distance;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector_NetQuantize                         Location;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector_NetQuantize                         ImpactPoint;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector_NetQuantizeNormal                   Normal;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector_NetQuantizeNormal                   ImpactNormal;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector_NetQuantize                         TraceStart;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector_NetQuantize                         TraceEnd;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              PenetrationDepth;
+	UPROPERTY(BlueprintReadWrite)
+	int                                                Item;
+	UPROPERTY(BlueprintReadWrite)
+	TWeakObjectPtr<class UPhysicalMaterial>            PhysMaterial;
+	UPROPERTY(BlueprintReadWrite)
+	TWeakObjectPtr<class AActor>                       Actor;
+	UPROPERTY(BlueprintReadWrite)
+	TWeakObjectPtr<class UPrimitiveComponent>          Component;
+	UPROPERTY(BlueprintReadWrite)
+	FName                                       BoneName;
+	UPROPERTY(BlueprintReadWrite)
+	FName                                       MyBoneName;
+};
+*/
+UENUM(BlueprintType)
+enum E_SkirmishRoundStage
+{
+	WaitingforPlayers = 0,
+	RoundStart = 1,
+	RoundPlay = 2,
+	RoundEnd = 3,
+	Max = 4
+};
+USTRUCT(BlueprintType)
+struct FSTRUCT_SkirmishRoundInfo//
+{
+	GENERATED_BODY()
+	UPROPERTY(BlueprintReadWrite)
+		TEnumAsByte<E_SkirmishRoundStage> Stage;//RoundInfo
+	UPROPERTY(BlueprintReadWrite)
+		uint8 Winner;
+	UPROPERTY(BlueprintReadWrite)
+		float StartTime;
+
+};
+
+USTRUCT(BlueprintType)
+struct FSTRUCT_MatchEndInfo//
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+		class AMordhauPlayerState* Winner;
+	UPROPERTY(BlueprintReadWrite)
+		int WinnerTeam;
+	UPROPERTY(BlueprintReadWrite)
+		float WinnerScore;
+	UPROPERTY(BlueprintReadWrite)
+		float OtherScore;
+	UPROPERTY(BlueprintReadWrite)
+		bool Draw;
 };

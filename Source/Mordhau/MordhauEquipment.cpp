@@ -153,6 +153,13 @@ DOREPLIFETIME(AMordhauEquipment, bRevertModeOnDrop)
 
 }
 
+
+void AMordhauEquipment::GetRandomCustomization(FEquipmentCustomization& customize, bool bOnlyColors)
+{
+
+}
+void AMordhauEquipment::AssignCustomization(const FEquipmentCustomization& Customization, uint8 CustomizationEmblem, uint8 CustomizationEmblemColor1, uint8 CustomizationEmblemColor2)
+{}
 void AMordhauEquipment::UpdateMaterial(class USkeletalMeshComponent* SkeletalMeshComp)
 {
 
@@ -274,4 +281,81 @@ bool AMordhauEquipment::CanPerformAttack(class AMordhauCharacter* Character, EAt
 class AMordhauCharacter* AMordhauEquipment::GetParentCharacter()
 {
 	return nullptr;
+}
+
+bool AMordhauEquipment::OnRequestModeSwitch_Implementation(class AMordhauCharacter* Character)
+{
+	return 1;
+}
+bool AMordhauEquipment::OnRequestFire_Implementation(class AMordhauCharacter* Character)
+{
+	return 1;
+}
+void AMordhauEquipment::OnRep_Skin_Implementation()
+{
+
+}
+void AMordhauEquipment::OnRep_Pattern_Implementation()
+{
+
+}
+void AMordhauEquipment::OnRep_PartsId_Implementation()
+{
+
+}
+void AMordhauEquipment::OnRep_EmblemColors_Implementation()
+{
+
+}
+void AMordhauEquipment::OnRep_Emblem_Implementation()
+{
+
+}
+void AMordhauEquipment::OnRep_Colors_Implementation()
+{
+
+}
+void AMordhauEquipment::OnRep_IsUsingAlternateMode_Implementation()
+{
+
+}
+void AMordhauEquipment::OnRep_IsLoaded_Implementation()
+{
+
+}
+void AMordhauEquipment::OnRep_Ammo_Implementation()
+{
+
+}
+void AMordhauEquipment::OnPickedUp_Implementation(class AMordhauCharacter* Character)
+{
+
+}
+void AMordhauEquipment::OnPartsChanged_Implementation()
+{
+
+}
+void AMordhauEquipment::OnLoadedChanged_Implementation()
+{
+
+}
+void AMordhauEquipment::OnHolsteredOrDropped_Implementation(class AMordhauCharacter* Character)
+{
+
+}
+void AMordhauEquipment::OnHolstered_Implementation(class AMordhauCharacter* Character)
+{
+
+}
+void AMordhauEquipment::OnEquipped_Implementation(class AMordhauCharacter* Character)
+{
+
+}
+void AMordhauEquipment::OnDropped_Implementation(class AMordhauCharacter* Character)
+{
+
+}
+void AMordhauEquipment::OnAmmoChanged_Implementation()
+{
+
 }

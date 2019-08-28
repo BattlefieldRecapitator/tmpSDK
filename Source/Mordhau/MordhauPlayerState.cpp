@@ -16,6 +16,11 @@ void AMordhauPlayerState::GetLifetimeReplicatedProps(TArray< FLifetimeProperty >
 	DOREPLIFETIME(AMordhauPlayerState, bIsFriend)
 
 }
+
+void AMordhauPlayerState::BanPlayer(int Duration, FString BanReason)
+{}
+void AMordhauPlayerState::SetPlayerName(const FString& S)
+{}
 void AMordhauPlayerState::OnRep_Team()
 {}
 void AMordhauPlayerState::OnRep_Kills()
