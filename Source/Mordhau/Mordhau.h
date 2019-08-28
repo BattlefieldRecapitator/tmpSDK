@@ -1144,3 +1144,52 @@ struct FSTRUCT_MatchEndInfo//
 	UPROPERTY(BlueprintReadWrite)
 		bool Draw;
 };
+USTRUCT(BlueprintType)
+struct FEmoteEntry
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	FText                                       EmoteName;
+	UPROPERTY(BlueprintReadWrite)
+	class UClass*                                      EmoteMotion;
+};
+
+USTRUCT(BlueprintType)
+struct FNetMotion
+{
+	GENERATED_BODY()
+	uint8                                      ID;
+	uint8                                      MotionType;
+	uint8                                      MotionParam0;
+	uint8                                      MotionParam1;
+	uint8                                      MotionParam2;
+	uint8                                      MotionDynamicParam;
+};
+USTRUCT(BlueprintType)
+struct FNetBlock
+{
+	GENERATED_BODY()
+	uint8                                      BlockedReason;
+	uint8                                      BlockedMove;
+	uint8                                      BlockType;
+	uint8                                      BlockedAngle;
+	TWeakObjectPtr<class AActor>                       BlockingActor;
+	uint8                                      EnsureReplication;
+};
+
+USTRUCT(BlueprintType)
+struct FDamageRecord
+{
+	GENERATED_BODY()
+	TWeakObjectPtr<class AController>                  Source;
+	float                                              Time;
+	float                                              Damage;
+};
+USTRUCT(BlueprintType)
+struct FVehicleTransitionInfo
+{
+	GENERATED_BODY()
+	class UAnimSequence*                               Animation;
+	float                                              Duration;
+	float                                              BlendTime;
+};

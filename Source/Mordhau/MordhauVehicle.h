@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "AdvancedCharacter.h"
+#include "Mordhau.h"
 #include "MordhauVehicle.generated.h"
 
 /**
@@ -21,18 +22,18 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              FOV;
 };*/
-USTRUCT(BlueprintType)
-struct FVehicleTransitionInfo
-{
-	GENERATED_BODY()
-public:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	class UAnimSequence*                               Animation;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              Duration;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	float                                              BlendTime;
-};
+//USTRUCT(BlueprintType)
+//struct FVehicleTransitionInfo
+//{
+//	GENERATED_BODY()
+//public:
+//	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+//	class UAnimSequence*                               Animation;
+//	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+//	float                                              Duration;
+//	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+//	float                                              BlendTime;
+//};
 
 UCLASS()
 class MORDHAU_API AMordhauVehicle : public AAdvancedCharacter

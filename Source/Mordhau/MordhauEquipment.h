@@ -908,7 +908,7 @@ UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
 UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
  void LateTick(float DeltaSeconds);
 UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
-void GetRandomCustomization(FEquipmentCustomization& customize,bool bOnlyColors);
+void GetRandomCustomization(struct FEquipmentCustomization& customize,bool bOnlyColors);
 UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
 class AMordhauCharacter* GetParentCharacter();
 UFUNCTION(BlueprintCallable, Category = "MordhauEquipmentFns")
