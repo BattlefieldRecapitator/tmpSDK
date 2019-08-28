@@ -794,6 +794,8 @@ struct FSteamID
 
 public:
 
+	FSteamID(){}
+
 };*/
 
 
