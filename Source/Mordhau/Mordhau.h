@@ -678,6 +678,153 @@ public:
 };
 
 
+USTRUCT(BlueprintType)
+struct FWearableCustomization
+{
+	GENERATED_USTRUCT_BODY()
+
+public:
+
+	FWearableCustomization() {}
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int ID;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<uint8> Colors;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<uint8> Team1Colors;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<uint8> Team2Colors;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 Pattern;
+};
+
+USTRUCT(BlueprintType)
+struct FSkillsCustomization
+{
+	GENERATED_USTRUCT_BODY()
+
+public:
+
+	FSkillsCustomization() {}
+
+	UPROPERTY()
+		uint32 Perks;
+};
+
+USTRUCT(BlueprintType)
+struct FCharacterGearCustomization
+{
+	GENERATED_USTRUCT_BODY()
+public:
+
+	FCharacterGearCustomization() {}
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<struct FWearableCustomization>              Wearables;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<struct FEquipmentCustomization>             Equipment;
+};
+
+USTRUCT(BlueprintType)
+struct FAppearanceCustomization
+{
+	GENERATED_USTRUCT_BODY()
+
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		int Emblem;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<uint8> EmblemColors;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 MetalRoughnessScale;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 MetalTint;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 Age;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 Voice;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 VoicePitch;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		bool bIsFemale;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 Fat;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 Skinny;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 Strong;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 SkinColor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 Face;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 EyeColor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 HairColor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 Hair;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 FacialHair;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 Eyebrows;
+};
+
+USTRUCT(BlueprintType)
+struct FFaceCustomization
+{
+	GENERATED_USTRUCT_BODY()
+public:
+	UPROPERTY()
+		TArray<uint16> Translate;
+	UPROPERTY()
+		TArray<uint16> Rotate;
+	UPROPERTY()
+		TArray<uint16> Scale;
+};
+
+/*USTRUCT(BlueprintType)
+struct FSteamID
+{
+	GENERATED_USTRUCT_BODY()
+
+public:
+
+};*/
+
+
+USTRUCT(BlueprintType)
+struct FCharacterProfile
+{
+	GENERATED_USTRUCT_BODY()
+
+public:
+
+	FCharacterProfile() {}
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		FText Name;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		FCharacterGearCustomization GearCustomization;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		FAppearanceCustomization AppearanceCustomization;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		FFaceCustomization FaceCustomization;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		FSkillsCustomization SkillsCustomization;
+	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	//	FSteamID SteamID;                                                 
+
+
+};
+
+
+
+
 
 
 
