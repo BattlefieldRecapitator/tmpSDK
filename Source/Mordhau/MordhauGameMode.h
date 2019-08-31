@@ -164,8 +164,8 @@ public:
 		bool IsSpawnpointAllowed(class APlayerStart* PlayerStart, class AController* Player);
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
 		float GetSpawnpointPreference(class APlayerStart* PlayerStart, class AController* Player);
-//	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
-//		FString GetNextMaps();
+	//UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "GameModeEvents")
+	//	FString GetNextMaps();
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")
 		float GetDamageFactor(class AActor* DamageSource, class AActor* DamageTarget);
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "GameModeEvents")

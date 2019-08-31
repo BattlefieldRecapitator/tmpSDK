@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "Engine.h"
+#include "Mordhau.h"
 #include "MordhauActor.generated.h"
 /*UENUM(BlueprintType)
 enum class EAttackMove : uint8
@@ -36,7 +37,8 @@ class MORDHAU_API AMordhauActor : public AActor
 	
 public:	
 	// Sets default values for this actor's properties
-//	TWeakObjectPtr<class AMordhauPlayerController>     InstanceOwner;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	TWeakObjectPtr<class AMordhauPlayerController>     InstanceOwner;
 //	unsigned char                                       Thud;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	class USoundCue*                                   ThudSound;
@@ -56,8 +58,8 @@ public:
 	float                                              NoThudUntilTime;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bPreventClimbing;
-	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//struct FStatInt                                    KillsStat;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	struct FStatInt                                    KillsStat;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	bool                                               bIgnoresBleedOut;
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
@@ -113,29 +115,29 @@ public:
 	void UpdateThudVelocity(float NewThudVelocity);
 	UFUNCTION(BlueprintCallable, Category = "MordhauActorFns")
 	void UnHighlight();
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorFns")
-	void PostInteractionWidgetCreated();
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorEvents")
-	void OnUsedToKillOther(class AAdvancedCharacter* Character, EMordhauDamageType Type, uint8 SubType, const FName& bone, const struct FVector& Point, class AActor* Source);
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorEvents")
-	void OnThud();
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorEvents")
-	void OnReceiveCosmeticHit(class AActor* Source, class AActor* Agent, EAttackMove Move, const struct FHitResult& Hit);
-	//UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorEvents")
-	//void OnPostDismemberedOther(const struct FName& bone, class ASeparatedBodyPart* Part);
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorEvents")
-	void OnLocalPlayerUsedToKillOther(class AAdvancedCharacter* Character, EMordhauDamageType Type, uint8 SubType, const FName& bone, const struct FVector& Point, class AActor* Source);
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")
-	void OnInteractPassively(class AMordhauCharacter* Character);
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorFns")
+		void PostInteractionWidgetCreated();
+	UFUNCTION(BlueprintImplementableEvent, Category = "MordhauActorEvents")
+		void OnUsedToKillOther(class AAdvancedCharacter* Character, EMordhauDamageType Type, uint8 SubType, const FName& bone, const struct FVector& Point, class AActor* Source);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorEvents")
+		void OnThud();
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorEvents")
+		void OnReceiveCosmeticHit(class AActor* Source, class AActor* Agent, EAttackMove Move, const struct FHitResult& Hit);
+	//UFUNCTION(BlueprintImplementableEvent, Category = "MordhauActorEvents")
+	//void OnPostDismemberedOther(const FName& bone, class ASeparatedBodyPart* Part);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorEvents")
+		void OnLocalPlayerUsedToKillOther(class AAdvancedCharacter* Character, EMordhauDamageType Type, uint8 SubType, const FName& bone, const struct FVector& Point, class AActor* Source);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")
+		void OnInteractPassively(class AMordhauCharacter* Character);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")
 		void OnInteractionStart(class AMordhauCharacter* Character);
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")
 		void OnInteractionEnd();
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")
 		void OnHighlightStart();
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")
 		void OnHighlightEnd();
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")
 	void OnHeldInteractionStart(class AMordhauCharacter* Character);
 	UFUNCTION(BlueprintCallable, Category = "MordhauActorFns")
 	bool IsAnyInstanceOwner(TArray<class AMordhauPlayerController*> ControllerArray);
@@ -149,11 +151,11 @@ public:
 	void Highlight();
 	UFUNCTION(BlueprintCallable, Category = "MordhauActorFns")
 	void HeldInteractionStart(class AMordhauCharacter* Character);
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauActorFns")
-	bool CanInteractPassively(class AMordhauCharacter* Character);
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauActorFns")
-	bool CanInteract(class AMordhauCharacter* Character);
-	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauActorFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorFns")
+		bool CanInteractPassively(class AMordhauCharacter* Character);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorFns")
+		bool CanInteract(class AMordhauCharacter* Character);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorFns")
 	bool CanHeldInteract(class AMordhauCharacter* Character);
 	
 	

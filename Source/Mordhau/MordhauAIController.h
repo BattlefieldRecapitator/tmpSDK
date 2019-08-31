@@ -106,13 +106,13 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
 	void UpdatePerceptionInfo(class AAdvancedCharacter* InCharacter, FPerceptionInfo PerceptionInfo);
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauAIControllerEvents")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauAIControllerEvents")
 	void OnCharacterDiedOrDestroyed(class AAdvancedCharacter* AdvancedCharacter);
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauAIControllerEvents")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauAIControllerEvents")
 	void OnAfterUnPossess();
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauAIControllerEvents")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauAIControllerEvents")
 	void OnStartedPerceivingCharacter(class AAdvancedCharacter* PerceivedCharacter, FPerceptionInfo PerceptionInfo);
-	UFUNCTION(BlueprintNativeEvent, Category = "MordhauAIControllerEvents")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauAIControllerEvents")
 	void OnStoppedPerceivingCharacter(class AAdvancedCharacter* PerceivedCharacter, FPerceptionInfo PerceptionInfo);
 	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
 	int GetTeam();
@@ -130,7 +130,19 @@ public:
 	class AMordhauCharacter* GetClosestEnemy();
 	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
 	class AMordhauCharacter* GetClosestAlly();
-
-
+	UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+		void RefreshCharacterProfile();
+		UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+		void RequestVoiceCommand(uint8 Command);
+		UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+			void StartFacingActor(class AActor* Actor, float LocationUpOffset, const struct FVector2D& DegreeOffset);
+		UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+			void StartFacingActor2D(class AActor* Actor, float LocationUpOffset);
+		UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+			void StartFacingBone(class USkeletalMeshComponent* SkelMesh, const FName& BoneToFace, float LocationUpOffset, const struct FVector2D& DegreeOffset);
+		UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+			void StartFacingLocation(const struct FVector& WorldLocation);
+		UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+			void StartFacingMovement(float LocationUpOffset);
 
 };

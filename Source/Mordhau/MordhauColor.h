@@ -1,0 +1,20 @@
+// Fill out your copyright notice in the Description page of Project Settings.
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "MordhauInventoryItem.h"
+#include "MordhauColor.generated.h"
+
+/**
+ * 
+ */
+UCLASS()
+class MORDHAU_API UMordhauColor : public UMordhauInventoryItem
+{
+	GENERATED_BODY()
+	
+	
+	
+	
+};

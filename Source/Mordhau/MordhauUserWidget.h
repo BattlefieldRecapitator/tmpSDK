@@ -14,6 +14,7 @@ class MORDHAU_API UMordhauUserWidget : public UUserWidget
 {
 	GENERATED_BODY()
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UMordhauWidgetComponent*                     ParentWidgetComponent;
 	
 	

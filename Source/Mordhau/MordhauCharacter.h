@@ -83,8 +83,8 @@ public:
 	//float                                              ReceivedDamageModifierWithFriendlyPerk;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//int StaminaRegenPerTick;
-	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//int Stamina;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite, Category = "Bytes")
+		uint8 Stamina;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//float StaminaRegenDelay;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
@@ -1026,6 +1026,10 @@ UFUNCTION(BlueprintCallable, Category = "MordhauCharIsFns")
 UFUNCTION(BlueprintCallable, Category = "MordhauCharIsFns")
 			bool IsInAnyTeamArea();
 UFUNCTION(BlueprintCallable, Category = "MordhauCharIsFns")
+	bool IsInEnemyTeamArea();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharIsFns")
+	void EnteredTeamArea(int OwningTeam);
+UFUNCTION(BlueprintCallable, Category = "MordhauCharIsFns")
 			bool IsHoldingBlock();
 UFUNCTION(BlueprintCallable, Category = "MordhauCharIsFns")
 			bool IsViewTarget();
@@ -1043,6 +1047,7 @@ UFUNCTION(BlueprintCallable, Category = "MordhauCharIsFns")
 			bool HasPerk(uint8 PerkId);
 UFUNCTION(BlueprintCallable, Category = "MordhauCharIsFns")
 			bool HasEquipmentHeSpawnedWith();
+
  
 			//GET
 UFUNCTION(BlueprintCallable, Category = "MordhauCharGetFns")

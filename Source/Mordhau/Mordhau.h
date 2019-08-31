@@ -1158,22 +1158,34 @@ USTRUCT(BlueprintType)
 struct FNetMotion
 {
 	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
 	uint8                                      ID;
+	UPROPERTY(BlueprintReadWrite)
 	uint8                                      MotionType;
+	UPROPERTY(BlueprintReadWrite)
 	uint8                                      MotionParam0;
+	UPROPERTY(BlueprintReadWrite)
 	uint8                                      MotionParam1;
+	UPROPERTY(BlueprintReadWrite)
 	uint8                                      MotionParam2;
+	UPROPERTY(BlueprintReadWrite)
 	uint8                                      MotionDynamicParam;
 };
 USTRUCT(BlueprintType)
 struct FNetBlock
 {
 	GENERATED_BODY()
-	uint8                                      BlockedReason;
+		UPROPERTY(BlueprintReadWrite)
+		uint8                                      BlockedReason;
+	UPROPERTY(BlueprintReadWrite)
 	uint8                                      BlockedMove;
+	UPROPERTY(BlueprintReadWrite)
 	uint8                                      BlockType;
+	UPROPERTY(BlueprintReadWrite)
 	uint8                                      BlockedAngle;
+	UPROPERTY(BlueprintReadWrite)
 	TWeakObjectPtr<class AActor>                       BlockingActor;
+	UPROPERTY(BlueprintReadWrite)
 	uint8                                      EnsureReplication;
 };
 
@@ -1181,15 +1193,384 @@ USTRUCT(BlueprintType)
 struct FDamageRecord
 {
 	GENERATED_BODY()
-	TWeakObjectPtr<class AController>                  Source;
+		UPROPERTY(BlueprintReadWrite)
+		TWeakObjectPtr<class AController>                  Source;
+	UPROPERTY(BlueprintReadWrite)
 	float                                              Time;
+	UPROPERTY(BlueprintReadWrite)
 	float                                              Damage;
 };
 USTRUCT(BlueprintType)
 struct FVehicleTransitionInfo
 {
 	GENERATED_BODY()
-	class UAnimSequence*                               Animation;
+		UPROPERTY(BlueprintReadWrite)
+		class UAnimSequence*                               Animation;
+	UPROPERTY(BlueprintReadWrite)
 	float                                              Duration;
+	UPROPERTY(BlueprintReadWrite)
 	float                                              BlendTime;
 };
+USTRUCT(BlueprintType)
+struct FNetDamage
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+		uint8                                      PackedType;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                      bone;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                      PackedFlags;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector_NetQuantize                         Point;
+	UPROPERTY(BlueprintReadWrite)
+	TWeakObjectPtr<class AActor>                       DamageSource;
+	TWeakObjectPtr<class AActor>                       DamageAgent;
+};
+
+USTRUCT(BlueprintType)
+struct FSphericalLimbBounds
+{
+
+
+	GENERATED_BODY()
+	UPROPERTY(BlueprintReadWrite)
+	FName                                       StartSocket;
+	UPROPERTY(BlueprintReadWrite)
+	FName                                       EndSocket;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              Radius;
+	UPROPERTY(BlueprintReadWrite)
+	FName                                       AttachSocket;
+};
+USTRUCT(BlueprintType)
+struct FFloatAndVector
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	float                                              Float;                                                    
+	
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector                                     Vector;                                                   
+};
+
+//UENUM(BlueprintType)
+//enum class ETickingGroup : uint8
+//{
+//	TG_PrePhysics = 0,
+//	TG_StartPhysics = 1,
+//	TG_DuringPhysics = 2,
+//	TG_EndPhysics = 3,
+//	TG_PostPhysics = 4,
+//	TG_PostUpdateWork = 5,
+//	TG_LastDemotable = 6,
+//	TG_NewlySpawned = 7,
+//	TG_MAX = 8
+//};
+
+//USTRUCT(BlueprintType)
+//struct FTickFunction
+//{
+//	GENERATED_BODY()
+//	TEnumAsByte<ETickingGroup>                         TickGroup;
+//	TEnumAsByte<ETickingGroup>                         EndTickGroup;
+//	uint8                                     bTickEvenWhenPaused : 1;
+//	uint8                                     bCanEverTick : 1;
+//	uint8                                     bStartWithTickEnabled : 1;
+//	uint8                                     bAllowTickOnDedicatedServer : 1;
+//	float                                              TickInterval;
+//};
+
+//USTRUCT(BlueprintType)
+//struct FPrePhysTickFunction : public FTickFunction
+//{
+//	GENERATED_BODY()
+//};
+
+
+USTRUCT(BlueprintType)
+struct FWoundMaterialData
+{
+
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	struct FVector                                     Location;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector                                     UpVector;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector                                     RightVector;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector                                     ForwardVector;
+	UPROPERTY(BlueprintReadWrite)
+	struct FVector2D                                   WoundType;
+};
+//UENUM(BlueprintType)
+//enum class EAttachLocation : uint8
+//{
+//	KeepRelativeOffset = 0,
+//	KeepWorldPosition = 1,
+//	SnapToTarget = 2,
+//	SnapToTargetIncludingScale = 3,
+//	EAttachLocation_MAX = 4
+//};
+
+
+
+
+USTRUCT(BlueprintType)
+struct FMordhauColorItemTable
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	FText                                       TableName;
+	UPROPERTY(BlueprintReadWrite)
+	TArray<class UClass*>                              Entries;
+};
+
+USTRUCT(BlueprintType)
+struct FFindLobbySessionsFilter
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	int                                                MinOpenSlots;
+	UPROPERTY(BlueprintReadWrite)
+	int                                                PreferredOpenSlots;
+	UPROPERTY(BlueprintReadWrite)
+	int                                                MMR;
+	UPROPERTY(BlueprintReadWrite)
+	TArray<FString>                             GameModes;
+	UPROPERTY(BlueprintReadWrite)
+	EServerRegion                                      Region;
+	
+};
+
+
+
+
+USTRUCT(BlueprintType)
+struct FPlayerProfile
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	int                                                Rank;
+	UPROPERTY(BlueprintReadWrite)
+	int                                                Banner;
+	UPROPERTY(BlueprintReadWrite)
+	struct FCharacterProfile                           Character;
+};
+
+
+
+USTRUCT(BlueprintType)
+struct FHorseGearInfo
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	
+	float                                              MaxSpeed;
+	UPROPERTY(BlueprintReadWrite)
+	float                                              MaxAcceleration;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bAllowJump;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bCanRiderRegenHealth;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bCanRiderRegenStamina;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               bCanHorseRegen;
+	UPROPERTY(BlueprintReadWrite)
+	class UClass*                                      HeadBobShake;
+};
+
+USTRUCT(BlueprintType)
+struct FEquipmentHolsterInfo
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	FName                                       HolsterSocket;
+	UPROPERTY(BlueprintReadWrite)
+bool                                               bHidden;
+UPROPERTY(BlueprintReadWrite)
+bool                                               bHiddenIn1P;
+	
+
+UPROPERTY(BlueprintReadWrite)
+class UAnimMontage*                                DrawAnimation;
+UPROPERTY(BlueprintReadWrite)
+class UAnimMontage*                                DrawAnimation1P;
+UPROPERTY(BlueprintReadWrite)
+bool                                               bUseIKDrawing;
+	
+UPROPERTY(BlueprintReadWrite)
+struct FTransform                                  Offset;
+};
+
+
+
+
+USTRUCT(BlueprintType)
+struct FFootGroundingLimb
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	FName                                       TraceEndBone;
+	UPROPERTY(BlueprintReadWrite)
+FName                                       TraceStartBone;
+UPROPERTY(BlueprintReadWrite)
+FName                                       FootstepBone;
+UPROPERTY(BlueprintReadWrite)
+float                                              TraceDistance;
+UPROPERTY(BlueprintReadWrite)
+struct FVector2D                                   UpValueLimits;
+
+UPROPERTY(BlueprintReadWrite)
+struct FHitResult                                  TraceResult;
+
+UPROPERTY(BlueprintReadWrite)
+float                                              RootSpaceImpactZ;
+UPROPERTY(BlueprintReadWrite)
+struct FRotator                                    RotationOffset;
+UPROPERTY(BlueprintReadWrite)
+struct FVector                                     InternalTranslationOffset;
+UPROPERTY(BlueprintReadWrite)
+struct FVector                                     TranslationOffset;
+
+};
+
+
+
+
+USTRUCT(BlueprintType)
+struct FMordhauWebAPIRequest
+{
+	GENERATED_BODY()
+
+};
+
+
+
+USTRUCT(BlueprintType)
+struct FCachedAvatars
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+
+	TWeakObjectPtr<class UTexture2D>                   Small;
+	UPROPERTY(BlueprintReadWrite)
+TWeakObjectPtr<class UTexture2D>                   Medium;
+UPROPERTY(BlueprintReadWrite)
+TWeakObjectPtr<class UTexture2D>                   Large;
+};
+
+
+
+USTRUCT(BlueprintType)
+struct FColorTableEntry
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+		FText                                       EntryName;
+	UPROPERTY(BlueprintReadWrite)
+		struct FLinearColor                                Color;
+};
+
+USTRUCT(BlueprintType)
+struct FMordhauColorTable
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	FText                                       TableName;
+	UPROPERTY(BlueprintReadWrite)
+	TArray<struct FColorTableEntry>                    Entries;
+};
+
+
+
+
+
+USTRUCT(BlueprintType)
+struct FCharacterInventory
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	class AMordhauEquipment*                           RightHand;
+	UPROPERTY(BlueprintReadWrite)
+class AMordhauEquipment*                           LeftHand;
+UPROPERTY(BlueprintReadWrite)
+TArray<class AMordhauEquipment*>                   Equipment;
+};
+
+
+USTRUCT(BlueprintType)
+struct FItemStack
+{
+	GENERATED_BODY()	
+};
+USTRUCT(BlueprintType)
+struct FUnlockRecipe
+{
+	GENERATED_BODY()
+};
+
+
+
+
+
+
+
+
+USTRUCT(BlueprintType)
+struct FSerializedItems
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+uint8                                          BufferSize;
+	UPROPERTY(BlueprintReadWrite)
+	 FString                                     Data;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                          Timestamp;
+};
+
+
+USTRUCT(BlueprintType)
+struct FServerStats
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+		uint8                                    TargetTickRate;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                    MinTickRate;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                    MaxTickRate;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                    AvgTickRate;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                    InBytesPerSecond;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                    OutBytesPerSecond;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                    MaxInternetClientRate;
+		UPROPERTY(BlueprintReadWrite)
+	uint8                                    NumPlayers;
+		UPROPERTY(BlueprintReadWrite)
+	uint8                                    MaxPlayers;
+};
+
+
+/*struct FMinimalViewInfo
+{
+	struct FVector                                     Location;
+	struct FRotator                                    Rotation;
+	float                                              FOV;
+	float                                              DesiredFOV;
+	float                                              OrthoWidth;
+	float                                              OrthoNearClipPlane;
+	float                                              OrthoFarClipPlane;
+	float                                              AspectRatio;
+	unsigned char                                      bConstrainAspectRatio : 1;
+	unsigned char                                      bUseFieldOfViewForLOD : 1;
+	TEnumAsByte<ECameraProjectionMode>                 ProjectionMode;
+	float                                              PostProcessBlendWeight;
+	struct FPostProcessSettings                        PostProcessSettings;
+	struct FVector2D                                   OffCenterProjectionOffset;
+};*/

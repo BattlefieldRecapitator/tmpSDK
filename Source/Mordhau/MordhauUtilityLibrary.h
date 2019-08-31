@@ -15,6 +15,8 @@ class MORDHAU_API UMordhauUtilityLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()
 public:
+
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static void VSmoothDamp(const struct FVector& Target, float SmoothTime, float DeltaTime, float MaxSpeed, struct FVector Current, struct FVector CurrentVelocity);
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static bool ValidateCharacterProfile(const struct FCharacterProfile& Profile);
@@ -204,8 +206,8 @@ UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static bool GetIsPeasant(const struct FCharacterProfile& Profile);
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static int GetFaceIndex(const struct FHitResult& Hit);
-//UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
-	//FText getErrorText(const FString& ErrorString);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static FText getErrorText(const FString& ErrorString);
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static int GetEnumValue(const FString& EnumName, const FString& EnumKey);
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
@@ -260,8 +262,8 @@ UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static void GetAllWearableClassesForSlotExhaustive(EWearableSlot Slot, TArray<class UClass*>& classPlaceholder);
 UFUNCTION(BlueprintCallable, Category = "UtilityFunctions")
 	static void FSmoothDamp(float Target, float SmoothTime, float DeltaTime, float MaxSpeed, float Current, float CurrentVelocity);
-//UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
-//	FText FormatText(const FText& Text);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static FText FormatText(const FText& Text);
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static bool ForceValidCharacterProfile(const struct FCharacterProfile& Profile, struct FCharacterProfile ForceValidatedProfile);
 UFUNCTION(BlueprintCallable, Category = "UtilityFunctions")
@@ -312,9 +314,10 @@ UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static bool AreActorsFromSameLevel(class AActor* ActorA, class AActor* ActorB);
 
 
-
-	//EServerRegion GetRegion(const FString& RegionName);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static EServerRegion GetRegion(const FString& RegionName);
 	//struct FBox GetPhysicsBodyBounds(class USkeletalMeshComponent* MeshComponent, const FName& BoneName);
+//UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	//struct FMapInfo GetMapInfo(class UObject* WorldContextObject, const FString& MapPath);
 //struct FBoxSphereBounds GetImportedBounds(class USkeletalMeshComponent* SkeletalMeshComponent);	
 	//TArray<class AMordhauPlayerState*> SortPlayers(TArray<class AMordhauPlayerState*> Array);
@@ -324,27 +327,46 @@ UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 //bool PlaneTrace(class UObject* WorldContextObject, const struct FVector& Left, const struct FVector& Right, const struct FVector& Forward, const struct FVector& Back, const struct FVector& TraceAmount, TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes, bool bTraceComplex, TArray<class AActor*> ActorsToIgnore, bool bConnectLeftRight, bool bConnectForwardBack, const struct FVector& ConnectOffset, bool bIgnoreSelf, struct FHitResult* LeftHit, struct FHitResult* RightHit, struct FHitResult* ForwardHit, struct FHitResult* BackHit, struct FVector* OutRight, struct FVector* OutForward);
 //bool MordhauApplyRadialDamageWithFalloff(class UObject* WorldContextObject, float BaseDamage, float MinimumDamage, float BaseStructureDamage, float MinimumStructureDamage, const struct FVector& Origin, float DamageInnerRadius, float DamageOuterRadius, float DamageFalloff, TArray<class AActor*> IgnoreActors, float BaseKnockback, float MinimumKnockback, float RagdollFallRadius, class AActor* DamageCauser, class AController* InstigatedByController, TEnumAsByte<ECollisionChannel> DamagePreventionChannel, bool bIgnoreFriendly);
 //bool LineTraceMultiForObjectsReturnFace(class UObject* WorldContextObject, const struct FVector& Start, const struct FVector& End, TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes, bool bTraceComplex, TArray<class AActor*> ActorsToIgnore, TEnumAsByte<EDrawDebugTrace> DrawDebugType, bool bIgnoreSelf, TArray<struct FHitResult>* OutHits);
-	//struct FPOV LerpPOV(const struct FPOV& A, const struct FPOV& B, float Alpha);
-//struct FBox GrowBoxToIncludePoint(const struct FBox& Box, const struct FVector& Vector);
+//UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+//struct FPOV LerpPOV(const struct FPOV& A, const struct FPOV& B, float Alpha);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static struct FBox GrowBoxToIncludePoint(const struct FBox& Box, const struct FVector& Vector);
 	//TEnumAsByte<ENetRole> GetRole(class AActor* Actor);
 	//FString GetRegionName(EServerRegion Region);
-	//class UUpperChestWearable* GetRandomUpperChestWearable(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int* ID);
-//class UMordhauWearable* GetRandomShouldersWearable(class UUpperChestWearable* UpperChestWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int* ID);
-	//class AMordhauEquipment* GetRandomRangedWeapon(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int* ID);
-	//class AMordhauEquipment* GetRandomMeleeWeapon(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int* ID);
-	//class UMordhauWearable* GetRandomLowerChestWearable(class UUpperChestWearable* UpperChestWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int* ID);
-	//class ULegsWearable* GetRandomLegsWearable(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int* ID);
-	//class UHeadWearable* GetRandomHeadWearable(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int* ID);
-	//class UMordhauWearable* GetRandomHandsWearable(class UArmsWearable* ArmsWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int* ID);
-	//class UMordhauWearable* GetRandomFeetWearable(class ULegsWearable* LegsWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int* ID);
-//class UMordhauWearable* GetRandomCoifWearable(class UHeadWearable* HeadWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int* ID);
-	//class UArmsWearable* GetRandomArmsWearable(class UUpperChestWearable* UpperChestWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int* ID);
-//class UMordhauWebAPI* GetMordhauWebAPI();
-	//class UMordhauSingleton* GetMordhauSingleton();
-	//class UMordhauInventory* GetMordhauInventory();
-	//class UMordhauInput* GetMordhauInput();
-	//class AMordhauGameSession* GetMordhauGameSession(class UObject* WorldContextObject);
-	//class UArchetype* GetArchetypeObject(const struct FCharacterProfile& Profile);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UUpperChestWearable* GetRandomUpperChestWearable(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UMordhauWearable* GetRandomShouldersWearable(class UUpperChestWearable* UpperChestWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class AMordhauEquipment* GetRandomRangedWeapon(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class AMordhauEquipment* GetRandomMeleeWeapon(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UMordhauWearable* GetRandomLowerChestWearable(class UUpperChestWearable* UpperChestWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class ULegsWearable* GetRandomLegsWearable(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UHeadWearable* GetRandomHeadWearable(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UMordhauWearable* GetRandomHandsWearable(class UArmsWearable* ArmsWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UMordhauWearable* GetRandomFeetWearable(class ULegsWearable* LegsWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UMordhauWearable* GetRandomCoifWearable(class UHeadWearable* HeadWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UArmsWearable* GetRandomArmsWearable(class UUpperChestWearable* UpperChestWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UMordhauWebAPI* GetMordhauWebAPI();
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UMordhauSingleton* GetMordhauSingleton();
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UMordhauInventory* GetMordhauInventory();
+//UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+//static class UMordhauInput* GetMordhauInput();
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class AMordhauGameSession* GetMordhauGameSession(class UObject* WorldContextObject);
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UArchetype* GetArchetypeObject(const struct FCharacterProfile& Profile);
 	//bool ConsumeBudget(class AAdvancedCharacter* Character, EBudgetType BudgetType, bool bSkipInvisible, float Duration, float DistanceCutoff, bool bForce);
 
 	

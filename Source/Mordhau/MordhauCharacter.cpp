@@ -56,18 +56,18 @@ void AMordhauCharacter::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > &
 //{
 //
 //}
-//void AMordhauCharacter::EnteredTeamArea(int OwningTeam)
-//{
-//
-//}
+void AMordhauCharacter::EnteredTeamArea(int OwningTeam)
+{
+
+}
 //bool AMordhauCharacter :: IsInKnockback()
 //{
 //	return 1;
 //}
-//bool AMordhauCharacter :: IsInEnemyTeamArea()
-//{
-//	return 1;
-//}
+bool AMordhauCharacter :: IsInEnemyTeamArea()
+{
+	return 1;
+}
 //bool AMordhauCharacter :: IsInAnyTeamArea()
 //{
 //	return 1;

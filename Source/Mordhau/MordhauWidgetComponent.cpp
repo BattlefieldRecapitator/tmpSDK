@@ -5,3 +5,5 @@
 
 
 
+void UMordhauWidgetComponent::SetPlayerStateAlwaysSee(class APlayerState* PlayerState)
+{}

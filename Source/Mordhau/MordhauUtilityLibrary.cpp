@@ -3,8 +3,10 @@
 #include "MordhauUtilityLibrary.h"
 
 
-
-
+UPROPERTY(BlueprintReadWrite)
+FText placeholder;
+EServerRegion serverReg;
+struct FBox ReturnBox;
 
 
 
@@ -303,10 +305,10 @@ FString UMordhauUtilityLibrary::GetMapName(class UObject* WorldContextObject)
 {
 return "1";
 }
-//FText UMordhauUtilityLibrary::getErrorText(const FString& ErrorString)
-//{
-//return "1";
-//}
+FText UMordhauUtilityLibrary::getErrorText(const FString& ErrorString)
+{
+return placeholder;
+}
 FString UMordhauUtilityLibrary::GetCustomConfigVar_String(const FString& SectionName, const FString& VariableName, bool IsValid)
 {
 return "1";
@@ -315,10 +317,10 @@ FString UMordhauUtilityLibrary::GetConsoleVariableString(const FString& Variable
 {
 return "1";
 }
-//FText UMordhauUtilityLibrary::FormatText(const FText& Text)
-//{
-//return "1";
-//}
+FText UMordhauUtilityLibrary::FormatText(const FText& Text)
+{
+return Text;
+}
 FString UMordhauUtilityLibrary::Capitalize(const FString& String)
 {
 return "1";
@@ -599,4 +601,100 @@ return 1;
 bool UMordhauUtilityLibrary::AreActorsFromSameLevel(class AActor* ActorA, class AActor* ActorB)
 {
 return 1;
+}
+
+
+
+class AMordhauEquipment* UMordhauUtilityLibrary::GetRandomMeleeWeapon(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID)
+{
+	return nullptr;
+}
+class AMordhauEquipment* UMordhauUtilityLibrary::GetRandomRangedWeapon(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID)
+{
+	return nullptr;
+}
+EServerRegion UMordhauUtilityLibrary::GetRegion(const FString& RegionName)
+{
+	return serverReg;
+}
+
+
+
+class UMordhauWebAPI* UMordhauUtilityLibrary::GetMordhauWebAPI()
+{
+	return nullptr;
+}
+
+//class UMordhauInput* UMordhauUtilityLibrary::GetMordhauInput()
+//{
+//	return nullptr;
+//}
+
+class AMordhauGameSession* UMordhauUtilityLibrary::GetMordhauGameSession(class UObject* WorldContextObject)
+{
+	return nullptr;
+}
+
+class UMordhauSingleton* UMordhauUtilityLibrary::GetMordhauSingleton()
+{
+	return nullptr;
+}
+
+class UMordhauInventory* UMordhauUtilityLibrary::GetMordhauInventory()
+	{
+		return nullptr;}
+
+
+
+class ULegsWearable* UMordhauUtilityLibrary::GetRandomLegsWearable(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID)
+{
+	return nullptr;
+}
+class UHeadWearable* UMordhauUtilityLibrary::GetRandomHeadWearable(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID)
+{
+	return nullptr;
+}
+class UMordhauWearable* UMordhauUtilityLibrary::GetRandomHandsWearable(class UArmsWearable* ArmsWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID)
+{
+	return nullptr;
+}
+class UMordhauWearable* UMordhauUtilityLibrary::GetRandomFeetWearable(class ULegsWearable* LegsWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID)
+{
+	return nullptr;
+}
+
+class UMordhauWearable* UMordhauUtilityLibrary::GetRandomCoifWearable(class UHeadWearable* HeadWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID)
+{
+	return nullptr;
+}
+
+class UArmsWearable* UMordhauUtilityLibrary::GetRandomArmsWearable(class UUpperChestWearable* UpperChestWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID)
+{
+	return nullptr;
+}
+class UMordhauWearable* UMordhauUtilityLibrary::GetRandomLowerChestWearable(class UUpperChestWearable* UpperChestWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID)
+{
+	return nullptr;
+}
+class UUpperChestWearable* UMordhauUtilityLibrary::GetRandomUpperChestWearable(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID)
+{
+	return nullptr;
+}
+class UMordhauWearable* UMordhauUtilityLibrary::GetRandomShouldersWearable(class UUpperChestWearable* UpperChestWearable, const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID)
+{
+	return nullptr;
+}
+
+struct FBox UMordhauUtilityLibrary::GrowBoxToIncludePoint(const struct FBox& Box, const struct FVector& Vector)
+		{
+			return ReturnBox; 
+		}
+
+		//struct FPOV LerpPOV(const struct FPOV& A, const struct FPOV& B, float Alpha)
+		//{
+		//	return B;
+		//	}
+class UArchetype* UMordhauUtilityLibrary::GetArchetypeObject(const struct FCharacterProfile& Profile)
+{
+	return nullptr;
 }

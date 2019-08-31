@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Mordhau.h"
 #include "MordhauMotion.generated.h"
 
 /**
@@ -82,19 +83,21 @@ public:
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	float                                              RightLegBendingChangeSpeed;
 	
-	UFUNCTION(BlueprintCallable, Category = "MordhauMotionFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauMotionEvents")
 	bool ProcessFeint();
-	//bool ProcessBlock(EBlockType Type);
-	//bool ProcessAttack(EAttackMove Move, float Angle);
-	UFUNCTION(BlueprintCallable, Category = "MordhauMotionFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauMotionEvents")
+	bool ProcessBlock(EBlockType Type);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauMotionEvents")
+	bool ProcessAttack(EAttackMove Move, float Angle);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauMotionEvents")
 	void OnTick(float DeltaTime);
-	UFUNCTION(BlueprintCallable, Category = "MordhauMotionFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauMotionEvents")
 	void OnLeave(bool Interrupted);
-	UFUNCTION(BlueprintCallable, Category = "MordhauMotionFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauMotionEvents")
 	void OnLateTick(float DeltaTime);
-	UFUNCTION(BlueprintCallable, Category = "MordhauMotionFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauMotionEvents")
 	void OnEnded();
-	UFUNCTION(BlueprintCallable, Category = "MordhauMotionFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauMotionEvents")
 	void OnBegin();
 
 };

@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Mordhau.h"
 #include "MordhauMotion.h"
 #include "AttackMotion.generated.h"
 
@@ -160,10 +161,10 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              SuccessfulHitBlendOutAnimTime1P;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              SuccessfulHitPlayRate1P;
-//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//EAttackMove                                        ComingFromMove;
-//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//class UParryMotion*                                ComingFromAsParry;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EAttackMove                                        ComingFromMove;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UParryMotion*                                ComingFromAsParry;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FAttackInfo                                 AttackInfo;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -188,10 +189,10 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              LastReleaseNormalizedTime;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              LastWindupNormalizedTime;
-//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//EAttackType                                        Type;
-//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//EAttackMove                                        Move;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EAttackType                                        Type;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EAttackMove                                        Move;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              WindupEnd;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -210,16 +211,16 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bHasQueuedServerCombo;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              QueuedServerComboAngle;
-//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//EAttackMove                                        QueuedServerComboMove;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EAttackMove                                        QueuedServerComboMove;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bHasQueuedMove;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              QueuedAngle;
-//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//EAttackMove                                        QueuedMove;
-//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//EAttackStage                                       Stage;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EAttackMove                                        QueuedMove;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	EAttackStage                                       Stage;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bHasHit;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)

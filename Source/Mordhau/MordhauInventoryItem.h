@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Mordhau.h"
 #include "MordhauInventoryItem.generated.h"
 
 /**
@@ -15,10 +16,14 @@ class MORDHAU_API UMordhauInventoryItem : public UObject
 	GENERATED_BODY()
 	
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauInventoryItem")
 	class UTexture2D*                                  ItemIcon;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauInventoryItem")
 	int                                                ItemDefID;
-	//struct FText                                       ItemName;
-	//EItemRarity                                        ItemRarity;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauInventoryItem")
+	FText                                       ItemName;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauInventoryItem")
+	EItemRarity                                        ItemRarity;
 	
 	
 };

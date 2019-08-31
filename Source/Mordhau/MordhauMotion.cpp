@@ -41,18 +41,18 @@ void UMordhauMotion::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & Ou
 }
 
 
-bool UMordhauMotion::ProcessFeint()
-{
-	return 1;
-}
-void UMordhauMotion::OnTick(float DeltaTime)
-{}
-void UMordhauMotion::OnLeave(bool Interrupted)
-{}
-void UMordhauMotion::OnLateTick(float DeltaTime)
-{}
-void UMordhauMotion::OnEnded()
-{}
-void UMordhauMotion::OnBegin()
-{}
-
+//bool UMordhauMotion::ProcessFeint()
+//{
+//	return 1;
+//}
+//void UMordhauMotion::OnTick(float DeltaTime)
+//{}
+//void UMordhauMotion::OnLeave(bool Interrupted)
+//{}
+//void UMordhauMotion::OnLateTick(float DeltaTime)
+//{}
+//void UMordhauMotion::OnEnded()
+//{}
+//void UMordhauMotion::OnBegin()
+//{}
+//
