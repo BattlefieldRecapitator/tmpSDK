@@ -1574,3 +1574,39 @@ struct FServerStats
 	struct FPostProcessSettings                        PostProcessSettings;
 	struct FVector2D                                   OffCenterProjectionOffset;
 };*/
+
+USTRUCT(BlueprintType)
+struct FBP_ToolBoxSpawnable
+{
+	GENERATED_BODY()
+		class UStaticMesh*                                 Preview; 
+	UPROPERTY(BlueprintReadWrite)
+		class USkeletalMesh*                               PreviewSkeletal;
+	UPROPERTY(BlueprintReadWrite)
+		uint8                                     Cost;
+
+	UPROPERTY(BlueprintReadWrite)
+		struct FRotator                                    RotationOffset;
+	UPROPERTY(BlueprintReadWrite)
+		struct FRotator                                    RotationOffsetPreview;
+	UPROPERTY(BlueprintReadWrite)
+		struct FVector                                     ScalePreview;
+	UPROPERTY(BlueprintReadWrite)
+		class UClass*                                      Class;
+	UPROPERTY(BlueprintReadWrite)
+		FName                                       PlaceableLimitName;
+	UPROPERTY(BlueprintReadWrite)
+		int                                                PleaceableLimitMax;
+	UPROPERTY(BlueprintReadWrite)
+		bool                                               PerformCapsuleCheck;
+
+	UPROPERTY(BlueprintReadWrite)
+
+		float                                              CapsuleCheckRadius;
+	UPROPERTY(BlueprintReadWrite)
+		float                                              CapsuleCheckHalfHeight;
+	UPROPERTY(BlueprintReadWrite)
+		struct FVector                                     SpawnActorOffset;
+	UPROPERTY(BlueprintReadWrite)
+	bool                                               DoNotAttach;
+};

@@ -57,8 +57,15 @@ public:
 	//unsigned char                                      UnknownData02[0x7];
 	class UBP_ContextPopupWrapper_C*                   ContextPopupWrapper;
 	*/
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<class AControlPoint*>                       CapturePointsOfInterest;
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "MordhauHUDFns")
+		void OnGameStateReplicated();
+	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "MordhauHUDFns")
+		void EnqueueMordhauDialog(class UMordhauDialog* Dialog);
 	/*
-	
+
+
 	void CreateContextPopupWrapper();
 	void HideVoteKickMenu();
 	void ShowVoteKickMenu();
