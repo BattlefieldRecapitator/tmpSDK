@@ -625,10 +625,10 @@ class UMordhauWebAPI* UMordhauUtilityLibrary::GetMordhauWebAPI()
 	return nullptr;
 }
 
-//class UMordhauInput* UMordhauUtilityLibrary::GetMordhauInput()
-//{
-//	return nullptr;
-//}
+class UMordhauInput* UMordhauUtilityLibrary::GetMordhauInput()
+{
+	return nullptr;
+}
 
 class AMordhauGameSession* UMordhauUtilityLibrary::GetMordhauGameSession(class UObject* WorldContextObject)
 {

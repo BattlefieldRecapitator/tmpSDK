@@ -672,10 +672,10 @@ UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
 	class AMordhauVehicle*                             CurrentVehicle;
 UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
 	TWeakObjectPtr<class AActor>                       QueuedDismemberAgent;
-//UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
-//	TWeakObjectPtr<class ASeparatedBodyPart>           SeparatedHead;
-//UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
-//	TArray<class ASeparatedBodyPart>   SeparatedBodyParts;
+UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
+	TWeakObjectPtr<class ASeparatedBodyPart>           SeparatedHead;
+UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
+	TArray<class ASeparatedBodyPart*>   SeparatedBodyParts;
 UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
 	TWeakObjectPtr<class AActor>                       CurrentlyTracking;
 UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
@@ -706,14 +706,18 @@ UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
 	TWeakObjectPtr<class AActor>                       InteractionTarget;
 UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
 	TWeakObjectPtr<class AActor>                       RequestedInteractionTarget;
-
-
-	//class AKickWeapon*                                 KickWeapon;
-	/*class UParryMotion*                                LastParryMotion;
+UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
+class UMordhauCameraComponent*                     MordhauCamera;
+UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
+	class AKickWeapon*                                 KickWeapon;
+UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
+	class UParryMotion*                                LastParryMotion;
+UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
 	class UFlinchMotion*                               LastFlinchMotion;
-	class UFeintedMotion*                              LastFeintedMotion;*/
-	//class UEmoteMotion*                                LastEmoteMotion;
-	//class UMordhauCameraComponent*                     MordhauCamera;
+UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
+	class UFeintedMotion*                              LastFeintedMotion;
+UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
+	class UEmoteMotion*                                LastEmoteMotion;
 UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "UnsortedStructs")
 	struct FCharacterProfile                           Profile;
 UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "UnsortedStructs")

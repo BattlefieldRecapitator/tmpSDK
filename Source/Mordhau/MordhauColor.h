@@ -14,7 +14,9 @@ class MORDHAU_API UMordhauColor : public UMordhauInventoryItem
 {
 	GENERATED_BODY()
 	
-	
+public:
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		struct FLinearColor Color;
 	
 	
 };

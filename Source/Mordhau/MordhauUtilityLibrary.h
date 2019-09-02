@@ -361,8 +361,8 @@ UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 static class UMordhauSingleton* GetMordhauSingleton();
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 static class UMordhauInventory* GetMordhauInventory();
-//UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
-//static class UMordhauInput* GetMordhauInput();
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static class UMordhauInput* GetMordhauInput();
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 static class AMordhauGameSession* GetMordhauGameSession(class UObject* WorldContextObject);
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")

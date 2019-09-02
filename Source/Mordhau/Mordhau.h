@@ -1610,3 +1610,43 @@ struct FBP_ToolBoxSpawnable
 	UPROPERTY(BlueprintReadWrite)
 	bool                                               DoNotAttach;
 };
+
+USTRUCT(BlueprintType)
+struct FSessionSearchResult
+{
+	GENERATED_BODY()
+};
+USTRUCT(BlueprintType)
+struct FServerSearchResult : public FSessionSearchResult
+{
+	GENERATED_BODY()
+};
+
+
+USTRUCT(BlueprintType)
+struct FLobbySearchResult : public FSessionSearchResult
+{
+	GENERATED_BODY()
+};
+USTRUCT(BlueprintType)
+struct FMapInfo
+{
+
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	FString                                     GameModeMapName;
+	UPROPERTY(BlueprintReadWrite)
+	class UGameModeMetadata*                           GameModeMetadata;
+	UPROPERTY(BlueprintReadWrite)
+	class UMapMetadata*                                MapMetadata;
+};
+USTRUCT(BlueprintType)
+struct FServerAddress
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite)
+	uint8                                           IP;
+	UPROPERTY(BlueprintReadWrite)
+	uint8                                          Port;
+
+};

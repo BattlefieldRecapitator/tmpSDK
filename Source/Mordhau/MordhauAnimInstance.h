@@ -15,24 +15,44 @@ USTRUCT(BlueprintType)
 struct FFacialBoneSetup
 {
 	GENERATED_BODY()
-	FName                                       BoneName;
+public:
+		UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		FName                                       BoneName;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FName                                       SelectionBoneOverride;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bIsSymmetrical;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              SelectionBiasFactor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<FName>                               ChildBones;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int                                                Level;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int                                                SymmetryTwinBoneIndex;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FName                                       SymmetryTwinBoneName;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int                                                BoneIndex;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FVector2D                                   TranslateXRange;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FVector2D                                   TranslateYRange;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FVector2D                                   TranslateZRange;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FVector2D                                   ScaleXRange;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FVector2D                                   ScaleYRange;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FVector2D                                   ScaleZRange;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FVector2D                                   RotateXRange;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FVector2D                                   RotateYRange;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FVector2D                                   RotateZRange;
+
 };
 /*USTRUCT(BlueprintType)
 struct FFloatSpringState
@@ -43,13 +63,18 @@ USTRUCT(BlueprintType)
 struct FAnimNodePackedDismemberment
 {
 	GENERATED_BODY()
-	TArray<int>                                        DismemberedBonesIndices;
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<int>                                        DismemberedBonesIndices;
 };
 USTRUCT(BlueprintType)
 struct FAnimNodePackedFaceCustomization
 {
 	GENERATED_BODY()
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<struct FFacialBoneSetup>                    FaceCustomizationSetup;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<struct FTransform>                          FaceCustomizationBonesTransforms;
 };
 UCLASS()
@@ -77,7 +102,6 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bWasRagdollFalling;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
-
 	float                                              LastRagdollFallingTime;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              Force1PMeshCorrectionWeight;
