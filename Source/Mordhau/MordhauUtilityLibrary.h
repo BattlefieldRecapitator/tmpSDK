@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UMordhauUtilityLibrary : public UBlueprintFunctionLibrary
 {
 	GENERATED_BODY()

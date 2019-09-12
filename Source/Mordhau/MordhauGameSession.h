@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API AMordhauGameSession : public AGameSession
 {
 	GENERATED_BODY()

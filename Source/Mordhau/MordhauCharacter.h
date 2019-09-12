@@ -8,6 +8,7 @@
 #include "MordhauPlayerController.h"
 //#include "MordhauEquipment.h"
 #include "Mordhau.h"
+#include "Runtime/CoreUObject/Public/UObject/Object.h"
 //#include "GameFramework/Actor.h"
 #include "MordhauCharacter.generated.h"
 
@@ -18,7 +19,7 @@
 /**/
 /**/
 
-UCLASS()
+UCLASS(config=Game)
 class MORDHAU_API AMordhauCharacter : public AAdvancedCharacter
 {
 	GENERATED_BODY()
@@ -39,14 +40,14 @@ public:
 	//	float                                              StaminaRegenTickRate;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//	int                                                HealthOnKill;
-	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//	bool                                               bIsUnflinchable;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite, Category = "Booleans")
+		bool                                               bIsUnflinchable;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//	float                                              MeleeMissRecoveryModifier;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//	int                                                DodgeStaminaCost;
-	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//	bool                                               bHasScaryFace;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite, Category = "Booleans")
+		bool                                               bHasScaryFace;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//float                                              DodgeCooldown;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
@@ -83,8 +84,14 @@ public:
 	//float                                              ReceivedDamageModifierWithFriendlyPerk;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//int StaminaRegenPerTick;
+
+
+
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite, Category = "Bytes")
 		uint8 Stamina;
+
+
+
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//float StaminaRegenDelay;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
@@ -111,6 +118,11 @@ public:
 	//class AMordhauEquipment*                           RightHandEquipment;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//TArray<class AMordhauEquipment*>                   Equipment;
+
+
+
+
+
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	class USkeleton*                                   BodySkeleton;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "PhysAsset")
@@ -740,6 +752,9 @@ UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "UnsortedStructs")
 	struct FVehicleTransitionInfo                      VehicleLeaveTransitionInfo;
 UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "UnsortedStructs")
 	struct FVehicleTransitionInfo                      VehicleEnterTransitionInfo;
+
+//UPROPERTY(config, BlueprintReadWrite, EditAnywhere, Category = "Config")
+//float TestConfig;
 //UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "UnsortedStructs")
 //	TArray<struct FFacialBoneSetup>                    FaceCustomizationSetup; NEED TO ADD PROBABLY
 
@@ -794,15 +809,16 @@ UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauCha
 		void ServerAssignNetMotion(const struct FNetMotion& NewNetMotion, uint8 LastAuthObserved);
 UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauCharEvents")
 		void ServerAssignFireAim(const struct FVector& Orig, const struct FRotator& Rot);
-//UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauCharEvents")
-//		void OnPostDismember(const FName& bone, class ASeparatedBodyPart* SeparatedPart, class AActor* Agent);
+UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauCharEvents")
+		void OnPostDismember(const FName& bone, class ASeparatedBodyPart* SeparatedPart, class AActor* Agent);
 UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauCharEvents")
 		void OnPostProfileAssigned();
 UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauCharEvents")
 		void MoveBlockedBySlow(const struct FHitResult& Impact);
 
 
-		
+UFUNCTION(BlueprintCallable, Category = "MordhauCharSaveConfig")
+void SaveConfigVar();
 
 		//UPDATE
 		UFUNCTION(BlueprintCallable, Category = "MordhauCharUpdateFns")
@@ -1082,8 +1098,8 @@ UFUNCTION(BlueprintCallable, Category = "MordhauCharGetFns")
 			class ACustomizationReplicationActor* GetCustomizationReplicationActor();
 UFUNCTION(BlueprintCallable, Category = "MordhauCharGetFns")
 			class AController* GetControllerIncludingVehicle();
-//UFUNCTION(BlueprintCallable, Category = "MordhauCharGetFns")
-//			class ULODSkeletalMeshComponent* GetClothMesh();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharGetFns")
+			class ULODSkeletalMeshComponent* GetClothMesh();
 
 			//MISC
 UFUNCTION(BlueprintCallable, Category = "MordhauCharMiscFns")

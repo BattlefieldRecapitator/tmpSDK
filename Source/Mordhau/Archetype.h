@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UArchetype : public UObject
 {
 	GENERATED_BODY()

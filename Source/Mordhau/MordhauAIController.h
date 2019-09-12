@@ -33,10 +33,15 @@ USTRUCT(Blueprintable)
 struct FPerceptionInfo
 {
 	GENERATED_BODY()
+		UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bSight;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bHearing;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bDamage;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	uint8			                                     Team;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              UpdateTime;
 };
 UCLASS()
@@ -50,57 +55,57 @@ public:
 	class UAISenseConfig_Hearing*                      HearingConfig;
 	class UAISenseConfig_Damage*                       DamageConfig;*/
 
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TWeakObjectPtr<class AMordhauCharacter>            ReallyCloseEnemyCached;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TWeakObjectPtr<class AMordhauCharacter>            LastClosestEnemy;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bFirstRun;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              RandomFloat;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UBotProfile*                                 BotProfile;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UBotBehaviorProfile*                         BehaviorProfile;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              EnemyScanInterval;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              EnemyScanIntervalVariance;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bAutoRespawn;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bWantsRespawn;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              NextRespawnTime;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bEnableAnticipateTurns;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bEnableObstacleAvoidance;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bEnableSeparation;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bEnableOptimizeVisibility;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bEnableOptimizeTopology;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bEnablePathOffset;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bEnableSlowdownAtGoal;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              SeparationWeight;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              CollisionQueryRange;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              PathOptimizationRange;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              AvoidanceRangeMultiplier;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	ECrowdAvoidanceQuality                AvoidanceQuality;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UClass*                                      DefaultNavQueryFilter;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UClass*                                      Team1NavQueryFilter;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UClass*                         Team2NavQueryFilter;
 
 
@@ -144,5 +149,15 @@ public:
 			void StartFacingLocation(const struct FVector& WorldLocation);
 		UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
 			void StartFacingMovement(float LocationUpOffset);
+		UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+		class AActor* GetCurrentlyFacingActor();
+		UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+		EAIFacingMode GetCurrentFacingMode();
+		UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+		bool PerceivesEnemy();
+		UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+		bool PerceivesAlly();
+		UFUNCTION(BlueprintCallable, Category = "MordhauAIControllerFns")
+		class AMordhauCharacter* GetKthClosestOfThree(int Idx);
 
 };

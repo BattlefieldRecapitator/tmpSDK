@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UMordhauSingleton : public UObject
 {
 	GENERATED_BODY()

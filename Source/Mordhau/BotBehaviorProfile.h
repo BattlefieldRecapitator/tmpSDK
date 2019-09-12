@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UBotBehaviorProfile : public UObject
 {
 	GENERATED_BODY()

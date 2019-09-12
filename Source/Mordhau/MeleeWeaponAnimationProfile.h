@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UMeleeWeaponAnimationProfile : public UObject
 {
 	GENERATED_BODY()

@@ -23,8 +23,8 @@ void AControlPoint::UpdatePresenceNumbers()
 }
 void AControlPoint::UpdateCaptureProgress(float DeltaTime)
 {}
-//void AControlPoint::SetCaptureProgress(float NewProgress, uint8 NewCaptor, bool bAwardScore)
-//{}
+void AControlPoint::SetCaptureProgress(float NewProgress, uint8 NewCaptor, bool bAwardScore)
+{}
 void AControlPoint::EnemyLostPrerequisites()
 {
 

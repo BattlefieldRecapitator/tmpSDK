@@ -24,7 +24,7 @@ enum class EMovementModifier : uint8
 	Supersprint = 7,
 	EMovementModifier_MAX = 8
 };*/
-UCLASS()
+UCLASS(Blueprintable, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class MORDHAU_API UMordhauMovementComponent : public UAdvancedCharacterMovement
 {
 	GENERATED_BODY()

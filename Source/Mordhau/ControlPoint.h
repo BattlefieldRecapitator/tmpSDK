@@ -59,8 +59,8 @@ public:
 	int                                                AwardScoreNeutralizing;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int                                                AwardScoreNeutralized;
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//TArray<class ACapturePointBanner*>                 Banners;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<class ACapturePointBanner*>                 Banners;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UPrimitiveComponent*                         CaptureArea;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -91,8 +91,7 @@ public:
 	bool                                               bPreventSpawningIfContested;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bHasEverProgress;
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//unsigned char                                      UnknownData04[0x1];
+
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              UncaptureSpeed;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -114,8 +113,8 @@ public:
 	void UpdatePresenceNumbers();
 	UFUNCTION(BlueprintCallable, Category = "ControlPointFns")
 	void UpdateCaptureProgress(float DeltaTime);
-	//UFUNCTION(BlueprintCallable, Category = "ControlPointFns")
-	//void SetCaptureProgress(float NewProgress, uint8 NewCaptor, bool bAwardScore);
+	UFUNCTION(BlueprintCallable, Category = "ControlPointFns")
+	void SetCaptureProgress(float NewProgress, uint8 NewCaptor, bool bAwardScore);
 	UFUNCTION(BlueprintNativeEvent, Category = "ControlPointEvents")
 	void OnStoppedFlashing();
 	UFUNCTION(BlueprintNativeEvent, Category = "ControlPointEvents")

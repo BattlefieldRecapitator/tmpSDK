@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API USeparatedBodyPartAnimInstance : public UAnimInstance
 {
 	GENERATED_BODY()

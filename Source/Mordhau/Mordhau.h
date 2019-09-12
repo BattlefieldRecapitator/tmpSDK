@@ -582,7 +582,7 @@ enum class EParryStage : uint8
 };
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FEquipmentPartEntry
 {
 	GENERATED_USTRUCT_BODY()
@@ -599,7 +599,7 @@ public:
 
 };
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FPatternInfo
 {
 	GENERATED_USTRUCT_BODY()
@@ -631,19 +631,18 @@ enum class EAttachLocation : uint8
 	SnapToTargetIncludingScale = 3,
 	EAttachLocation_MAX = 4
 };*/
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FScriptMulticastDelegate
 {
 	GENERATED_USTRUCT_BODY()
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FEquipmentSkinEntry
 {
 	GENERATED_USTRUCT_BODY()
 
 public:
 
-	FEquipmentSkinEntry() {}
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		FText SkinName;
@@ -660,7 +659,7 @@ public:
 
 };
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FEquipmentCustomization
 {
 	GENERATED_USTRUCT_BODY()
@@ -685,159 +684,159 @@ public:
 
 
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FActorSetAndArray
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<class AActor*>                              Array;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FWoundInfo
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector2D                                   WoundType;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector                                     WoundSize;
 };
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FSpineSpaceAdditive
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FRotator                                    head;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FRotator                                    Neck;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FRotator                                    Spine1;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FRotator                                    LeftShoulder;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FRotator                                    LeftArm;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FRotator                                    LeftForearm;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FRotator                                    LeftHand;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FRotator                                    RightShoulder;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FRotator                                    RightArm;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FRotator                                    RightForearm;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FRotator                                    RightHand;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FHighMidLowSpineSpaceAdditive
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FSpineSpaceAdditive                         High;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FSpineSpaceAdditive                         Mid;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FSpineSpaceAdditive                         Low;
 };
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FAnglingSpineSpaceAdditive
 {
 	GENERATED_BODY()
 public:
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FHighMidLowSpineSpaceAdditive               Right;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FHighMidLowSpineSpaceAdditive               Left;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FAttackInfo
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bCanCombo;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bNoFlinch;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              Windup;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              ComboWindupIncrease;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              Release;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              FeintLockOut;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int                                                FeintCost;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int                                                ChamberFeintCost;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int                                                ChamberCost;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int                                                MorphCost;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector2D                                   TurnCaps;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UCurveFloat*                                 TurnCapCurve;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UCurveFloat*                                 HitEffectIKWeightCurve;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              HitEffectSpeedUpExponent;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              StaminaDrain;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<float>                                      Damage;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<float>                                      HeadBonus;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<float>                                      LegBonus;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              WoodDamage;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              StoneDamage;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bStopOnHit;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bDrainAllStamOnBlock;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bRagdollOnBlock;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              ChipDamagePercentageOnBlock;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bRagdollOnHit;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bDismountsHorseRider;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bDismountsLadderUser;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              MissStaminaCost;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              HitStaminaReward;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              MissRecovery;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              HitKockbackFactor;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              FollowAttackDirectionFactor;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<struct FWoundInfo>                          WoundInfoArray;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UClass*                                      HitShake;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UClass*                                      HitStopShake;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FSteamID
 {
 	GENERATED_BODY()
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FWearableCustomization
 {
 	GENERATED_BODY()
@@ -847,120 +846,120 @@ struct FWearableCustomization
 	TArray<uint8>                              Team2Colors;
 	uint8                                      Pattern;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FCharacterGearCustomization
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TArray<FWearableCustomization>              Wearables;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TArray<FEquipmentCustomization>             Equipment;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FFaceCustomization
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TArray<uint8>                                   Translate;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TArray<uint8>                                   Rotate;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TArray<uint8>                                   Scale;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FSkillsCustomization
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                          Perks;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FAppearanceCustomization
 {
 
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		int                                                Emblem;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TArray<uint8>                              EmblemColors;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      MetalRoughnessScale;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      MetalTint;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      Age;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      Voice;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      VoicePitch;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		bool                                               bIsFemale;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      Fat;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      Skinny;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      Strong;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      SkinColor;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      Face;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      EyeColor;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      HairColor;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      Hair;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      FacialHair;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      Eyebrows;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FCharacterProfile
 {
 	GENERATED_BODY()
 		FText                                       Name;
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		struct FCharacterGearCustomization                 GearCustomization;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		struct FAppearanceCustomization                    AppearanceCustomization;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		struct FFaceCustomization                          FaceCustomization;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		struct FSkillsCustomization                        SkillsCustomization;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FStatBase
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FName                                       Name;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	EStatSetBy                                         SetBy;
 
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FStatInt : public FStatBase
 {
 	GENERATED_BODY()
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FAchievement
 {
 	GENERATED_BODY()
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FName                                       Name;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	EStatSetBy                                         SetBy;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FSoundMixInfo
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class USoundMix*                                   SoundMix;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<class USoundClass*>                         SoundClasses;
 };
 /*UENUM(BlueprintType)
@@ -1032,78 +1031,78 @@ enum class EPhysicalSurface : uint8
 	SurfaceType_Max = 63,
 	EPhysicalSurface_MAX = 64
 };*/
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FDecalInfo
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UMaterialInterface*                          Material;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector                                     Size;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FReplicatedProjectileInfo
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		struct FVector_NetQuantize                         Location;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector_NetQuantize                         Orientation;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector_NetQuantizeNormal                   HitNormal;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              BounceForce;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TWeakObjectPtr<class AActor>                       Creator;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      HitSurface;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bHasStopped;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bHasHitWorld;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      HitCounter;
 };
 /* ALREADY EXISTS IN ENGINETYPES.h
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FHitResult
 {
 	GENERATED_BODY()
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      bBlockingHit : 1;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      bStartPenetrating : 1;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int                                                FaceIndex;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              Time;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              Distance;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector_NetQuantize                         Location;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector_NetQuantize                         ImpactPoint;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector_NetQuantizeNormal                   Normal;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector_NetQuantizeNormal                   ImpactNormal;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector_NetQuantize                         TraceStart;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector_NetQuantize                         TraceEnd;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              PenetrationDepth;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int                                                Item;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TWeakObjectPtr<class UPhysicalMaterial>            PhysMaterial;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TWeakObjectPtr<class AActor>                       Actor;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TWeakObjectPtr<class UPrimitiveComponent>          Component;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FName                                       BoneName;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FName                                       MyBoneName;
 };
 */
@@ -1116,141 +1115,141 @@ enum E_SkirmishRoundStage
 	RoundEnd = 3,
 	Max = 4
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FSTRUCT_SkirmishRoundInfo//
 {
 	GENERATED_BODY()
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TEnumAsByte<E_SkirmishRoundStage> Stage;//RoundInfo
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8 Winner;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float StartTime;
 
 };
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FSTRUCT_MatchEndInfo//
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		class AMordhauPlayerState* Winner;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		int WinnerTeam;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float WinnerScore;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		float OtherScore;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		bool Draw;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FEmoteEntry
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FText                                       EmoteName;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UClass*                                      EmoteMotion;
 };
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FNetMotion
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      ID;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      MotionType;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      MotionParam0;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      MotionParam1;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      MotionParam2;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      MotionDynamicParam;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FNetBlock
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      BlockedReason;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      BlockedMove;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      BlockType;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      BlockedAngle;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TWeakObjectPtr<class AActor>                       BlockingActor;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      EnsureReplication;
 };
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FDamageRecord
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		TWeakObjectPtr<class AController>                  Source;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              Time;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              Damage;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FVehicleTransitionInfo
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		class UAnimSequence*                               Animation;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              Duration;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              BlendTime;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FNetDamage
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                      PackedType;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      bone;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      PackedFlags;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector_NetQuantize                         Point;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TWeakObjectPtr<class AActor>                       DamageSource;
 	TWeakObjectPtr<class AActor>                       DamageAgent;
 };
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FSphericalLimbBounds
 {
 
 
 	GENERATED_BODY()
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FName                                       StartSocket;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FName                                       EndSocket;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              Radius;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FName                                       AttachSocket;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FFloatAndVector
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              Float;                                                    
 	
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector                                     Vector;                                                   
 };
 
@@ -1268,7 +1267,7 @@ struct FFloatAndVector
 //	TG_MAX = 8
 //};
 
-//USTRUCT(BlueprintType)
+//USTRUCT(BlueprintType, Blueprintable)
 //struct FTickFunction
 //{
 //	GENERATED_BODY()
@@ -1281,27 +1280,27 @@ struct FFloatAndVector
 //	float                                              TickInterval;
 //};
 
-//USTRUCT(BlueprintType)
+//USTRUCT(BlueprintType, Blueprintable)
 //struct FPrePhysTickFunction : public FTickFunction
 //{
 //	GENERATED_BODY()
 //};
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FWoundMaterialData
 {
 
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector                                     Location;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector                                     UpVector;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector                                     RightVector;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector                                     ForwardVector;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FVector2D                                   WoundType;
 };
 //UENUM(BlueprintType)
@@ -1317,29 +1316,29 @@ struct FWoundMaterialData
 
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FMordhauColorItemTable
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FText                                       TableName;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<class UClass*>                              Entries;
 };
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FFindLobbySessionsFilter
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int                                                MinOpenSlots;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int                                                PreferredOpenSlots;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int                                                MMR;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<FString>                             GameModes;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	EServerRegion                                      Region;
 	
 };
@@ -1347,92 +1346,92 @@ struct FFindLobbySessionsFilter
 
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FPlayerProfile
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int                                                Rank;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	int                                                Banner;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FCharacterProfile                           Character;
 };
 
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FHorseGearInfo
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	
 	float                                              MaxSpeed;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              MaxAcceleration;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bAllowJump;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bCanRiderRegenHealth;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bCanRiderRegenStamina;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bCanHorseRegen;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UClass*                                      HeadBobShake;
 };
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FEquipmentHolsterInfo
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FName                                       HolsterSocket;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 bool                                               bHidden;
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 bool                                               bHiddenIn1P;
 	
 
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 class UAnimMontage*                                DrawAnimation;
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 class UAnimMontage*                                DrawAnimation1P;
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 bool                                               bUseIKDrawing;
 	
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 struct FTransform                                  Offset;
 };
 
 
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FFootGroundingLimb
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FName                                       TraceEndBone;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 FName                                       TraceStartBone;
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 FName                                       FootstepBone;
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 float                                              TraceDistance;
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 struct FVector2D                                   UpValueLimits;
 
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 struct FHitResult                                  TraceResult;
 
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 float                                              RootSpaceImpactZ;
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 struct FRotator                                    RotationOffset;
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 struct FVector                                     InternalTranslationOffset;
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 struct FVector                                     TranslationOffset;
 
 };
@@ -1440,7 +1439,7 @@ struct FVector                                     TranslationOffset;
 
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FMordhauWebAPIRequest
 {
 	GENERATED_BODY()
@@ -1449,38 +1448,38 @@ struct FMordhauWebAPIRequest
 
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FCachedAvatars
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 
 	TWeakObjectPtr<class UTexture2D>                   Small;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 TWeakObjectPtr<class UTexture2D>                   Medium;
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 TWeakObjectPtr<class UTexture2D>                   Large;
 };
 
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FColorTableEntry
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FText                                       EntryName;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		struct FLinearColor                                Color;
 };
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FMordhauColorTable
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FText                                       TableName;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<struct FColorTableEntry>                    Entries;
 };
 
@@ -1488,25 +1487,25 @@ struct FMordhauColorTable
 
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FCharacterInventory
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class AMordhauEquipment*                           RightHand;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 class AMordhauEquipment*                           LeftHand;
-UPROPERTY(BlueprintReadWrite)
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 TArray<class AMordhauEquipment*>                   Equipment;
 };
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FItemStack
 {
 	GENERATED_BODY()	
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FUnlockRecipe
 {
 	GENERATED_BODY()
@@ -1519,40 +1518,40 @@ struct FUnlockRecipe
 
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FSerializedItems
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 uint8                                          BufferSize;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	 FString                                     Data;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                          Timestamp;
 };
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FServerStats
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		uint8                                    TargetTickRate;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                    MinTickRate;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                    MaxTickRate;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                    AvgTickRate;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                    InBytesPerSecond;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                    OutBytesPerSecond;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                    MaxInternetClientRate;
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                    NumPlayers;
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                    MaxPlayers;
 };
 
@@ -1575,78 +1574,126 @@ struct FServerStats
 	struct FVector2D                                   OffCenterProjectionOffset;
 };*/
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FBP_ToolBoxSpawnable
 {
 	GENERATED_BODY()
-		class UStaticMesh*                                 Preview; 
-	UPROPERTY(BlueprintReadWrite)
-		class USkeletalMesh*                               PreviewSkeletal;
-	UPROPERTY(BlueprintReadWrite)
-		uint8                                     Cost;
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		class UStaticMesh*                                 Preview_5_2199FA324279776E26CF8D94C5B5B71B;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		class USkeletalMesh*                               PreviewSkeletal_16_F127718E4CC9262BB43BBF846E200428;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		uint8                                     Cost_2_3FE5E6C242579A2FB40131B381BE0852;
 
-	UPROPERTY(BlueprintReadWrite)
-		struct FRotator                                    RotationOffset;
-	UPROPERTY(BlueprintReadWrite)
-		struct FRotator                                    RotationOffsetPreview;
-	UPROPERTY(BlueprintReadWrite)
-		struct FVector                                     ScalePreview;
-	UPROPERTY(BlueprintReadWrite)
-		class UClass*                                      Class;
-	UPROPERTY(BlueprintReadWrite)
-		FName                                       PlaceableLimitName;
-	UPROPERTY(BlueprintReadWrite)
-		int                                                PleaceableLimitMax;
-	UPROPERTY(BlueprintReadWrite)
-		bool                                               PerformCapsuleCheck;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		struct FRotator                                    RotationOffset_13_ED46831A45C264F69093958C73920A03;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		struct FRotator                                    RotationOffsetPreview_19_166AE01D40328502CF6878924CF328B3;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		struct FVector                                     ScalePreview_39_95AAE0F84CB90D4DB603DFBF354166F0;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		class UClass*                                      Class_9_52116F214F63A71A89EE438ACAE9AE21;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		FName                                       PlaceableLimitName_22_3ED07C554A73DE74451717868639F95D;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		int                                                PleaceableLimitMax_26_9860251E42753A8D1391B39EF7D66532;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		bool                                               PerformCapsuleCheck_28_5608460A4A56B455116FB2BBC9083067;
 
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 
-		float                                              CapsuleCheckRadius;
-	UPROPERTY(BlueprintReadWrite)
-		float                                              CapsuleCheckHalfHeight;
-	UPROPERTY(BlueprintReadWrite)
-		struct FVector                                     SpawnActorOffset;
-	UPROPERTY(BlueprintReadWrite)
-	bool                                               DoNotAttach;
+		float                                              CapsuleCheckRadius_31_281444B8406D0DA743BCBAB34686B9AF;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		float                                              CapsuleCheckHalfHeight_33_EBD4FE0A4E5A667392A5628B1040B9A4;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		struct FVector                                     SpawnActorOffset_36_8DFF3968447DA5478505C4A626FC494A;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	bool                                               DoNotAttach_41_23D7DA6D43927E8B2BD03896E629F39B;
 };
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FSessionSearchResult
 {
 	GENERATED_BODY()
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FServerSearchResult : public FSessionSearchResult
 {
 	GENERATED_BODY()
 };
 
 
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FLobbySearchResult : public FSessionSearchResult
 {
 	GENERATED_BODY()
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FMapInfo
 {
 
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FString                                     GameModeMapName;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UGameModeMetadata*                           GameModeMetadata;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UMapMetadata*                                MapMetadata;
 };
-USTRUCT(BlueprintType)
+USTRUCT(BlueprintType, Blueprintable)
 struct FServerAddress
 {
 	GENERATED_BODY()
-		UPROPERTY(BlueprintReadWrite)
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                           IP;
-	UPROPERTY(BlueprintReadWrite)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                          Port;
+
+};
+
+USTRUCT(BlueprintType, Blueprintable)
+struct FRepArrayByteWithVersion
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	TArray<uint8>                              Array;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	uint8                                      Version;
+
+};
+
+USTRUCT(BlueprintType, Blueprintable)
+struct FRepArrayShortWithVersion
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		TArray<uint8>                              Array;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		uint8                                      Version;
+
+};
+
+
+
+
+USTRUCT(BlueprintType, Blueprintable)
+struct FRepArrayAppearanceWithVersion
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		TArray<uint8>                              Array;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		uint8                                      Version;
+
+};
+
+USTRUCT(BlueprintType, Blueprintable)
+struct FRepArraySkillsWithVersion
+{
+	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		struct FSkillsCustomization                              Skills;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		uint8                                      Version;
 
 };

@@ -12,7 +12,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UMordhauInput : public UObject
 {
 	GENERATED_BODY()

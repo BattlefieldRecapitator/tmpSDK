@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UParryMotion : public UMordhauMotion
 {
 	GENERATED_BODY()
@@ -34,8 +34,8 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	EMovementRestriction                               SuccessfulParryRecoveryMovementRestriction;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	EMovementRestriction                               FailedParryRecoveryMovementRestriction;
-//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//class UMeleeWeaponAnimationProfile*                MWAP;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	class UMeleeWeaponAnimationProfile*                MWAP;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 
 	float                                              RiposteWindowBase;

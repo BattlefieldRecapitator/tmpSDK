@@ -13,3 +13,7 @@ void UInteractionComponent::InteractionEnd()
 {}
 void UInteractionComponent::Highlight()
 {}
+bool UInteractionComponent::CanInteract(class AAdvancedCharacter* Character)
+{
+	return 1;
+}

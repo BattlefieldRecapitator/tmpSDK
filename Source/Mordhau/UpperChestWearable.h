@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UUpperChestWearable : public UMordhauWearable
 {
 	GENERATED_BODY()

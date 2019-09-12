@@ -77,7 +77,7 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<struct FTransform>                          FaceCustomizationBonesTransforms;
 };
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UMordhauAnimInstance : public UCreatureAnimInstance
 {
 	GENERATED_BODY()

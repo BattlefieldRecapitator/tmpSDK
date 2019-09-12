@@ -9,12 +9,13 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UEmblem : public UMordhauInventoryItem
 {
 	GENERATED_BODY()
 	
-	
+public:
+	class UTexture2D*                                  Texture;
 	
 	
 };

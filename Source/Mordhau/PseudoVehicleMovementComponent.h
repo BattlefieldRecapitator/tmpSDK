@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class MORDHAU_API UPseudoVehicleMovementComponent : public UAdvancedCharacterMovement
 {
 	GENERATED_BODY()

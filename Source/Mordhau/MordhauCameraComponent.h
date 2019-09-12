@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable, meta = (BlueprintSpawnableComponent))
 class MORDHAU_API UMordhauCameraComponent : public UCameraComponent
 {
 	GENERATED_BODY()

@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UOneDimensionalMovementComponent : public UAdvancedCharacterMovement
 {
 	GENERATED_BODY()

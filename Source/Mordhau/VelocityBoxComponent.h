@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class MORDHAU_API UVelocityBoxComponent : public UBoxComponent
 {
 	GENERATED_BODY()

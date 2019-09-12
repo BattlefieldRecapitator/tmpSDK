@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class MORDHAU_API UInteractionComponent : public UBoxComponent
 {
 	GENERATED_BODY()
@@ -39,5 +39,6 @@ public:
 	void InteractionEnd();
 	UFUNCTION(BlueprintCallable, Category = "InteractionComponentFns")
 	void Highlight();
+	UFUNCTION(BlueprintCallable, Category = "InteractionComponentFns")
 	bool CanInteract(class AAdvancedCharacter* Character);
 };

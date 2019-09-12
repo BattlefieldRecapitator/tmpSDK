@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UMapMetaData : public UObject
 {
 	GENERATED_BODY()

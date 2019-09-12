@@ -10,6 +10,13 @@
 /**
  * 
  */
+
+USTRUCT(Blueprintable, BlueprintType)
+struct FProjectileInfo
+{
+	GENERATED_BODY()
+};
+
 UCLASS()
 class MORDHAU_API AMordhauProjectile : public AMordhauActor
 {
@@ -75,8 +82,8 @@ UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<struct FHitResult>                          HitResultCache;
 UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	struct FRotator                                    AccumulatedRotationSpin;
-//UPROPERTY(BlueprintReadWrite, EditAnywhere)
-//	struct FProjectileInfo                    ProjectileInfo;
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	struct FProjectileInfo                    ProjectileInfo;
 UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TWeakObjectPtr<class AActor>                       Creator;
 UPROPERTY(BlueprintReadWrite, EditAnywhere)
@@ -171,8 +178,8 @@ UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              CullDistanceRagdoll;
 UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UBoxComponent*                               CollisionComp;
-
-	//class UAdvProjectileMovementComponent*             ProjectileMovement;
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	class UAdvProjectileMovementComponent*             ProjectileMovement;
 		//TEnumAsByte<ETrailWidthMode>                       TrailWidthMode;
 	
 

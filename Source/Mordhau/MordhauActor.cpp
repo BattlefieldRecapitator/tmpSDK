@@ -3,36 +3,36 @@
 #include "MordhauActor.h"
 #include "UnrealNetwork.h"
 
-// Sets default values
-void AMordhauActor::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
-{
-	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-	DOREPLIFETIME(AMordhauActor, bShouldReplicateThud)
-	DOREPLIFETIME(AMordhauActor, ThudMinVelocity)
-	DOREPLIFETIME(AMordhauActor, ThudMaxVelocity)
-	DOREPLIFETIME(AMordhauActor, MinDelayBetweenThuds)
-	DOREPLIFETIME(AMordhauActor, NoThudUntilTime)
-	DOREPLIFETIME(AMordhauActor, bPreventClimbing)
-	DOREPLIFETIME(AMordhauActor, bIgnoresBleedOut)
-	DOREPLIFETIME(AMordhauActor, bForceLongDeathYell)
-	DOREPLIFETIME(AMordhauActor, bReceiveCosmeticHits)
-	DOREPLIFETIME(AMordhauActor, RagdollForceMultiplier)
-	DOREPLIFETIME(AMordhauActor, bForceRagdollOnDeath)
-	DOREPLIFETIME(AMordhauActor, ReplayPriorityFactor)
-	DOREPLIFETIME(AMordhauActor, InterpolationSmoothTime)
-	DOREPLIFETIME(AMordhauActor, bSmoothNetworkMovement)
-	DOREPLIFETIME(AMordhauActor, bNoInteractionWidgetWhenAttachedToChar)
-	DOREPLIFETIME(AMordhauActor, bAutoDetermineWidgetTransform)
-	DOREPLIFETIME(AMordhauActor, bPerformCustomDepthHighlight)
-	DOREPLIFETIME(AMordhauActor, bIsHighlighted)
-	DOREPLIFETIME(AMordhauActor, MaxInteractWithDistance)
-	DOREPLIFETIME(AMordhauActor, bIsInteractable)
-	DOREPLIFETIME(AMordhauActor, bIsPassivelyInteractable)
-	DOREPLIFETIME(AMordhauActor, MaxInteractionHoldTime)
-	DOREPLIFETIME(AMordhauActor, LastLocallyRequestedPassiveInteractionTime)
-
-
-}
+//// Sets default values
+//void AMordhauActor::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
+//{
+//	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+//	DOREPLIFETIME(AMordhauActor, bShouldReplicateThud)
+//	DOREPLIFETIME(AMordhauActor, ThudMinVelocity)
+//	DOREPLIFETIME(AMordhauActor, ThudMaxVelocity)
+//	DOREPLIFETIME(AMordhauActor, MinDelayBetweenThuds)
+//	DOREPLIFETIME(AMordhauActor, NoThudUntilTime)
+//	DOREPLIFETIME(AMordhauActor, bPreventClimbing)
+//	DOREPLIFETIME(AMordhauActor, bIgnoresBleedOut)
+//	DOREPLIFETIME(AMordhauActor, bForceLongDeathYell)
+//	DOREPLIFETIME(AMordhauActor, bReceiveCosmeticHits)
+//	DOREPLIFETIME(AMordhauActor, RagdollForceMultiplier)
+//	DOREPLIFETIME(AMordhauActor, bForceRagdollOnDeath)
+//	DOREPLIFETIME(AMordhauActor, ReplayPriorityFactor)
+//	DOREPLIFETIME(AMordhauActor, InterpolationSmoothTime)
+//	DOREPLIFETIME(AMordhauActor, bSmoothNetworkMovement)
+//	DOREPLIFETIME(AMordhauActor, bNoInteractionWidgetWhenAttachedToChar)
+//	DOREPLIFETIME(AMordhauActor, bAutoDetermineWidgetTransform)
+//	DOREPLIFETIME(AMordhauActor, bPerformCustomDepthHighlight)
+//	DOREPLIFETIME(AMordhauActor, bIsHighlighted)
+//	DOREPLIFETIME(AMordhauActor, MaxInteractWithDistance)
+//	DOREPLIFETIME(AMordhauActor, bIsInteractable)
+//	DOREPLIFETIME(AMordhauActor, bIsPassivelyInteractable)
+//	DOREPLIFETIME(AMordhauActor, MaxInteractionHoldTime)
+//	DOREPLIFETIME(AMordhauActor, LastLocallyRequestedPassiveInteractionTime)
+//
+//
+//}
 
 void AMordhauActor::UpdateThudVelocity(float NewThudVelocity)
 {}

@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UGameModeMetadata : public UObject
 {
 	GENERATED_BODY()

@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UMordhauColor : public UMordhauInventoryItem
 {
 	GENERATED_BODY()

@@ -64,3 +64,5 @@ bool ACustomizationReplicationActor::IsUpToDate()
 {
 	return 1;
 }
+void ACustomizationReplicationActor::AssignDataFromProfile(const struct FCharacterProfile& Profile)
+{}

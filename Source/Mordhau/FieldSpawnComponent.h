@@ -7,7 +7,7 @@
 #include "FieldSpawnComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent), Blueprintable)
 class MORDHAU_API UFieldSpawnComponent : public USceneComponent
 {
 	GENERATED_BODY()
@@ -29,8 +29,9 @@ float                                              SnapGroundTraceOffsetZ;
 float                                              SnapGroundRadius;
  UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FieldSpawnCompFloats")
 float                                              MaxDistanceSnapGround;
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FieldSpawnCompBools")
 bool                                               bShouldCheckLineOfSight;
-
+ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "FieldSpawnCompFloats")
 float                                              LineOfSightRadiusCheck;
 
 };

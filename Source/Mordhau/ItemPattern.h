@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UItemPattern : public UMordhauInventoryItem
 {
 	GENERATED_BODY()

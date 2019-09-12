@@ -133,8 +133,8 @@ UFUNCTION(BlueprintCallable, Category = "MordhauVehicleFns")
 
 UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauVehicleEvents")
 void UpdateFPCameraFor(class AMordhauCharacter* Character, float DeltaSeconds, bool bRotationOnly);
-//UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauVehicleEvents")
-//void UpdateAnimationFor(class AMordhauCharacter* Character, class UMordhauAnimInstance* AnimInst, float DeltaTime);
+UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauVehicleEvents")
+void UpdateAnimationFor(class AMordhauCharacter* Character, class UMordhauAnimInstance* AnimInst, float DeltaTime);
 UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauVehicleEvents")
 void KnockOffDriver(class AMordhauCharacter* Character);
 UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "MordhauVehicleEvents")

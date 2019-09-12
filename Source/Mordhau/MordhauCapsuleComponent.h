@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable, meta = (BlueprintSpawnableComponent))
 class MORDHAU_API UMordhauCapsuleComponent : public UCapsuleComponent
 {
 	GENERATED_BODY()

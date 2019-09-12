@@ -3,10 +3,10 @@
 #include "MordhauWeapon.h"
 #include "UnrealNetwork.h"
 
-void AMordhauWeapon::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
-{
-	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-};
+//void AMordhauWeapon::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
+//{
+//	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+//};
 
 
 void AMordhauWeapon::UpdateTrail(float Weight)

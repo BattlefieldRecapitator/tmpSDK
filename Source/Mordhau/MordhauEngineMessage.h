@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UMordhauEngineMessage : public ULocalMessage
 {
 	GENERATED_BODY()

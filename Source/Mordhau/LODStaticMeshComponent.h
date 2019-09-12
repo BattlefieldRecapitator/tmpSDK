@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class MORDHAU_API ULODStaticMeshComponent : public UStaticMeshComponent
 {
 	GENERATED_BODY()

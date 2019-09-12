@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UPommelThrowDrawMotion : public UMordhauMotion
 {
 	GENERATED_BODY()

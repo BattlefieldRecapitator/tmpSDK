@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Mordhau.h"
 #include "CustomizationReplicationActor.generated.h"
 
 UCLASS()
@@ -13,8 +14,8 @@ class MORDHAU_API ACustomizationReplicationActor : public AActor
 	
 public:	
 	// Sets default values for this actor's properties
-	//UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	//struct FCharacterProfile                           LastAssignedProfile;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	struct FCharacterProfile                           LastAssignedProfile;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<class AMordhauCharacter*>    RegisteredCharacters;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
@@ -29,18 +30,29 @@ class USkeletalMesh*                               Cached1PMesh;
 class USkeletalMesh*                               Cached1PDeadMesh;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 class USkeletalMesh*                               CachedUnifiedMesh;
-//struct FRepArrayShortWithVersion                    FaceBonesTranslate;
-//struct FRepArrayShortWithVersion                    FaceBonesRotate;
-//struct FRepArrayShortWithVersion                    FaceBonesScale;
-//struct FRepArrayAppearanceWithVersion               AppearanceCustomization;
-//struct FRepArraySkillsWithVersion                   SkillsCustomization;
-//struct FRepArrayByteWithVersion                     DefaultEquipmentId;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+
+		struct FRepArrayShortWithVersion                    FaceBonesTranslate;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+struct FRepArrayShortWithVersion                    FaceBonesRotate;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+struct FRepArrayShortWithVersion                    FaceBonesScale;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+struct FRepArrayAppearanceWithVersion               AppearanceCustomization;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+struct FRepArraySkillsWithVersion                   SkillsCustomization;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+struct FRepArrayByteWithVersion                     DefaultEquipmentId;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 TArray<class UClass*>                              DefaultEquipment;
-//struct FRepArrayByteWithVersion                     WearableId;
-//struct FRepArrayByteWithVersion                     WearableColor1;
-//struct FRepArrayByteWithVersion                     WearableColor2;
-//struct FRepArrayByteWithVersion                     WearablePattern;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+struct FRepArrayByteWithVersion                     WearableId;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+struct FRepArrayByteWithVersion                     WearableColor1;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+struct FRepArrayByteWithVersion                     WearableColor2;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+struct FRepArrayByteWithVersion                     WearablePattern;
 
 UFUNCTION(BlueprintCallable, Category = "CustomizationRepFns")
 void UpdateCharacterProfile(class AMordhauCharacter* Character);
@@ -72,6 +84,6 @@ UFUNCTION(BlueprintNativeEvent, Category = "CustomizationRepFns")
 void OnRep_AppearanceCustomization();
 UFUNCTION(BlueprintCallable, Category = "CustomizationRepFns")
 bool IsUpToDate();
-//UFUNCTION(BlueprintCallable, Category = "CustomizationRepFns")
-//void AssignDataFromProfile(const struct FCharacterProfile& Profile);
+UFUNCTION(BlueprintCallable, Category = "CustomizationRepFns")
+void AssignDataFromProfile(const struct FCharacterProfile& Profile);
 };

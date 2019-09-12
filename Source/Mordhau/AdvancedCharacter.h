@@ -20,8 +20,8 @@ public:
 	//	uint8 Team;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//	uint8 Health;
-	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
-	//	uint8 ReplicatedHealth;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		uint8 ReplicatedHealth;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//	float TurnRateCap;
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)

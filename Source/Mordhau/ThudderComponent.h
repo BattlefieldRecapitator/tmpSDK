@@ -8,7 +8,7 @@
 #include "ThudderComponent.generated.h"
 
 
-UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
+UCLASS(Blueprintable, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class MORDHAU_API UThudderComponent : public UActorComponent
 {
 	GENERATED_BODY()

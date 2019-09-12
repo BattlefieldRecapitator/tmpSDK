@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UQuickthrowDrawMotion : public UMordhauMotion
 {
 	GENERATED_BODY()

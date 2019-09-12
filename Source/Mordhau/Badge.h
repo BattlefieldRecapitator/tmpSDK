@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UBadge : public UMordhauInventoryItem
 {
 	GENERATED_BODY()

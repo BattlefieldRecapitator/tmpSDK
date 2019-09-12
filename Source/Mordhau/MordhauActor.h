@@ -37,78 +37,79 @@ class MORDHAU_API AMordhauActor : public AActor
 	
 public:	
 	// Sets default values for this actor's properties
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TWeakObjectPtr<class AMordhauPlayerController>     InstanceOwner;
-//	unsigned char                                       Thud;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	uint8                                      Thud;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class USoundCue*                                   ThudSound;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FVector2D                                   ThudPitchMultiplierRange;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FVector2D                                   ThudVolumeMultiplierRange;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bShouldReplicateThud;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              ThudMinVelocity;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              ThudMaxVelocity;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              MinDelayBetweenThuds;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              NoThudUntilTime;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bPreventClimbing;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FStatInt                                    KillsStat;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bIgnoresBleedOut;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bForceLongDeathYell;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bReceiveCosmeticHits;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              RagdollForceMultiplier;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bForceRagdollOnDeath;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              ReplayPriorityFactor;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FVector                                     LastClientsideLocation;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FQuat                                       LastClientsideRotation;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              InterpolationSmoothTime;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bSmoothNetworkMovement;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UClass*                                      InteractionWidgetComponentClass;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UClass*                                      InteractionWidgetClass;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FText                                       HeldInteractionText;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	FText                                       InteractionText;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bNoInteractionWidgetWhenAttachedToChar;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	struct FTransform                                  InteractionWidgetRelativeTransform;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bAutoDetermineWidgetTransform;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UMordhauWidgetComponent*                     InteractionWidgetComponent;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bPerformCustomDepthHighlight;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bIsHighlighted;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              MaxInteractWithDistance;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bIsInteractable;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bIsPassivelyInteractable;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              MaxInteractionHoldTime;
-	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              LastLocallyRequestedPassiveInteractionTime;
 
 	UFUNCTION(BlueprintCallable, Category = "MordhauActorFns")
@@ -123,8 +124,8 @@ public:
 		void OnThud();
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorEvents")
 		void OnReceiveCosmeticHit(class AActor* Source, class AActor* Agent, EAttackMove Move, const struct FHitResult& Hit);
-	//UFUNCTION(BlueprintImplementableEvent, Category = "MordhauActorEvents")
-	//void OnPostDismemberedOther(const FName& bone, class ASeparatedBodyPart* Part);
+	UFUNCTION(BlueprintImplementableEvent, Category = "MordhauActorEvents")
+	void OnPostDismemberedOther(const FName& bone, class ASeparatedBodyPart* Part);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorEvents")
 		void OnLocalPlayerUsedToKillOther(class AAdvancedCharacter* Character, EMordhauDamageType Type, uint8 SubType, const FName& bone, const struct FVector& Point, class AActor* Source);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauActorEvents")//, Category = "MordhauActorFns")

@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UMordhauAnimMetaData : public UAnimMetaData
 {
 	GENERATED_BODY()

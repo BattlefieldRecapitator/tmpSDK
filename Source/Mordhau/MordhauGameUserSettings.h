@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UMordhauGameUserSettings : public UGameUserSettings
 {
 	GENERATED_BODY()

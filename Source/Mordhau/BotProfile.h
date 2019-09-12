@@ -4,20 +4,23 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "Mordhau.h"
 #include "BotProfile.generated.h"
 
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UBotProfile : public UObject
 {
 	GENERATED_BODY()
 public:
-	//struct FString                                     BotName;
+	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	FString                                     BotName;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	int                                                UseBotLoadoutProfileID;
-	//struct FCharacterProfile                           CharacterProfile;
+UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
+	struct FCharacterProfile                           CharacterProfile;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	class UClass*                                      BehaviorProfile;
 UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)

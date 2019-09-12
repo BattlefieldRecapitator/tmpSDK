@@ -68,6 +68,11 @@ bool AMordhauCharacter :: IsInEnemyTeamArea()
 {
 	return 1;
 }
+
+void AMordhauCharacter::SaveConfigVar()
+{
+	SaveConfig();
+}
 //bool AMordhauCharacter :: IsInAnyTeamArea()
 //{
 //	return 1;
@@ -180,6 +185,10 @@ void AMordhauCharacter::RestockDefaultEquipment(int MaxSlotsToRestock, TArray<cl
 {}
 void AMordhauCharacter::OffsetStamina(int Amount, bool bReplicate)
 {}
+class ULODSkeletalMeshComponent* AMordhauCharacter::GetClothMesh()
+{
+	return nullptr;
+}
 
 bool AMordhauCharacter::QueueDismember(const FName& bone, bool bIsDismemberPartial, bool bIsBluntForce, const struct FVector& Force, class AActor* Agent)
 {

@@ -204,8 +204,8 @@ public:
 		void LocalPlayerChangedTeam();
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "GameStateEvents")
 		bool IsFriendly(class AActor* ActorA, class AActor* ActorB);
-	//UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "GameStateEvents")
-	//	FLinearColor GetTeamColor(int Team);
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "GameStateEvents")
+		FLinearColor GetTeamColor(int Team);
 	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "GameStateEvents")
 		bool CanImmediatelyChangeProfile(class AController* Controller);
 	//UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "GameStateEvents")

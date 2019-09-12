@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UMordhauWidgetComponent : public UWidgetComponent
 {
 	GENERATED_BODY()

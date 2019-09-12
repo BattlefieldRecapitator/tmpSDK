@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UStunMotion : public UMordhauMotion
 {
 	GENERATED_BODY()

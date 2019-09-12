@@ -3,31 +3,31 @@
 #include "MordhauAIController.h"
 #include "MordhauCharacter.h"
 #include "UnrealNetwork.h"
-
-void AMordhauAIController::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
-{
-	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-
-	DOREPLIFETIME(AMordhauAIController, bFirstRun)
-	DOREPLIFETIME(AMordhauAIController, RandomFloat)
-	DOREPLIFETIME(AMordhauAIController, EnemyScanInterval)
-	DOREPLIFETIME(AMordhauAIController, EnemyScanIntervalVariance)
-	DOREPLIFETIME(AMordhauAIController, bAutoRespawn)
-	DOREPLIFETIME(AMordhauAIController, bWantsRespawn)
-	DOREPLIFETIME(AMordhauAIController, NextRespawnTime)
-	DOREPLIFETIME(AMordhauAIController, bEnableAnticipateTurns)
-	DOREPLIFETIME(AMordhauAIController, bEnableObstacleAvoidance)
-	DOREPLIFETIME(AMordhauAIController, bEnableSeparation)
-	DOREPLIFETIME(AMordhauAIController, bEnableOptimizeVisibility)
-	DOREPLIFETIME(AMordhauAIController, bEnableOptimizeTopology)
-	DOREPLIFETIME(AMordhauAIController, bEnablePathOffset)
-	DOREPLIFETIME(AMordhauAIController, bEnableSlowdownAtGoal)
-	DOREPLIFETIME(AMordhauAIController, SeparationWeight)
-	DOREPLIFETIME(AMordhauAIController, CollisionQueryRange)
-	DOREPLIFETIME(AMordhauAIController, PathOptimizationRange)
-	DOREPLIFETIME(AMordhauAIController, AvoidanceRangeMultiplier)
-
-}
+//
+//void AMordhauAIController::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
+//{
+//	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+//
+//	DOREPLIFETIME(AMordhauAIController, bFirstRun)
+//	DOREPLIFETIME(AMordhauAIController, RandomFloat)
+//	DOREPLIFETIME(AMordhauAIController, EnemyScanInterval)
+//	DOREPLIFETIME(AMordhauAIController, EnemyScanIntervalVariance)
+//	DOREPLIFETIME(AMordhauAIController, bAutoRespawn)
+//	DOREPLIFETIME(AMordhauAIController, bWantsRespawn)
+//	DOREPLIFETIME(AMordhauAIController, NextRespawnTime)
+//	DOREPLIFETIME(AMordhauAIController, bEnableAnticipateTurns)
+//	DOREPLIFETIME(AMordhauAIController, bEnableObstacleAvoidance)
+//	DOREPLIFETIME(AMordhauAIController, bEnableSeparation)
+//	DOREPLIFETIME(AMordhauAIController, bEnableOptimizeVisibility)
+//	DOREPLIFETIME(AMordhauAIController, bEnableOptimizeTopology)
+//	DOREPLIFETIME(AMordhauAIController, bEnablePathOffset)
+//	DOREPLIFETIME(AMordhauAIController, bEnableSlowdownAtGoal)
+//	DOREPLIFETIME(AMordhauAIController, SeparationWeight)
+//	DOREPLIFETIME(AMordhauAIController, CollisionQueryRange)
+//	DOREPLIFETIME(AMordhauAIController, PathOptimizationRange)
+//	DOREPLIFETIME(AMordhauAIController, AvoidanceRangeMultiplier)
+//
+//}
 
 //void AMordhauAIController::OnAfterUnPossess_Implementation()
 //{
@@ -41,6 +41,8 @@ void AMordhauAIController::GetLifetimeReplicatedProps(TArray< FLifetimeProperty 
 //{
 //
 //}
+
+EAIFacingMode ReturnAIFace;
 void AMordhauAIController::UpdatePerceptionInfo(class AAdvancedCharacter* InCharacter, FPerceptionInfo PerceptionInfo)
 {}
 //void AMordhauAIController::OnCharacterDiedOrDestroyed_Implementation(class AAdvancedCharacter* AdvancedCharacter)
@@ -95,3 +97,32 @@ void AMordhauAIController::StartFacingLocation(const struct FVector& WorldLocati
 {}
 void AMordhauAIController::StartFacingMovement(float LocationUpOffset)
 {}
+class AActor* AMordhauAIController::GetCurrentlyFacingActor()
+{
+	return nullptr;
+}
+//class AMordhauCharacter* AMordhauAIController::GetClosestAlly()
+//{
+//	return nullptr;
+//}
+//class AMordhauCharacter* AMordhauAIController::GetClosestEnemy()
+//{
+//	return nullptr;
+//}
+EAIFacingMode AMordhauAIController::GetCurrentFacingMode()
+{
+	return ReturnAIFace;
+}
+
+bool AMordhauAIController::PerceivesEnemy()
+{
+	return 1;
+}
+bool AMordhauAIController::PerceivesAlly()
+{
+	return 1;
+	}
+class AMordhauCharacter* AMordhauAIController::GetKthClosestOfThree(int Idx)
+{
+	return nullptr;
+}

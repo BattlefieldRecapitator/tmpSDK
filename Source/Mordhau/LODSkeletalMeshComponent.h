@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class MORDHAU_API ULODSkeletalMeshComponent : public USkeletalMeshComponent
 {
 	GENERATED_BODY()

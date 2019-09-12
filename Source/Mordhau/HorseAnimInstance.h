@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UHorseAnimInstance : public UCreatureAnimInstance
 {
 	GENERATED_BODY()

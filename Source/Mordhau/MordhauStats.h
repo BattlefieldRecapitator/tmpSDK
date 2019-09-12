@@ -38,7 +38,7 @@
 
 
 
-UCLASS()
+UCLASS(Blueprintable)
 class MORDHAU_API UMordhauStats : public UObject
 {
 	GENERATED_BODY()

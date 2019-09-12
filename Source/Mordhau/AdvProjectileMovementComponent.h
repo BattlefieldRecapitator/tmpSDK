@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class MORDHAU_API UAdvProjectileMovementComponent : public UProjectileMovementComponent
 {
 	GENERATED_BODY()
