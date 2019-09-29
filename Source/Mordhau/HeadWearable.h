@@ -16,6 +16,8 @@ class MORDHAU_API UHeadWearable : public UMordhauWearable
 public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	uint8                                      DefaultCoif;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> CoifWearables;
 	
 	UFUNCTION(BlueprintCallable, Category = "HeadWearableFns")
 	int GetCoifWearablesNum();

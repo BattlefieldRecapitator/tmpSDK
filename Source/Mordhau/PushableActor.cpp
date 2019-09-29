@@ -12,6 +12,6 @@ void APushableActor::SetProgress(float NewProgress)
 void APushableActor::OnRep_Progress()
 {
 	}
-void APushableActor::OnProgressUpdated(float OldProgress)
-{
-}
+//void APushableActor::OnProgressUpdated(float OldProgress)
+//{
+//}

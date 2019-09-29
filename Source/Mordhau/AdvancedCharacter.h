@@ -6,9 +6,13 @@
 #include "GameFramework/Character.h"
 //#include		 "Mordhau_classes.hpp"
 #include "Engine/EngineTypes.h"
+#include "Components/AudioComponent.h"
+#include "Delegate.h"
 #include "Mordhau.h"
 #include "AdvancedCharacter.generated.h"
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCharacterDied, class AAdvancedCharacter*, Character);//(OnCharacterDied);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCharacterDestroyed, class AAdvancedCharacter*, Character);//(OnCharacterDied);
 UCLASS()
 class MORDHAU_API AAdvancedCharacter : public ACharacter
 {
@@ -59,8 +63,10 @@ public:
 	//UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 	//	float bTurnRateIgnoresCap;
 
-
-
+	UPROPERTY(BlueprintAssignable, Category = "AdvancedCharDelegates")
+		FOnCharacterDied OnCharacterDied;
+	UPROPERTY(BlueprintAssignable, Category = "AdvancedCharDelegates")
+		FOnCharacterDestroyed OnCharacterDestroyed;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AdvancedCharInts")
 	int                                                TickSkip;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AdvancedCharInts")
@@ -242,6 +248,8 @@ float                                              RagdollForceMultIfDmgAgent;
 
 
 	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AdvancedCharBools")
+		 bool bDisableHealingItems;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AdvancedCharBools")
 bool                                               bIsDead;
 	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AdvancedCharBools")
 bool                                               bIsBurning;
@@ -372,10 +380,11 @@ TWeakObjectPtr<class UParticleSystemComponent>     CurrentBurningParticles;
 	TArray<struct FFloatAndVector>                     DelayedLocationDeltas;
 	//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AdvancedCharStructs")
 	//struct FPrePhysTickFunction                        PrePhysTickFunction;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AdvancedCharStructs")
-	struct FScriptMulticastDelegate                    OnCharacterDied;
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "AdvancedCharStructs")
-	struct FScriptMulticastDelegate                    OnCharacterDestroyed;
+
+	/*struct FScriptMulticastDelegate                    OnCharacterDied;*/
+	/*UPROPERTY(BlueprintAssignable, EditAnywhere, BlueprintReadWrite, Category = "AdvancedCharStructs")
+	struct FScriptMulticastDelegate                    OnCharacterDestroyed;*/
+	//UPROPERTY(BlueprintAssignable, Category = "AdvancedCharStructs")
 
 
 
@@ -584,7 +593,10 @@ void AddWound(const struct FVector& ImpactPoint, const struct FVector& ImpactNor
 	UFUNCTION(BlueprintCallable, Category = "AdvancedCharVoidFns")
 void AddTurnDegrees(float Delta);
 
+	UFUNCTION(BlueprintCallable, Category = "AdvancedCharFns")
+		UAudioComponent* PlayCharacterSound(class USoundBase* Sound, FName Bone, FVector InLocation, FVector AttachLocation, bool Attach, class USoundAttenuation* Override, float VolumeMultiplier, float PitchMultiplier);
 
+		//return ReturnAudioComp;
 
 
 

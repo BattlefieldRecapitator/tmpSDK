@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Kismet/BlueprintFunctionLibrary.h"
 #include "Mordhau.h"
+#include "Engine/EngineTypes.h"
 #include "MordhauUtilityLibrary.generated.h"
 
 /**
@@ -167,7 +168,7 @@ UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static class AMordhauEquipment* GetRandomWeapon(const struct FSkillsCustomization& SkillsCustomization, EItemRarity MaxRarity, int ID);
 UFUNCTION(BlueprintCallable, Category = "UtilityFunctions")
-	static void GetRandomSkin(class AMordhauEquipment* Equipment, EItemRarity MaxRarity, int ID, struct FEquipmentSkinEntry Skin);
+	static void GetRandomSkin(class AMordhauEquipment* Equipment, EItemRarity MaxRarity, int& ID, struct FEquipmentSkinEntry& Skin);
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static struct FVector GetRandomFaceCustomizationVector(float RandomExponent);
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
@@ -324,8 +325,10 @@ static EServerRegion GetRegion(const FString& RegionName);
 	//TArray<struct FServerSearchResult> SortForServerBrowser(TArray<struct FServerSearchResult> Array);
 	//TArray<struct FServerSearchResult> SortForMatchmaking(TArray<struct FServerSearchResult> Array);
 	//static void SetSoundMixVolume(ESoundMix SoundMix, float Volume);
-//bool PlaneTrace(class UObject* WorldContextObject, const struct FVector& Left, const struct FVector& Right, const struct FVector& Forward, const struct FVector& Back, const struct FVector& TraceAmount, TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes, bool bTraceComplex, TArray<class AActor*> ActorsToIgnore, bool bConnectLeftRight, bool bConnectForwardBack, const struct FVector& ConnectOffset, bool bIgnoreSelf, struct FHitResult* LeftHit, struct FHitResult* RightHit, struct FHitResult* ForwardHit, struct FHitResult* BackHit, struct FVector* OutRight, struct FVector* OutForward);
-//bool MordhauApplyRadialDamageWithFalloff(class UObject* WorldContextObject, float BaseDamage, float MinimumDamage, float BaseStructureDamage, float MinimumStructureDamage, const struct FVector& Origin, float DamageInnerRadius, float DamageOuterRadius, float DamageFalloff, TArray<class AActor*> IgnoreActors, float BaseKnockback, float MinimumKnockback, float RagdollFallRadius, class AActor* DamageCauser, class AController* InstigatedByController, TEnumAsByte<ECollisionChannel> DamagePreventionChannel, bool bIgnoreFriendly);
+UFUNCTION(BlueprintCallable, Category = "UtilityFunctions")
+static bool PlaneTrace(const struct FVector& Left, const struct FVector& Right, const struct FVector& Forward, const struct FVector& Back, const struct FVector& TraceAmount, TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes, bool bTraceComplex, TArray<class AActor*> ActorsToIgnore, bool bConnectLeftRight, bool bConnectForwardBack, const struct FVector& ConnectOffset, bool bIgnoreSelf, struct FHitResult& LeftHit, struct FHitResult& RightHit, struct FHitResult& ForwardHit, struct FHitResult& BackHit, struct FVector& OutRight, struct FVector& OutForward);//class UObject* WorldContextObject,
+UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
+static bool MordhauApplyRadialDamageWithFalloff(class UObject* WorldContextObject, float BaseDamage, float MinimumDamage, float BaseStructureDamage, float MinimumStructureDamage, const struct FVector& Origin, float DamageInnerRadius, float DamageOuterRadius, float DamageFalloff, TArray<class AActor*> IgnoreActors, float BaseKnockback, float MinimumKnockback, float RagdollFallRadius, class AActor* DamageCauser, class AController* InstigatedByController, TEnumAsByte<ECollisionChannel> DamagePreventionChannel, bool bIgnoreFriendly);
 //bool LineTraceMultiForObjectsReturnFace(class UObject* WorldContextObject, const struct FVector& Start, const struct FVector& End, TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes, bool bTraceComplex, TArray<class AActor*> ActorsToIgnore, TEnumAsByte<EDrawDebugTrace> DrawDebugType, bool bIgnoreSelf, TArray<struct FHitResult>* OutHits);
 //UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 //struct FPOV LerpPOV(const struct FPOV& A, const struct FPOV& B, float Alpha);

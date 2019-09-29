@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "AdvancedCharacterAnimInstance.h"
+#include "MordhauWeapon.h"
 #include "WheeledVehicleAnimInstance.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class MORDHAU_API UWheeledVehicleAnimInstance : public UAdvancedCharacterAnimInstance
+class MORDHAU_API UWheeledVehicleAnimInstance : public UObject
 {
 	GENERATED_BODY()
 	

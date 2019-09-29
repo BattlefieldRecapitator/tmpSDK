@@ -14,7 +14,9 @@ class MORDHAU_API ASkeletalMeshMordhauActor : public AMordhauActor
 {
 	GENERATED_BODY()
 	
-	
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class USkeletalMeshComponent* SkeletalMeshComponent;
 	
 	
 };

@@ -20,7 +20,8 @@ public:
 	struct FVector                                     LegsBouncyLimits;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	uint8                                     DefaultFeet;
-	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> FeetWearables;
 
 
 

@@ -60,6 +60,36 @@ void AMordhauCharacter::EnteredTeamArea(int OwningTeam)
 {
 
 }
+void AMordhauCharacter::EquipSlot1()
+{}
+void AMordhauCharacter::EquipSlot2()
+{}
+void AMordhauCharacter::EquipSlot3()
+{}
+void AMordhauCharacter::EquipSlot4()
+{}
+void AMordhauCharacter::EquipSlot5()
+{}
+void AMordhauCharacter::EquipSlot6()
+{}
+void AMordhauCharacter::EquipSlot7()
+{}
+void AMordhauCharacter::EquipSlot8()
+{}
+void AMordhauCharacter::EquipSlot9()
+{}
+void AMordhauCharacter::EmptyHands()
+{}
+void AMordhauCharacter::CycleCamera()
+{}
+void AMordhauCharacter::FeintOrBlockPressed()
+{}
+void AMordhauCharacter::FeintOrBlockReleased()
+{}
+void AMordhauCharacter::BlockPressed()
+{}
+void AMordhauCharacter::BlockReleased()
+{}
 //bool AMordhauCharacter :: IsInKnockback()
 //{
 //	return 1;
@@ -72,6 +102,10 @@ bool AMordhauCharacter :: IsInEnemyTeamArea()
 void AMordhauCharacter::SaveConfigVar()
 {
 	SaveConfig();
+}
+class AMordhauEquipment* AMordhauCharacter::FindEquipmentToRestock(TArray<TSubclassOf<class AMordhauEquipment>> ValidEquipment)
+{
+	return nullptr;
 }
 //bool AMordhauCharacter :: IsInAnyTeamArea()
 //{
@@ -125,6 +159,12 @@ bool AMordhauCharacter::TryDismember(const FName& bone, const struct FVector& Po
 {
 	return 1;
 }
+bool AMordhauCharacter::CanDismember(FName Bone)
+{
+	return 1;
+}
+void AMordhauCharacter::DropEquipment(class AMordhauEquipment* ToDrop)
+{}
 void AMordhauCharacter::SwitchToFists()
 {}
 void AMordhauCharacter::SwitchModeAndReAttach(class AMordhauEquipment* ToSwitch)
@@ -189,7 +229,10 @@ class ULODSkeletalMeshComponent* AMordhauCharacter::GetClothMesh()
 {
 	return nullptr;
 }
-
+class AController* AMordhauCharacter::FindBestKiller(float CutOffTime)
+{
+	return nullptr;
+}
 bool AMordhauCharacter::QueueDismember(const FName& bone, bool bIsDismemberPartial, bool bIsBluntForce, const struct FVector& Force, class AActor* Agent)
 {
 	return 1;

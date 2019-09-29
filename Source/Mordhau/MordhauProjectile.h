@@ -109,6 +109,8 @@ UPROPERTY(BlueprintReadWrite, EditAnywhere)
 UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	bool                                               bHasReceivedInfo;
 UPROPERTY(BlueprintReadWrite, EditAnywhere)
+class USkeletalMeshComponent* SkeletalMeshComponent;
+UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              FiredTime;
 UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	float                                              LastProjectileSweepTime;

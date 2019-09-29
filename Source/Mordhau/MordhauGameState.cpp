@@ -69,6 +69,11 @@ void AMordhauGameState::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > &
 //{}
 //void AMordhauGameState::ShouldHideSpawnInfoText(bool& Hide)
 //{}
+FLinearColor ReturnColor;
+FLinearColor AMordhauGameState::GetSecondaryTeamColor(int Team)
+{
+	return ReturnColor;
+}
 FString AMordhauGameState::GetTeamName(int Team)
 {
 	return "1";

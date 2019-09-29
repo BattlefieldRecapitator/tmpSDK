@@ -222,13 +222,16 @@ void UMordhauUtilityLibrary::OpenURL(const FString& URL)
 void UMordhauUtilityLibrary::GetSoundMixInfo(const FString& Name, struct FSoundMixInfo SoundMixInfo)
 {
 }
-void UMordhauUtilityLibrary::GetRandomSkin(class AMordhauEquipment* Equipment, EItemRarity MaxRarity, int ID, struct FEquipmentSkinEntry Skin)
+void UMordhauUtilityLibrary::GetRandomSkin(class AMordhauEquipment* Equipment, EItemRarity MaxRarity, int& ID, struct FEquipmentSkinEntry& Skin)
 {
 }
 void UMordhauUtilityLibrary::FSmoothDamp(float Target, float SmoothTime, float DeltaTime, float MaxSpeed, float Current, float CurrentVelocity)
 {
 }
-
+bool UMordhauUtilityLibrary::PlaneTrace(const struct FVector& Left, const struct FVector& Right, const struct FVector& Forward, const struct FVector& Back, const struct FVector& TraceAmount, TArray<TEnumAsByte<EObjectTypeQuery>> ObjectTypes, bool bTraceComplex, TArray<class AActor*> ActorsToIgnore, bool bConnectLeftRight, bool bConnectForwardBack, const struct FVector& ConnectOffset, bool bIgnoreSelf, struct FHitResult& LeftHit, struct FHitResult& RightHit, struct FHitResult& ForwardHit, struct FHitResult& BackHit, struct FVector& OutRight, struct FVector& OutForward)//class UObject* WorldContextObject,
+{
+	return 1;
+}
 
 struct FVector2D UMordhauUtilityLibrary::GetMousePosition(class APlayerController* Controller)
 {
@@ -442,6 +445,11 @@ bool UMordhauUtilityLibrary::HasActorBegunPlay(class AActor* Actor)
 {
 return 1;
 }
+bool UMordhauUtilityLibrary::MordhauApplyRadialDamageWithFalloff(class UObject* WorldContextObject, float BaseDamage, float MinimumDamage, float BaseStructureDamage, float MinimumStructureDamage, const struct FVector& Origin, float DamageInnerRadius, float DamageOuterRadius, float DamageFalloff, TArray<class AActor*> IgnoreActors, float BaseKnockback, float MinimumKnockback, float RagdollFallRadius, class AActor* DamageCauser, class AController* InstigatedByController, TEnumAsByte<ECollisionChannel> DamagePreventionChannel, bool bIgnoreFriendly)
+{
+	return 1;
+}
+
 int UMordhauUtilityLibrary::GetXPFromRank(int Rank)
 {
 return 1;

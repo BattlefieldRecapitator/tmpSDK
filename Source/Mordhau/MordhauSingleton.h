@@ -36,7 +36,7 @@ TArray<class UClass*>                              MaleFaces;
 	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingletonClassRefs")
 TArray<class UClass*>                              FemaleFaces;
 	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingletonClassRefs")
-TArray<class UClass*>                              Emblems;
+TArray<TSubclassOf<class UEmblem>>                              Emblems;
 	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingletonClassRefs")
 TArray<class UClass*>                              Badges;
 	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingletonClassRefs")
@@ -49,6 +49,27 @@ TArray<class UClass*>                              Eyebrows;
 TArray<class UClass*>                              Motions;
 	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingletonClassRefs")
 TArray<class UClass*>                              EmoteMotions;
+
+	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingleton")
+		 TArray<TSoftClassPtr<UObject>> Equipment;
+
+	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingleton")
+		 TArray<TSoftClassPtr<UObject>> UpperChestWearables;
+
+	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingleton")
+		 TArray<TSoftClassPtr<UObject>> LegsWearables;
+
+	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingleton")
+		 TArray<TSoftClassPtr<UObject>> HeadWearables;
+
+	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingleton")
+	 TArray<TSoftClassPtr<UObject>>  Voices;
+	 UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		 TSet<UObject*> AlwaysLoadedObjects;
+	 UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		 TMap<FName, UObject*> CachedLoadedObjects;
+
+
 
 
 	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingletonStructs")
@@ -77,6 +98,8 @@ TArray<struct FEquipmentCustomization>             DefaultCharacterEquipment;
 TArray<struct FCharacterGearCustomization>         DefaultCharacterTier;
 	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingletonStructs")
 TArray<struct FCharacterProfile>                   BotCharacterProfiles;
+
+
 
 	 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "MordhauSingletonBytes")
 uint8                                      DefaultHead;

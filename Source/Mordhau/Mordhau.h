@@ -691,6 +691,9 @@ struct FActorSetAndArray
 public:
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<class AActor*>                              Array;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		TSet<class AActor*> Set;
+
 };
 USTRUCT(BlueprintType, Blueprintable)
 struct FWoundInfo
@@ -830,6 +833,8 @@ public:
 	class UClass*                                      HitShake;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	class UClass*                                      HitStopShake;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
+		TSet<UObject*> IgnoreBones;
 };
 USTRUCT(BlueprintType, Blueprintable)
 struct FSteamID
@@ -840,10 +845,15 @@ USTRUCT(BlueprintType, Blueprintable)
 struct FWearableCustomization
 {
 	GENERATED_BODY()
+		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		int                                                ID;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<uint8>                              Colors;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<uint8>                              Team1Colors;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TArray<uint8>                              Team2Colors;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	uint8                                      Pattern;
 };
 USTRUCT(BlueprintType, Blueprintable)
@@ -919,8 +929,9 @@ USTRUCT(BlueprintType, Blueprintable)
 struct FCharacterProfile
 {
 	GENERATED_BODY()
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		FText                                       Name;
-		UPROPERTY(BlueprintReadWrite, EditAnywhere)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		struct FCharacterGearCustomization                 GearCustomization;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 		struct FAppearanceCustomization                    AppearanceCustomization;
@@ -1224,6 +1235,7 @@ struct FNetDamage
 	struct FVector_NetQuantize                         Point;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TWeakObjectPtr<class AActor>                       DamageSource;
+	UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	TWeakObjectPtr<class AActor>                       DamageAgent;
 };
 
@@ -1323,7 +1335,7 @@ struct FMordhauColorItemTable
 		UPROPERTY(BlueprintReadWrite, EditAnywhere)
 	FText                                       TableName;
 	UPROPERTY(BlueprintReadWrite, EditAnywhere)
-	TArray<class UClass*>                              Entries;
+	TArray<TSubclassOf<class UMordhauColor>>                              Entries;
 };
 
 USTRUCT(BlueprintType, Blueprintable)

@@ -45,6 +45,6 @@ UFUNCTION(BlueprintCallable, Category = "PushableFns")
 	void SetProgress(float NewProgress);
 UFUNCTION(BlueprintCallable, Category = "PushableFns")
 	void OnRep_Progress();
-UFUNCTION(BlueprintCallable, Category = "PushableFns")
+UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "PushableFns")
 	void OnProgressUpdated(float OldProgress);
 };

@@ -59,7 +59,10 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ClassRefs")
 class UCapsuleComponent*                           BumpCapsule;
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Integers")
 	int                                                DesiredGear;
-
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SkeletalMeshComp")
+class USkeletalMeshComponent* CharacterMesh0;
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HorseMovementComp")
+class UHorseMovementComponent* HorsemovementComponent;
 
 
 UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HorseEvents")

@@ -159,7 +159,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 		TEnumAsByte<E_SkirmishRoundStage> LastObservedRoundStage;
 
-
+	UFUNCTION(BlueprintCallable, Category = "GameStateFns")
+		FLinearColor GetSecondaryTeamColor(int Team);
 	UFUNCTION(BlueprintCallable, Category = "GameStateFns")
 		FString GetTeamName(int Team);
 	UFUNCTION(BlueprintCallable, Category = "GameStateFns")

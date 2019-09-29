@@ -14,7 +14,9 @@ class MORDHAU_API AStaticMeshMordhauActor : public AMordhauActor
 {
 	GENERATED_BODY()
 	
-	
+public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class UStaticMeshComponent* StaticMeshComponent;
 	
 	
 };

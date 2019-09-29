@@ -223,8 +223,10 @@ UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Audio")
 	TWeakObjectPtr<class UAudioComponent>              LastBreath;
 UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Audio")
 	TWeakObjectPtr<class UAudioComponent>              LastScream;
-
-
+//UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Ints")
+//int ToolboxPreventionAreaCounter;
+UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Booleans")
+	bool bAllowVehicles;
 UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Booleans")
 	bool                                               bIsHoldingBlock;
 UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Booleans")
@@ -668,7 +670,10 @@ UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Anims")
 	class UAnimSequence*                               HorseUnarmedJump;
 UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "Anims")
 	class UAnimSequence*                               HorseUnarmedJump1P;
-
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+TSet<UObject*> DismemberedBones;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+TSet<UObject*> ActorSetCache;
 
 UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "ClassRefs")
 	TWeakObjectPtr<class ACustomizationReplicationActor>  CustomizationReplicationActor;
@@ -821,16 +826,16 @@ UFUNCTION(BlueprintCallable, Category = "MordhauCharSaveConfig")
 void SaveConfigVar();
 
 		//UPDATE
-		UFUNCTION(BlueprintCallable, Category = "MordhauCharUpdateFns")
-		void UpdateWearableInstanceColorsAndPatterns();
+	UFUNCTION(BlueprintCallable, Category = "MordhauCharUpdateFns")
+	void UpdateWearableInstanceColorsAndPatterns();
 UFUNCTION(BlueprintCallable, Category = "MordhauCharUpdateFns")
-			void UpdateQuiverMesh();
+	void UpdateQuiverMesh();
 UFUNCTION(BlueprintCallable, Category = "MordhauCharUpdateFns")
-			void UpdateLOD(float DeltaTime);
+	void UpdateLOD(float DeltaTime);
 UFUNCTION(BlueprintCallable, Category = "MordhauCharUpdateFns")
-			void UpdateFPCamera(float DeltaSeconds, float InLookUpValue, bool bOnlyUpdateRotation, const struct FRotator& Offset);
+	void UpdateFPCamera(float DeltaSeconds, float InLookUpValue, bool bOnlyUpdateRotation, const struct FRotator& Offset);
 UFUNCTION(BlueprintCallable, Category = "MordhauCharUpdateFns")
-			void UpdateAllSkeletalMeshComponentMaterials();
+	void UpdateAllSkeletalMeshComponentMaterials();
 
 			//ACTION
 UFUNCTION(BlueprintCallable, Category = "MordhauCharActionFns")
@@ -947,6 +952,9 @@ UFUNCTION(BlueprintCallable, Category = "MordhauCharSetFns")
 			void SetAnimRate(class UAnimMontage* Montage, float NewRate);
 UFUNCTION(BlueprintCallable, Category = "MordhauCharSetFns")
 			void SetAnimPosition(class UAnimMontage* Montage, float NewPosition);
+
+UFUNCTION(BlueprintCallable, Category = "MordhauCharFindFns")
+class AMordhauEquipment* FindEquipmentToRestock(TArray<TSubclassOf<class AMordhauEquipment>> ValidEquipment);
 
 			//REQUEST
 UFUNCTION(BlueprintCallable, Category = "MordhauCharRequestFns")
@@ -1119,5 +1127,42 @@ UFUNCTION(BlueprintCallable, Category = "MordhauCharMiscFns")
 UFUNCTION(BlueprintCallable, Category = "MordhauCharMiscFns")
 			void ReplicateStamina();
 
+UFUNCTION(BlueprintCallable, Category = "MordhauCharFns")
+void EmptyHands();
 
+UFUNCTION(BlueprintCallable, Category = "MordhauCharFns")
+void CycleCamera();
+
+UFUNCTION(BlueprintCallable, Category = "MordhauCharEquipFns")
+void EquipSlot1();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharEquipFns")
+void EquipSlot2();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharEquipFns")
+void EquipSlot3();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharEquipFns")
+void EquipSlot4();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharEquipFns")
+void EquipSlot5();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharEquipFns")
+void EquipSlot6();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharEquipFns")
+void EquipSlot7();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharEquipFns")
+void EquipSlot8();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharEquipFns")
+void EquipSlot9();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharActionFns")
+void FeintOrBlockPressed();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharActionFns")
+void FeintOrBlockReleased();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharActionFns")
+void BlockPressed();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharActionFns")
+void BlockReleased();
+UFUNCTION(BlueprintCallable, Category = "MordhauCharFns")
+	bool CanDismember(FName Bone);
+UFUNCTION(BlueprintCallable, Category = "MordhauCharFns")
+void DropEquipment(class AMordhauEquipment* ToDrop);
+UFUNCTION(BlueprintCallable, Category = "MordhauCharFns")
+class AController* FindBestKiller(float CutOffTime);
 };

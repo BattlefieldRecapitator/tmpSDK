@@ -232,6 +232,10 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bHasChambered;
 
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSoftClassPtr<UObject> BlockedAttacks;
+
+
 UFUNCTION(BlueprintCallable, Category = "AttackMotionFns")
 void SetHasHitIncludingCosmeticHit();
 	

@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class MORDHAU_API UMordhauPhysicsCollisionHandler : public UPhysicsCollisionHandler
 {
 	GENERATED_BODY()

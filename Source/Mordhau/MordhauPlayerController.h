@@ -103,6 +103,9 @@ public:
 	UPROPERTY(Replicated, EditAnywhere, BlueprintReadWrite)
 		TArray<uint8>                              MapVoteCounts;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TSet<UObject*> InInstanceWithControllers;
+
 	//UFUNCTION(BlueprintCallable, Category = "PlayerControllerFns")
 	//void Turn(float Value);
 	//UFUNCTION(BlueprintCallable, Category="PlayerControllerFns")
@@ -486,9 +489,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "MordhauControllerFns")
 		bool IsAdmin();
 	UFUNCTION(BlueprintCallable, Category = "MordhauControllerFns")
-		bool GetDefaultEquipmentCustomizationFor(class UClass* ForEquipmentClass, struct FEquipmentCustomization OutCustomization);
+		bool GetDefaultEquipmentCustomizationFor(class UClass* ForEquipmentClass, struct FEquipmentCustomization& OutCustomization);
 	UFUNCTION(BlueprintCallable, Category = "MordhauControllerFns")
-		bool GetDefaultTierCustomizationForSlot(EMainWearableSlot MainSlot, uint8 ArmorTier, TMap<EWearableSlot, struct FWearableCustomization> OutMap);
+		bool GetDefaultTierCustomizationForSlot(EMainWearableSlot MainSlot, uint8 ArmorTier, TMap<EWearableSlot, struct FWearableCustomization>& OutMap);
 	UFUNCTION(BlueprintCallable, Category = "MordhauControllerFns")
 		float GetAnglingAngle();
 	//UFUNCTION(BlueprintCallable, Category = "MordhauControllerFns")

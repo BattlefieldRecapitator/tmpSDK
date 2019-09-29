@@ -26,6 +26,7 @@ public:
 	class UCurveFloat*                                 TurningAccelerationByVelocity;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              TurningFactorScaleAirborne;
-	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<class UPrimitiveComponent*> SecondaryComponents;
 	
 };

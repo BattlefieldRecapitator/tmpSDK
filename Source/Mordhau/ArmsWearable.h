@@ -18,7 +18,8 @@ public:
 	struct FVector                                     ArmsBouncyLimits;  
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	uint8                                     DefaultHands;
-	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		TArray<TSoftClassPtr<UObject>> HandsWearables;
 
 	UFUNCTION(BlueprintCallable, Category = "ArmsWearableFns")
 	int GetHandsWearablesNum();

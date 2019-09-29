@@ -348,11 +348,11 @@ bool AMordhauPlayerController::IsAdmin()
 {
 	return 1;
 }
-bool AMordhauPlayerController::GetDefaultEquipmentCustomizationFor(class UClass* ForEquipmentClass, struct FEquipmentCustomization OutCustomization)
+bool AMordhauPlayerController::GetDefaultEquipmentCustomizationFor(class UClass* ForEquipmentClass, struct FEquipmentCustomization& OutCustomization)
 {
 	return 1;
 }
-bool AMordhauPlayerController::GetDefaultTierCustomizationForSlot(EMainWearableSlot MainSlot, uint8 ArmorTier, TMap<EWearableSlot, struct FWearableCustomization> OutMap)
+bool AMordhauPlayerController::GetDefaultTierCustomizationForSlot(EMainWearableSlot MainSlot, uint8 ArmorTier, TMap<EWearableSlot, struct FWearableCustomization>& OutMap)
 {
 	return 1;
 }

@@ -3,15 +3,15 @@
 #include "MordhauWeapon.h"
 #include "UnrealNetwork.h"
 
-//void AMordhauWeapon::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
-//{
-//	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-//};
+void AMordhauWeapon::GetLifetimeReplicatedProps(TArray< FLifetimeProperty > & OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+};
 
 
 void AMordhauWeapon::UpdateTrail(float Weight)
 {}
-bool AMordhauWeapon::RequestBlock(EBlockType BlockType, bool bAllowFTP)
+bool AMordhauWeapon::RequestBlock_Implementation(EBlockType BlockType, bool bAllowFTP)
 {
 	return 1;
 }

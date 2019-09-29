@@ -5,10 +5,13 @@
 
 
 
+class UAudioComponent* ReturnAudioComp;
 
 
-
-
+UAudioComponent* AAdvancedCharacter::PlayCharacterSound(class USoundBase* Sound, FName Bone, FVector InLocation, FVector AttachLocation, bool Attach, class USoundAttenuation* Override, float VolumeMultiplier, float PitchMultiplier)
+{
+	return ReturnAudioComp;
+}
 
 
 
@@ -199,5 +202,14 @@ FName AAdvancedCharacter::GetAdditiveOverrideType()
 	return "1";
 }
 
+//DECLARE_MULTICAST_DELEGATE(OnCharacterDied, AAdvancedCharacter *, Character)
+//{
+//}
 
+//AAdvancedCharacter::DECLARE_MULTICAST_DELEGATE(OnCharacterDied, AAdvancedCharacter *, Character)
+//{
+//}
 
+//FDECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(OnCharacterDied, AAdvancedCharacter *, Character)
+//{
+//}
