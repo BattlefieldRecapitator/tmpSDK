@@ -1,0 +1,9 @@
+﻿  Compiling game modules for hot reload
+  Building 3 actions with 12 processes...
+    [1/3] Module.Mordhau.cpp
+    [2/3] UE4Editor-Mordhau-4643.lib
+       Creating library C:\Users\Y0L0S.DESKTOP-LE6HALS\Documents\Unreal Projects\Mordhau\Intermediate\Build\Win64\UE4Editor\Development\Mordhau\UE4Editor-Mordhau-4643.lib and object C:\Users\Y0L0S.DESKTOP-LE6HALS\Documents\Unreal Projects\Mordhau\Intermediate\Build\Win64\UE4Editor\Development\Mordhau\UE4Editor-Mordhau-4643.exp
+    [3/3] UE4Editor-Mordhau-4643.dll
+       Creating library C:\Users\Y0L0S.DESKTOP-LE6HALS\Documents\Unreal Projects\Mordhau\Intermediate\Build\Win64\UE4Editor\Development\Mordhau\UE4Editor-Mordhau-4643.suppressed.lib and object C:\Users\Y0L0S.DESKTOP-LE6HALS\Documents\Unreal Projects\Mordhau\Intermediate\Build\Win64\UE4Editor\Development\Mordhau\UE4Editor-Mordhau-4643.suppressed.exp
+  Deploying MordhauEditor Win64 Development...
+  Total build time: 40.23 seconds (Parallel executor: 36.19 seconds)
