@@ -57,12 +57,16 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ClassRefs")
 	class UCurveFloat*                                 AttackDamageBySpeedModifierCurve;
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ClassRefs")
 class UCapsuleComponent*                           BumpCapsule;
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ClassRefs")
+class UMordhauCapsuleComponent*                           CollisionCylinder;
 UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Integers")
 	int                                                DesiredGear;
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SkeletalMeshComp")
-class USkeletalMeshComponent* CharacterMesh0;
-UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HorseMovementComp")
-class UHorseMovementComponent* HorsemovementComponent;
+//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SkeletalMeshComp")
+//class ULODSkeletalMeshComponent* CharacterMesh0;
+//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HorseMovementComp")
+//class UHorseMovementComponent* HorsemovementComponent;
+//UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HorseMovementComp")
+//class UHorseMovementComponent* CharMoveComp;
 
 
 UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "HorseEvents")

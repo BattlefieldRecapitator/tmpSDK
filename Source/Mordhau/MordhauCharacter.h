@@ -792,6 +792,10 @@ UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = "UnsortedStructs")
 		UFUNCTION(BlueprintCallable, Category = "MordhauCharFns")
 		void AssignProfile(const struct FCharacterProfile& NewProfile);*/
 
+
+UFUNCTION(BlueprintCallable, Category = "MordhauCharFns")
+void AssignProfile(const struct FCharacterProfile& NewProfile);
+
 UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauCharEvents")
 		void ServerSetInteractionTarget(class AActor* Target);
 UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "MordhauCharEvents")

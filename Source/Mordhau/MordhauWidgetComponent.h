@@ -50,6 +50,14 @@ UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class AMordhauCameraManager*                       CachedPlayerCameraManager;
 UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class AMordhauGameState*                           CachedGameState;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsSlowHideOverride;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool PartakesInSortedVisibilityQueue;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float VisibilityWeightInterpolationSpeed;
+UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	float VisibilityWeight;
 
 
 UFUNCTION(BlueprintCallable, Category = "MordhauWidgetCompFn")

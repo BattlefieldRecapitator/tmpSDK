@@ -17,6 +17,9 @@ class MORDHAU_API UMordhauUtilityLibrary : public UBlueprintFunctionLibrary
 	GENERATED_BODY()
 public:
 
+
+UFUNCTION(BlueprintCallable, Category = "UtilityFunctions")
+	static TArray<class AMordhauPlayerState*> SortPlayers(TArray<class AMordhauPlayerState*> Array);
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static void VSmoothDamp(const struct FVector& Target, float SmoothTime, float DeltaTime, float MaxSpeed, struct FVector Current, struct FVector CurrentVelocity);
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
@@ -198,7 +201,7 @@ UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static class UMordhauGameUserSettings* GetMordhauGameUserSettings();
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
-	static int GetMaxIndexWithDraw(TArray<int> inArray, bool bFoundDraw);
+	static int GetMaxIndexWithDraw(TArray<int> inArray, bool& bFoundDraw);
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")
 	static FString GetMapName(class UObject* WorldContextObject);
 UFUNCTION(BlueprintPure, BlueprintCallable, Category = "UtilityFunctions")

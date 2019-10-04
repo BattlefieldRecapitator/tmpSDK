@@ -645,8 +645,8 @@ float GetAdditiveOverrideTypeNormalizedTime();
 		FName GetAdditiveOverrideType();
 
 
-
-
+		UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "AdvancedCharEvents")
+			void OnExceededTimeOutOfBounds();
 
 
 

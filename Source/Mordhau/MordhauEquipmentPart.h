@@ -9,7 +9,7 @@
 /**
  * 
  */
-UCLASS(Blueprintable)
+UCLASS(Blueprintable, ClassGroup = (Custom), meta = (BlueprintSpawnableComponent))
 class MORDHAU_API UMordhauEquipmentPart : public UMordhauInventoryItem
 {
 	GENERATED_BODY()

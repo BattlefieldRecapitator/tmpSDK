@@ -71,9 +71,9 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              NetworkSmoothTime;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                     OwningTeam;
+	uint8                                     OwningTeam;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int                                      CapturingTeam;
+	uint8                                      CapturingTeam;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	TArray<class AControlPoint*>                       Team1PrerequisitePoints;
@@ -103,15 +103,15 @@ public:
 	
 	
 	
-	UFUNCTION(BlueprintCallable, Category = "ControlPointFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "ControlPointFns")
 	void UpdateVisuals();
-	UFUNCTION(BlueprintCallable, Category = "ControlPointFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "ControlPointFns")
 	void UpdateUIWidgets();
-	UFUNCTION(BlueprintCallable, Category = "ControlPointFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "ControlPointFns")
 	void UpdateUIMaterialInstance();
-	UFUNCTION(BlueprintCallable, Category = "ControlPointFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "ControlPointFns")
 	void UpdatePresenceNumbers();
-	UFUNCTION(BlueprintCallable, Category = "ControlPointFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "ControlPointFns")
 	void UpdateCaptureProgress(float DeltaTime);
 	UFUNCTION(BlueprintCallable, Category = "ControlPointFns")
 	void SetCaptureProgress(float NewProgress, uint8 NewCaptor, bool bAwardScore);
@@ -133,9 +133,9 @@ public:
 	void OnCaptureAreaEndOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* Other, class UPrimitiveComponent* OtherComp, int OtherBodyIndex);
 	UFUNCTION(BlueprintNativeEvent, Category = "ControlPointEvents")
 	void OnCaptureAreaBeginOverlap(class UPrimitiveComponent* OverlappedComp, class AActor* Other, class UPrimitiveComponent* OtherComp, int OtherBodyIndex, bool bFromSweep, const struct FHitResult& SweepResult);
-	UFUNCTION(BlueprintCallable, Category = "ControlPointFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "ControlPointFns")
 	void EnemyLostPrerequisites();
-	UFUNCTION(BlueprintCallable, Category = "ControlPointFns")
+	UFUNCTION(BlueprintImplementableEvent, BlueprintCallable, Category = "ControlPointFns")
 	void EnemyGainedPrerequisites();
 	UFUNCTION(BlueprintCallable, Category = "ControlPointFns")
 	bool CanCapture(uint8 Team);

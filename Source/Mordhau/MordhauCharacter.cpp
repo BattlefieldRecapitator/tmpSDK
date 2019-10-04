@@ -136,7 +136,8 @@ class AMordhauEquipment* AMordhauCharacter::FindEquipmentToRestock(TArray<TSubcl
 //
 
 
-
+void AMordhauCharacter::AssignProfile(const struct FCharacterProfile& NewProfile)
+{}
 
 
 //UPDATE

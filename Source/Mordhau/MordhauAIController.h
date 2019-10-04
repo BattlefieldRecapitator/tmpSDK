@@ -62,6 +62,8 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool                                               bFirstRun;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+		class ACustomizationReplicationActor* CustomizationReplicationActor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	float                                              RandomFloat;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	class UBotProfile*                                 BotProfile;

@@ -5,34 +5,34 @@
 
 // Sets default values
 
-void AControlPoint::UpdateVisuals()
-{
-
-}
-void AControlPoint::UpdateUIWidgets()
-{
-
-}
-void AControlPoint::UpdateUIMaterialInstance()
-{
-
-}
-void AControlPoint::UpdatePresenceNumbers()
-{
-
-}
-void AControlPoint::UpdateCaptureProgress(float DeltaTime)
-{}
+//void AControlPoint::UpdateVisuals()
+//{
+//
+//}
+//void AControlPoint::UpdateUIWidgets()
+//{
+//
+//}
+//void AControlPoint::UpdateUIMaterialInstance()
+//{
+//
+//}
+//void AControlPoint::UpdatePresenceNumbers()
+//{
+//
+//}
+//void AControlPoint::UpdateCaptureProgress(float DeltaTime)
+//{}
 void AControlPoint::SetCaptureProgress(float NewProgress, uint8 NewCaptor, bool bAwardScore)
 {}
-void AControlPoint::EnemyLostPrerequisites()
-{
-
-}
-void AControlPoint::EnemyGainedPrerequisites()
-{
-
-}
+//void AControlPoint::EnemyLostPrerequisites()
+//{
+//
+//}
+//void AControlPoint::EnemyGainedPrerequisites()
+//{
+//
+//}
 bool AControlPoint::CanCapture(uint8 Team)
 {
 	return 1;

@@ -7,11 +7,14 @@ UPROPERTY(BlueprintReadWrite)
 FText placeholder;
 EServerRegion serverReg;
 struct FBox ReturnBox;
+TArray<class AMordhauPlayerState*> ReturnPSArray;
 
 
 
-
-
+TArray<class AMordhauPlayerState*> UMordhauUtilityLibrary::SortPlayers(TArray<class AMordhauPlayerState*> Array)
+{
+	return ReturnPSArray;
+}
 void UMordhauUtilityLibrary::StripProfile(const struct FCharacterProfile& InProfile, bool bStripEquipment, bool bStripPerks, bool bStripNonTier0Armor, struct FCharacterProfile& strippedPrf)
 {}
 void UMordhauUtilityLibrary::MarkRenderStateDirty(class UMeshComponent* MeshComp)
@@ -494,7 +497,7 @@ float UMordhauUtilityLibrary::GetNormalizedTime(float Start, float End, float Cu
 {
 return 1;
 }
-int UMordhauUtilityLibrary::GetMaxIndexWithDraw(TArray<int> inArray, bool bFoundDraw)
+int UMordhauUtilityLibrary::GetMaxIndexWithDraw(TArray<int> inArray, bool& bFoundDraw)
 {
 return 1;
 }
