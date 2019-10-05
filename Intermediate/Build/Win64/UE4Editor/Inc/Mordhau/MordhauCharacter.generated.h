@@ -27,6 +27,7 @@ class UObject;
 class USoundBase;
 class AMordhauWeapon;
 struct FRotator;
+struct FCharacterProfile;
 struct FHitResult;
 class ASeparatedBodyPart;
 struct FNetMotion;
@@ -1426,6 +1427,15 @@ struct FVector_NetQuantize;
 		P_NATIVE_BEGIN; \
 		P_THIS->SaveConfigVar(); \
 		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execAssignProfile) \
+	{ \
+		P_GET_STRUCT_REF(FCharacterProfile,Z_Param_Out_NewProfile); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->AssignProfile(Z_Param_Out_NewProfile); \
+		P_NATIVE_END; \
 	}
 
 
@@ -2817,6 +2827,15 @@ struct FVector_NetQuantize;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		P_THIS->SaveConfigVar(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execAssignProfile) \
+	{ \
+		P_GET_STRUCT_REF(FCharacterProfile,Z_Param_Out_NewProfile); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->AssignProfile(Z_Param_Out_NewProfile); \
 		P_NATIVE_END; \
 	}
 

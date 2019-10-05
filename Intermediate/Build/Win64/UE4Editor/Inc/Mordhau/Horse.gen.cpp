@@ -30,8 +30,7 @@ void EmptyLinkFunctionForGeneratedCodeHorse() {}
 	MORDHAU_API UFunction* Z_Construct_UFunction_AHorse_SecondaryTurnNotAbsolute();
 	MORDHAU_API UFunction* Z_Construct_UFunction_AHorse_ServerRequestRearing();
 	MORDHAU_API UFunction* Z_Construct_UFunction_AHorse_SpawnTurd();
-	MORDHAU_API UClass* Z_Construct_UClass_UHorseMovementComponent_NoRegister();
-	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
+	MORDHAU_API UClass* Z_Construct_UClass_UMordhauCapsuleComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCapsuleComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UCurveFloat_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USoundCue_NoRegister();
@@ -362,6 +361,7 @@ void EmptyLinkFunctionForGeneratedCodeHorse() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AHorse_SpawnTurd_Statics::Function_MetaDataParams[] = {
 		{ "Category", "HorseEvents" },
 		{ "ModuleRelativePath", "Horse.h" },
+		{ "ToolTip", "UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"SkeletalMeshComp\")\nclass ULODSkeletalMeshComponent* CharacterMesh0;\nUPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"HorseMovementComp\")\nclass UHorseMovementComponent* HorsemovementComponent;\nUPROPERTY(EditAnywhere, BlueprintReadWrite, Category = \"HorseMovementComp\")\nclass UHorseMovementComponent* CharMoveComp;" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AHorse_SpawnTurd_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AHorse, "SpawnTurd", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x0C020800, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AHorse_SpawnTurd_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AHorse_SpawnTurd_Statics::Function_MetaDataParams)) };
@@ -386,17 +386,13 @@ void EmptyLinkFunctionForGeneratedCodeHorse() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_HorsemovementComponent_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_HorsemovementComponent;
-#if WITH_METADATA
-		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CharacterMesh0_MetaData[];
-#endif
-		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CharacterMesh0;
-#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_DesiredGear_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_DesiredGear;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CollisionCylinder_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CollisionCylinder;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_BumpCapsule_MetaData[];
 #endif
@@ -488,7 +484,7 @@ void EmptyLinkFunctionForGeneratedCodeHorse() {}
 		{ &Z_Construct_UFunction_AHorse_RequestRearing, "RequestRearing" }, // 3563324609
 		{ &Z_Construct_UFunction_AHorse_SecondaryTurnNotAbsolute, "SecondaryTurnNotAbsolute" }, // 1218452818
 		{ &Z_Construct_UFunction_AHorse_ServerRequestRearing, "ServerRequestRearing" }, // 3563116716
-		{ &Z_Construct_UFunction_AHorse_SpawnTurd, "SpawnTurd" }, // 571271547
+		{ &Z_Construct_UFunction_AHorse_SpawnTurd, "SpawnTurd" }, // 2326914564
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHorse_Statics::Class_MetaDataParams[] = {
@@ -498,28 +494,20 @@ void EmptyLinkFunctionForGeneratedCodeHorse() {}
 	};
 #endif
 #if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHorse_Statics::NewProp_HorsemovementComponent_MetaData[] = {
-		{ "Category", "HorseMovementComp" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Horse.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHorse_Statics::NewProp_HorsemovementComponent = { UE4CodeGen_Private::EPropertyClass::Object, "HorsemovementComponent", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x001000000008000d, 1, nullptr, STRUCT_OFFSET(AHorse, HorsemovementComponent), Z_Construct_UClass_UHorseMovementComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHorse_Statics::NewProp_HorsemovementComponent_MetaData, ARRAY_COUNT(Z_Construct_UClass_AHorse_Statics::NewProp_HorsemovementComponent_MetaData)) };
-#if WITH_METADATA
-	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHorse_Statics::NewProp_CharacterMesh0_MetaData[] = {
-		{ "Category", "SkeletalMeshComp" },
-		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Horse.h" },
-	};
-#endif
-	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHorse_Statics::NewProp_CharacterMesh0 = { UE4CodeGen_Private::EPropertyClass::Object, "CharacterMesh0", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x001000000008000d, 1, nullptr, STRUCT_OFFSET(AHorse, CharacterMesh0), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHorse_Statics::NewProp_CharacterMesh0_MetaData, ARRAY_COUNT(Z_Construct_UClass_AHorse_Statics::NewProp_CharacterMesh0_MetaData)) };
-#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHorse_Statics::NewProp_DesiredGear_MetaData[] = {
 		{ "Category", "Integers" },
 		{ "ModuleRelativePath", "Horse.h" },
 	};
 #endif
 	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AHorse_Statics::NewProp_DesiredGear = { UE4CodeGen_Private::EPropertyClass::Int, "DesiredGear", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AHorse, DesiredGear), METADATA_PARAMS(Z_Construct_UClass_AHorse_Statics::NewProp_DesiredGear_MetaData, ARRAY_COUNT(Z_Construct_UClass_AHorse_Statics::NewProp_DesiredGear_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHorse_Statics::NewProp_CollisionCylinder_MetaData[] = {
+		{ "Category", "ClassRefs" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Horse.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AHorse_Statics::NewProp_CollisionCylinder = { UE4CodeGen_Private::EPropertyClass::Object, "CollisionCylinder", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x001000000008000d, 1, nullptr, STRUCT_OFFSET(AHorse, CollisionCylinder), Z_Construct_UClass_UMordhauCapsuleComponent_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AHorse_Statics::NewProp_CollisionCylinder_MetaData, ARRAY_COUNT(Z_Construct_UClass_AHorse_Statics::NewProp_CollisionCylinder_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHorse_Statics::NewProp_BumpCapsule_MetaData[] = {
 		{ "Category", "ClassRefs" },
@@ -653,9 +641,8 @@ void EmptyLinkFunctionForGeneratedCodeHorse() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AHorse_Statics::NewProp_TurdSpawnInterval = { UE4CodeGen_Private::EPropertyClass::Float, "TurdSpawnInterval", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AHorse, TurdSpawnInterval), METADATA_PARAMS(Z_Construct_UClass_AHorse_Statics::NewProp_TurdSpawnInterval_MetaData, ARRAY_COUNT(Z_Construct_UClass_AHorse_Statics::NewProp_TurdSpawnInterval_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AHorse_Statics::PropPointers[] = {
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHorse_Statics::NewProp_HorsemovementComponent,
-		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHorse_Statics::NewProp_CharacterMesh0,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHorse_Statics::NewProp_DesiredGear,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHorse_Statics::NewProp_CollisionCylinder,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHorse_Statics::NewProp_BumpCapsule,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHorse_Statics::NewProp_AttackDamageBySpeedModifierCurve,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AHorse_Statics::NewProp_BumpDamageBySpeedModifierCurve,
@@ -699,7 +686,7 @@ void EmptyLinkFunctionForGeneratedCodeHorse() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AHorse, 3623399970);
+	IMPLEMENT_CLASS(AHorse, 825028851);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AHorse(Z_Construct_UClass_AHorse, &AHorse::StaticClass, TEXT("/Script/Mordhau"), TEXT("AHorse"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AHorse);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

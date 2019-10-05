@@ -27,7 +27,6 @@ struct FPerceptionInfo;
 
 
 #define Mordhau_Source_Mordhau_MordhauAIController_h_50_RPC_WRAPPERS \
-	virtual AActor* GetCurrentlyFacingActor_Implementation(); \
  \
 	DECLARE_FUNCTION(execGetKthClosestOfThree) \
 	{ \
@@ -66,7 +65,7 @@ struct FPerceptionInfo;
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(AActor**)Z_Param__Result=P_THIS->GetCurrentlyFacingActor_Implementation(); \
+		*(AActor**)Z_Param__Result=P_THIS->GetCurrentlyFacingActor(); \
 		P_NATIVE_END; \
 	} \
  \
@@ -216,7 +215,6 @@ struct FPerceptionInfo;
 
 
 #define Mordhau_Source_Mordhau_MordhauAIController_h_50_RPC_WRAPPERS_NO_PURE_DECLS \
-	virtual AActor* GetCurrentlyFacingActor_Implementation(); \
  \
 	DECLARE_FUNCTION(execGetKthClosestOfThree) \
 	{ \
@@ -255,7 +253,7 @@ struct FPerceptionInfo;
 	{ \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(AActor**)Z_Param__Result=P_THIS->GetCurrentlyFacingActor_Implementation(); \
+		*(AActor**)Z_Param__Result=P_THIS->GetCurrentlyFacingActor(); \
 		P_NATIVE_END; \
 	} \
  \
@@ -405,16 +403,6 @@ struct FPerceptionInfo;
 
 
 #define Mordhau_Source_Mordhau_MordhauAIController_h_50_EVENT_PARMS \
-	struct MordhauAIController_eventGetCurrentlyFacingActor_Parms \
-	{ \
-		AActor* ReturnValue; \
- \
-		/** Constructor, initializes return property only **/ \
-		MordhauAIController_eventGetCurrentlyFacingActor_Parms() \
-			: ReturnValue(NULL) \
-		{ \
-		} \
-	}; \
 	struct MordhauAIController_eventOnCharacterDiedOrDestroyed_Parms \
 	{ \
 		AAdvancedCharacter* AdvancedCharacter; \

@@ -901,10 +901,10 @@ class UMaterialInterface;
 	DECLARE_FUNCTION(execGetMaxIndexWithDraw) \
 	{ \
 		P_GET_TARRAY(int32,Z_Param_inArray); \
-		P_GET_UBOOL(Z_Param_bFoundDraw); \
+		P_GET_UBOOL_REF(Z_Param_Out_bFoundDraw); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(int32*)Z_Param__Result=UMordhauUtilityLibrary::GetMaxIndexWithDraw(Z_Param_inArray,Z_Param_bFoundDraw); \
+		*(int32*)Z_Param__Result=UMordhauUtilityLibrary::GetMaxIndexWithDraw(Z_Param_inArray,Z_Param_Out_bFoundDraw); \
 		P_NATIVE_END; \
 	} \
  \
@@ -1773,6 +1773,15 @@ class UMaterialInterface;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		UMordhauUtilityLibrary::VSmoothDamp(Z_Param_Out_Target,Z_Param_SmoothTime,Z_Param_DeltaTime,Z_Param_MaxSpeed,Z_Param_Current,Z_Param_CurrentVelocity); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSortPlayers) \
+	{ \
+		P_GET_TARRAY(AMordhauPlayerState*,Z_Param_Array); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(TArray<AMordhauPlayerState*>*)Z_Param__Result=UMordhauUtilityLibrary::SortPlayers(Z_Param_Array); \
 		P_NATIVE_END; \
 	}
 
@@ -2609,10 +2618,10 @@ class UMaterialInterface;
 	DECLARE_FUNCTION(execGetMaxIndexWithDraw) \
 	{ \
 		P_GET_TARRAY(int32,Z_Param_inArray); \
-		P_GET_UBOOL(Z_Param_bFoundDraw); \
+		P_GET_UBOOL_REF(Z_Param_Out_bFoundDraw); \
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
-		*(int32*)Z_Param__Result=UMordhauUtilityLibrary::GetMaxIndexWithDraw(Z_Param_inArray,Z_Param_bFoundDraw); \
+		*(int32*)Z_Param__Result=UMordhauUtilityLibrary::GetMaxIndexWithDraw(Z_Param_inArray,Z_Param_Out_bFoundDraw); \
 		P_NATIVE_END; \
 	} \
  \
@@ -3481,6 +3490,15 @@ class UMaterialInterface;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		UMordhauUtilityLibrary::VSmoothDamp(Z_Param_Out_Target,Z_Param_SmoothTime,Z_Param_DeltaTime,Z_Param_MaxSpeed,Z_Param_Current,Z_Param_CurrentVelocity); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execSortPlayers) \
+	{ \
+		P_GET_TARRAY(AMordhauPlayerState*,Z_Param_Array); \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		*(TArray<AMordhauPlayerState*>*)Z_Param__Result=UMordhauUtilityLibrary::SortPlayers(Z_Param_Array); \
 		P_NATIVE_END; \
 	}
 

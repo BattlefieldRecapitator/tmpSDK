@@ -14,8 +14,44 @@ class UMordhauDialog;
 #endif
 #define MORDHAU_MordhauHUD_generated_h
 
-#define Mordhau_Source_Mordhau_MordhauHUD_h_15_RPC_WRAPPERS
-#define Mordhau_Source_Mordhau_MordhauHUD_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define Mordhau_Source_Mordhau_MordhauHUD_h_15_RPC_WRAPPERS \
+ \
+	DECLARE_FUNCTION(execHideMainMenu) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->HideMainMenu(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execCreateMainMenu) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->CreateMainMenu(); \
+		P_NATIVE_END; \
+	}
+
+
+#define Mordhau_Source_Mordhau_MordhauHUD_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execHideMainMenu) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->HideMainMenu(); \
+		P_NATIVE_END; \
+	} \
+ \
+	DECLARE_FUNCTION(execCreateMainMenu) \
+	{ \
+		P_FINISH; \
+		P_NATIVE_BEGIN; \
+		P_THIS->CreateMainMenu(); \
+		P_NATIVE_END; \
+	}
+
+
 #define Mordhau_Source_Mordhau_MordhauHUD_h_15_EVENT_PARMS \
 	struct MordhauHUD_eventEnqueueMordhauDialog_Parms \
 	{ \

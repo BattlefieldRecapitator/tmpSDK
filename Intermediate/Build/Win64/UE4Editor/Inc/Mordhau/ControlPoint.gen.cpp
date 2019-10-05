@@ -46,6 +46,16 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 	ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
 	MORDHAU_API UClass* Z_Construct_UClass_UMordhauWidgetComponent_NoRegister();
 // End Cross Module References
+	static FName NAME_AControlPoint_EnemyGainedPrerequisites = FName(TEXT("EnemyGainedPrerequisites"));
+	void AControlPoint::EnemyGainedPrerequisites()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AControlPoint_EnemyGainedPrerequisites),NULL);
+	}
+	static FName NAME_AControlPoint_EnemyLostPrerequisites = FName(TEXT("EnemyLostPrerequisites"));
+	void AControlPoint::EnemyLostPrerequisites()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AControlPoint_EnemyLostPrerequisites),NULL);
+	}
 	static FName NAME_AControlPoint_OnCaptureAreaBeginOverlap = FName(TEXT("OnCaptureAreaBeginOverlap"));
 	void AControlPoint::OnCaptureAreaBeginOverlap(UPrimitiveComponent* OverlappedComp, AActor* Other, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, FHitResult const& SweepResult)
 	{
@@ -103,13 +113,38 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 	{
 		ProcessEvent(FindFunctionChecked(NAME_AControlPoint_OnStoppedFlashing),NULL);
 	}
+	static FName NAME_AControlPoint_UpdateCaptureProgress = FName(TEXT("UpdateCaptureProgress"));
+	void AControlPoint::UpdateCaptureProgress(float DeltaTime)
+	{
+		ControlPoint_eventUpdateCaptureProgress_Parms Parms;
+		Parms.DeltaTime=DeltaTime;
+		ProcessEvent(FindFunctionChecked(NAME_AControlPoint_UpdateCaptureProgress),&Parms);
+	}
+	static FName NAME_AControlPoint_UpdatePresenceNumbers = FName(TEXT("UpdatePresenceNumbers"));
+	void AControlPoint::UpdatePresenceNumbers()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AControlPoint_UpdatePresenceNumbers),NULL);
+	}
+	static FName NAME_AControlPoint_UpdateUIMaterialInstance = FName(TEXT("UpdateUIMaterialInstance"));
+	void AControlPoint::UpdateUIMaterialInstance()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AControlPoint_UpdateUIMaterialInstance),NULL);
+	}
+	static FName NAME_AControlPoint_UpdateUIWidgets = FName(TEXT("UpdateUIWidgets"));
+	void AControlPoint::UpdateUIWidgets()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AControlPoint_UpdateUIWidgets),NULL);
+	}
+	static FName NAME_AControlPoint_UpdateVisuals = FName(TEXT("UpdateVisuals"));
+	void AControlPoint::UpdateVisuals()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AControlPoint_UpdateVisuals),NULL);
+	}
 	void AControlPoint::StaticRegisterNativesAControlPoint()
 	{
 		UClass* Class = AControlPoint::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "CanCapture", &AControlPoint::execCanCapture },
-			{ "EnemyGainedPrerequisites", &AControlPoint::execEnemyGainedPrerequisites },
-			{ "EnemyLostPrerequisites", &AControlPoint::execEnemyLostPrerequisites },
 			{ "OnCaptureAreaBeginOverlap", &AControlPoint::execOnCaptureAreaBeginOverlap },
 			{ "OnCaptureAreaEndOverlap", &AControlPoint::execOnCaptureAreaEndOverlap },
 			{ "OnCapturingTeamChanged", &AControlPoint::execOnCapturingTeamChanged },
@@ -120,11 +155,6 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 			{ "OnStartedFlashing", &AControlPoint::execOnStartedFlashing },
 			{ "OnStoppedFlashing", &AControlPoint::execOnStoppedFlashing },
 			{ "SetCaptureProgress", &AControlPoint::execSetCaptureProgress },
-			{ "UpdateCaptureProgress", &AControlPoint::execUpdateCaptureProgress },
-			{ "UpdatePresenceNumbers", &AControlPoint::execUpdatePresenceNumbers },
-			{ "UpdateUIMaterialInstance", &AControlPoint::execUpdateUIMaterialInstance },
-			{ "UpdateUIWidgets", &AControlPoint::execUpdateUIWidgets },
-			{ "UpdateVisuals", &AControlPoint::execUpdateVisuals },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, ARRAY_COUNT(Funcs));
 	}
@@ -183,7 +213,7 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 		{ "ModuleRelativePath", "ControlPoint.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_EnemyGainedPrerequisites_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "EnemyGainedPrerequisites", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04020401, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_EnemyGainedPrerequisites_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_EnemyGainedPrerequisites_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_EnemyGainedPrerequisites_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "EnemyGainedPrerequisites", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x0C020800, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_EnemyGainedPrerequisites_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_EnemyGainedPrerequisites_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AControlPoint_EnemyGainedPrerequisites()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -206,7 +236,7 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 		{ "ModuleRelativePath", "ControlPoint.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_EnemyLostPrerequisites_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "EnemyLostPrerequisites", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04020401, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_EnemyLostPrerequisites_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_EnemyLostPrerequisites_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_EnemyLostPrerequisites_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "EnemyLostPrerequisites", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x0C020800, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_EnemyLostPrerequisites_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_EnemyLostPrerequisites_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AControlPoint_EnemyLostPrerequisites()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -552,10 +582,6 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 	}
 	struct Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress_Statics
 	{
-		struct ControlPoint_eventUpdateCaptureProgress_Parms
-		{
-			float DeltaTime;
-		};
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_DeltaTime;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
@@ -573,7 +599,7 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 		{ "ModuleRelativePath", "ControlPoint.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "UpdateCaptureProgress", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04020401, sizeof(ControlPoint_eventUpdateCaptureProgress_Parms), Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress_Statics::PropPointers), 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "UpdateCaptureProgress", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x0C020800, sizeof(ControlPoint_eventUpdateCaptureProgress_Parms), Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress_Statics::PropPointers), 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -596,7 +622,7 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 		{ "ModuleRelativePath", "ControlPoint.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_UpdatePresenceNumbers_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "UpdatePresenceNumbers", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04020401, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_UpdatePresenceNumbers_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_UpdatePresenceNumbers_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_UpdatePresenceNumbers_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "UpdatePresenceNumbers", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x0C020800, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_UpdatePresenceNumbers_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_UpdatePresenceNumbers_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AControlPoint_UpdatePresenceNumbers()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -619,7 +645,7 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 		{ "ModuleRelativePath", "ControlPoint.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_UpdateUIMaterialInstance_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "UpdateUIMaterialInstance", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04020401, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_UpdateUIMaterialInstance_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_UpdateUIMaterialInstance_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_UpdateUIMaterialInstance_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "UpdateUIMaterialInstance", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x0C020800, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_UpdateUIMaterialInstance_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_UpdateUIMaterialInstance_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AControlPoint_UpdateUIMaterialInstance()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -642,7 +668,7 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 		{ "ModuleRelativePath", "ControlPoint.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_UpdateUIWidgets_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "UpdateUIWidgets", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04020401, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_UpdateUIWidgets_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_UpdateUIWidgets_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_UpdateUIWidgets_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "UpdateUIWidgets", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x0C020800, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_UpdateUIWidgets_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_UpdateUIWidgets_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AControlPoint_UpdateUIWidgets()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -665,7 +691,7 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 		{ "ModuleRelativePath", "ControlPoint.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_UpdateVisuals_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "UpdateVisuals", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04020401, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_UpdateVisuals_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_UpdateVisuals_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AControlPoint_UpdateVisuals_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AControlPoint, "UpdateVisuals", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x0C020800, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AControlPoint_UpdateVisuals_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AControlPoint_UpdateVisuals_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AControlPoint_UpdateVisuals()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -739,11 +765,11 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CapturingTeam_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_CapturingTeam;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_CapturingTeam;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_OwningTeam_MetaData[];
 #endif
-		static const UE4CodeGen_Private::FUnsizedIntPropertyParams NewProp_OwningTeam;
+		static const UE4CodeGen_Private::FBytePropertyParams NewProp_OwningTeam;
 #if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_NetworkSmoothTime_MetaData[];
 #endif
@@ -876,8 +902,8 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AControlPoint_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AControlPoint_CanCapture, "CanCapture" }, // 1041689373
-		{ &Z_Construct_UFunction_AControlPoint_EnemyGainedPrerequisites, "EnemyGainedPrerequisites" }, // 3414191881
-		{ &Z_Construct_UFunction_AControlPoint_EnemyLostPrerequisites, "EnemyLostPrerequisites" }, // 2912442241
+		{ &Z_Construct_UFunction_AControlPoint_EnemyGainedPrerequisites, "EnemyGainedPrerequisites" }, // 3543443498
+		{ &Z_Construct_UFunction_AControlPoint_EnemyLostPrerequisites, "EnemyLostPrerequisites" }, // 3687544592
 		{ &Z_Construct_UFunction_AControlPoint_OnCaptureAreaBeginOverlap, "OnCaptureAreaBeginOverlap" }, // 3380982012
 		{ &Z_Construct_UFunction_AControlPoint_OnCaptureAreaEndOverlap, "OnCaptureAreaEndOverlap" }, // 3982120616
 		{ &Z_Construct_UFunction_AControlPoint_OnCapturingTeamChanged, "OnCapturingTeamChanged" }, // 2571701787
@@ -888,11 +914,11 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 		{ &Z_Construct_UFunction_AControlPoint_OnStartedFlashing, "OnStartedFlashing" }, // 928483495
 		{ &Z_Construct_UFunction_AControlPoint_OnStoppedFlashing, "OnStoppedFlashing" }, // 3250774013
 		{ &Z_Construct_UFunction_AControlPoint_SetCaptureProgress, "SetCaptureProgress" }, // 2161552130
-		{ &Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress, "UpdateCaptureProgress" }, // 249058411
-		{ &Z_Construct_UFunction_AControlPoint_UpdatePresenceNumbers, "UpdatePresenceNumbers" }, // 33975028
-		{ &Z_Construct_UFunction_AControlPoint_UpdateUIMaterialInstance, "UpdateUIMaterialInstance" }, // 868373157
-		{ &Z_Construct_UFunction_AControlPoint_UpdateUIWidgets, "UpdateUIWidgets" }, // 3995331651
-		{ &Z_Construct_UFunction_AControlPoint_UpdateVisuals, "UpdateVisuals" }, // 1107853210
+		{ &Z_Construct_UFunction_AControlPoint_UpdateCaptureProgress, "UpdateCaptureProgress" }, // 814657506
+		{ &Z_Construct_UFunction_AControlPoint_UpdatePresenceNumbers, "UpdatePresenceNumbers" }, // 3894535405
+		{ &Z_Construct_UFunction_AControlPoint_UpdateUIMaterialInstance, "UpdateUIMaterialInstance" }, // 729191814
+		{ &Z_Construct_UFunction_AControlPoint_UpdateUIWidgets, "UpdateUIWidgets" }, // 3093792359
+		{ &Z_Construct_UFunction_AControlPoint_UpdateVisuals, "UpdateVisuals" }, // 3703098913
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AControlPoint_Statics::Class_MetaDataParams[] = {
@@ -998,14 +1024,14 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 		{ "ModuleRelativePath", "ControlPoint.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AControlPoint_Statics::NewProp_CapturingTeam = { UE4CodeGen_Private::EPropertyClass::Int, "CapturingTeam", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AControlPoint, CapturingTeam), METADATA_PARAMS(Z_Construct_UClass_AControlPoint_Statics::NewProp_CapturingTeam_MetaData, ARRAY_COUNT(Z_Construct_UClass_AControlPoint_Statics::NewProp_CapturingTeam_MetaData)) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AControlPoint_Statics::NewProp_CapturingTeam = { UE4CodeGen_Private::EPropertyClass::Byte, "CapturingTeam", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AControlPoint, CapturingTeam), nullptr, METADATA_PARAMS(Z_Construct_UClass_AControlPoint_Statics::NewProp_CapturingTeam_MetaData, ARRAY_COUNT(Z_Construct_UClass_AControlPoint_Statics::NewProp_CapturingTeam_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AControlPoint_Statics::NewProp_OwningTeam_MetaData[] = {
 		{ "Category", "ControlPoint" },
 		{ "ModuleRelativePath", "ControlPoint.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UClass_AControlPoint_Statics::NewProp_OwningTeam = { UE4CodeGen_Private::EPropertyClass::Int, "OwningTeam", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AControlPoint, OwningTeam), METADATA_PARAMS(Z_Construct_UClass_AControlPoint_Statics::NewProp_OwningTeam_MetaData, ARRAY_COUNT(Z_Construct_UClass_AControlPoint_Statics::NewProp_OwningTeam_MetaData)) };
+	const UE4CodeGen_Private::FBytePropertyParams Z_Construct_UClass_AControlPoint_Statics::NewProp_OwningTeam = { UE4CodeGen_Private::EPropertyClass::Byte, "OwningTeam", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AControlPoint, OwningTeam), nullptr, METADATA_PARAMS(Z_Construct_UClass_AControlPoint_Statics::NewProp_OwningTeam_MetaData, ARRAY_COUNT(Z_Construct_UClass_AControlPoint_Statics::NewProp_OwningTeam_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AControlPoint_Statics::NewProp_NetworkSmoothTime_MetaData[] = {
 		{ "Category", "ControlPoint" },
@@ -1309,7 +1335,7 @@ void EmptyLinkFunctionForGeneratedCodeControlPoint() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AControlPoint, 2673483599);
+	IMPLEMENT_CLASS(AControlPoint, 2042123910);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AControlPoint(Z_Construct_UClass_AControlPoint, &AControlPoint::StaticClass, TEXT("/Script/Mordhau"), TEXT("AControlPoint"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AControlPoint);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

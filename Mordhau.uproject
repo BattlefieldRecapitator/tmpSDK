@@ -3,24 +3,17 @@
 	"EngineAssociation": "4.20",
 	"Category": "",
 	"Description": "",
+	"Enterprise": true,
 	"Modules": [
 		{
 			"Name": "Mordhau",
 			"Type": "Runtime",
 			"LoadingPhase": "Default",
 			"AdditionalDependencies": [
-				"UMG",
-				"AIModule",
-				"CoreUObject",
 				"Engine",
-				"OnlineSubsystemUtils"
+				"UMG",
+				"AIModule"
 			]
-		}
-	],
-	"Plugins": [
-		{
-			"Name": "ApexDestruction",
-			"Enabled": true
 		}
 	]
 }

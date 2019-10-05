@@ -25,8 +25,8 @@ void EmptyLinkFunctionForGeneratedCodeMordhau_init() {}
 			static const UE4CodeGen_Private::FPackageParams PackageParams = {
 				"/Script/Mordhau",
 				PKG_CompiledIn | 0x00000000,
-				0xAD8899F9,
-				0xDF320A42,
+				0x273C0C8B,
+				0x7C8AF9A9,
 				SingletonFuncArray, ARRAY_COUNT(SingletonFuncArray),
 				METADATA_PARAMS(nullptr, 0)
 			};

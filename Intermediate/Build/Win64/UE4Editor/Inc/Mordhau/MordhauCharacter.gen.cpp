@@ -17,6 +17,8 @@ void EmptyLinkFunctionForGeneratedCodeMordhauCharacter() {}
 	MORDHAU_API UClass* Z_Construct_UClass_AMordhauCharacter();
 	MORDHAU_API UClass* Z_Construct_UClass_AAdvancedCharacter();
 	UPackage* Z_Construct_UPackage__Script_Mordhau();
+	MORDHAU_API UFunction* Z_Construct_UFunction_AMordhauCharacter_AssignProfile();
+	MORDHAU_API UScriptStruct* Z_Construct_UScriptStruct_FCharacterProfile();
 	MORDHAU_API UFunction* Z_Construct_UFunction_AMordhauCharacter_BlockPressed();
 	MORDHAU_API UFunction* Z_Construct_UFunction_AMordhauCharacter_BlockReleased();
 	MORDHAU_API UFunction* Z_Construct_UFunction_AMordhauCharacter_CanDismember();
@@ -221,7 +223,6 @@ void EmptyLinkFunctionForGeneratedCodeMordhauCharacter() {}
 	MORDHAU_API UScriptStruct* Z_Construct_UScriptStruct_FWoundInfo();
 	MORDHAU_API UScriptStruct* Z_Construct_UScriptStruct_FNetBlock();
 	MORDHAU_API UScriptStruct* Z_Construct_UScriptStruct_FEmoteEntry();
-	MORDHAU_API UScriptStruct* Z_Construct_UScriptStruct_FCharacterProfile();
 	MORDHAU_API UClass* Z_Construct_UClass_UEmoteMotion_NoRegister();
 	MORDHAU_API UClass* Z_Construct_UClass_UFeintedMotion_NoRegister();
 	MORDHAU_API UClass* Z_Construct_UClass_UFlinchMotion_NoRegister();
@@ -354,6 +355,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauCharacter() {}
 	{
 		UClass* Class = AMordhauCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "AssignProfile", &AMordhauCharacter::execAssignProfile },
 			{ "BlockPressed", &AMordhauCharacter::execBlockPressed },
 			{ "BlockReleased", &AMordhauCharacter::execBlockReleased },
 			{ "CanDismember", &AMordhauCharacter::execCanDismember },
@@ -516,6 +518,48 @@ void EmptyLinkFunctionForGeneratedCodeMordhauCharacter() {}
 			{ "ValidateInteractionTarget", &AMordhauCharacter::execValidateInteractionTarget },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics
+	{
+		struct MordhauCharacter_eventAssignProfile_Parms
+		{
+			FCharacterProfile NewProfile;
+		};
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_NewProfile_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FStructPropertyParams NewProp_NewProfile;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::NewProp_NewProfile_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UE4CodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::NewProp_NewProfile = { UE4CodeGen_Private::EPropertyClass::Struct, "NewProfile", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000008000182, 1, nullptr, STRUCT_OFFSET(MordhauCharacter_eventAssignProfile_Parms, NewProfile), Z_Construct_UScriptStruct_FCharacterProfile, METADATA_PARAMS(Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::NewProp_NewProfile_MetaData, ARRAY_COUNT(Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::NewProp_NewProfile_MetaData)) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::NewProp_NewProfile,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::Function_MetaDataParams[] = {
+		{ "Category", "MordhauCharFns" },
+		{ "ModuleRelativePath", "MordhauCharacter.h" },
+		{ "ToolTip", "UFUNCTION(BlueprintCallable, Category = \"MordhauCharFns\")\n               bool PickUpToSlot(class AMordhauEquipment* ToEquip, uint8 Slot);\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                void LeftTeamArea(int OwningTeam);\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                bool IsInKnockback();\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                bool IsInEnemyTeamArea();\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                bool IsInAnyTeamArea();\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                bool IsHoldingBlock();\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                bool HasPerk(uint8 PerkId);\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                bool CanEasyParry();\n               UFUNCTION(BlueprintCallable, Category = \"MordhauCharFns\")\n               void EnteredTeamArea(int OwningTeam);\n               UFUNCTION(BlueprintCallable, Category = \"MordhauCharFns\")\n               void UseReleased();\n               UFUNCTION(BlueprintCallable, Category = \"MordhauCharFns\")\n               void UsePressed();\n               UFUNCTION(BlueprintCallable, Category = \"MordhauCharFns\")\n               bool ValidateInteractionTarget(class AActor* TargetActor);\n               UFUNCTION(BlueprintCallable, Category = \"MordhauCharFns\")\n               void AssignProfile(const struct FCharacterProfile& NewProfile);" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMordhauCharacter, "AssignProfile", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04420401, sizeof(MordhauCharacter_eventAssignProfile_Parms), Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::PropPointers), 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMordhauCharacter_AssignProfile()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMordhauCharacter_AssignProfile_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AMordhauCharacter_BlockPressed_Statics
 	{
@@ -4834,7 +4878,6 @@ void EmptyLinkFunctionForGeneratedCodeMordhauCharacter() {}
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMordhauCharacter_ServerSetInteractionTarget_Statics::Function_MetaDataParams[] = {
 		{ "Category", "MordhauCharEvents" },
 		{ "ModuleRelativePath", "MordhauCharacter.h" },
-		{ "ToolTip", "UFUNCTION(BlueprintCallable, Category = \"MordhauCharFns\")\n               bool PickUpToSlot(class AMordhauEquipment* ToEquip, uint8 Slot);\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                void LeftTeamArea(int OwningTeam);\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                bool IsInKnockback();\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                bool IsInEnemyTeamArea();\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                bool IsInAnyTeamArea();\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                bool IsHoldingBlock();\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                bool HasPerk(uint8 PerkId);\n               UFUNCTION(BlueprintCallable, Category=\"MordhauCharFns\")\n                bool CanEasyParry();\n               UFUNCTION(BlueprintCallable, Category = \"MordhauCharFns\")\n               void EnteredTeamArea(int OwningTeam);\n               UFUNCTION(BlueprintCallable, Category = \"MordhauCharFns\")\n               void UseReleased();\n               UFUNCTION(BlueprintCallable, Category = \"MordhauCharFns\")\n               void UsePressed();\n               UFUNCTION(BlueprintCallable, Category = \"MordhauCharFns\")\n               bool ValidateInteractionTarget(class AActor* TargetActor);\n               UFUNCTION(BlueprintCallable, Category = \"MordhauCharFns\")\n               void AssignProfile(const struct FCharacterProfile& NewProfile);" },
 	};
 #endif
 	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMordhauCharacter_ServerSetInteractionTarget_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMordhauCharacter, "ServerSetInteractionTarget", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x0C020800, sizeof(MordhauCharacter_eventServerSetInteractionTarget_Parms), Z_Construct_UFunction_AMordhauCharacter_ServerSetInteractionTarget_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_AMordhauCharacter_ServerSetInteractionTarget_Statics::PropPointers), 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMordhauCharacter_ServerSetInteractionTarget_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AMordhauCharacter_ServerSetInteractionTarget_Statics::Function_MetaDataParams)) };
@@ -7620,6 +7663,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauCharacter() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_Mordhau,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMordhauCharacter_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMordhauCharacter_AssignProfile, "AssignProfile" }, // 3631263688
 		{ &Z_Construct_UFunction_AMordhauCharacter_BlockPressed, "BlockPressed" }, // 3883037215
 		{ &Z_Construct_UFunction_AMordhauCharacter_BlockReleased, "BlockReleased" }, // 3671432369
 		{ &Z_Construct_UFunction_AMordhauCharacter_CanDismember, "CanDismember" }, // 1539102848
@@ -7750,7 +7794,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauCharacter() {}
 		{ &Z_Construct_UFunction_AMordhauCharacter_ServerRequestPassiveInteraction, "ServerRequestPassiveInteraction" }, // 1750947725
 		{ &Z_Construct_UFunction_AMordhauCharacter_ServerRequestPing, "ServerRequestPing" }, // 2895449544
 		{ &Z_Construct_UFunction_AMordhauCharacter_ServerRequestVoiceCommand, "ServerRequestVoiceCommand" }, // 2102523827
-		{ &Z_Construct_UFunction_AMordhauCharacter_ServerSetInteractionTarget, "ServerSetInteractionTarget" }, // 4187996001
+		{ &Z_Construct_UFunction_AMordhauCharacter_ServerSetInteractionTarget, "ServerSetInteractionTarget" }, // 325659795
 		{ &Z_Construct_UFunction_AMordhauCharacter_ServerSuggestHitDetection, "ServerSuggestHitDetection" }, // 4101698502
 		{ &Z_Construct_UFunction_AMordhauCharacter_SetAnimPosition, "SetAnimPosition" }, // 709655188
 		{ &Z_Construct_UFunction_AMordhauCharacter_SetAnimRate, "SetAnimRate" }, // 749263116
@@ -10525,7 +10569,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMordhauCharacter, 517940643);
+	IMPLEMENT_CLASS(AMordhauCharacter, 3804714649);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AMordhauCharacter(Z_Construct_UClass_AMordhauCharacter, &AMordhauCharacter::StaticClass, TEXT("/Script/Mordhau"), TEXT("AMordhauCharacter"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AMordhauCharacter);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

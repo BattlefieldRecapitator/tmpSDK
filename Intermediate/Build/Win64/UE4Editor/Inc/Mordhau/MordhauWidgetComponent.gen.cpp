@@ -76,6 +76,24 @@ void EmptyLinkFunctionForGeneratedCodeMordhauWidgetComponent() {}
 		static const UE4CodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_VisibilityWeight_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_VisibilityWeight;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_VisibilityWeightInterpolationSpeed_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_VisibilityWeightInterpolationSpeed;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_PartakesInSortedVisibilityQueue_MetaData[];
+#endif
+		static void NewProp_PartakesInSortedVisibilityQueue_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_PartakesInSortedVisibilityQueue;
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bIsSlowHideOverride_MetaData[];
+#endif
+		static void NewProp_bIsSlowHideOverride_SetBit(void* Obj);
+		static const UE4CodeGen_Private::FBoolPropertyParams NewProp_bIsSlowHideOverride;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CachedGameState_MetaData[];
 #endif
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CachedGameState;
@@ -173,6 +191,42 @@ void EmptyLinkFunctionForGeneratedCodeMordhauWidgetComponent() {}
 		{ "ModuleRelativePath", "MordhauWidgetComponent.h" },
 	};
 #endif
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_VisibilityWeight_MetaData[] = {
+		{ "Category", "MordhauWidgetComponent" },
+		{ "ModuleRelativePath", "MordhauWidgetComponent.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_VisibilityWeight = { UE4CodeGen_Private::EPropertyClass::Float, "VisibilityWeight", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(UMordhauWidgetComponent, VisibilityWeight), METADATA_PARAMS(Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_VisibilityWeight_MetaData, ARRAY_COUNT(Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_VisibilityWeight_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_VisibilityWeightInterpolationSpeed_MetaData[] = {
+		{ "Category", "MordhauWidgetComponent" },
+		{ "ModuleRelativePath", "MordhauWidgetComponent.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_VisibilityWeightInterpolationSpeed = { UE4CodeGen_Private::EPropertyClass::Float, "VisibilityWeightInterpolationSpeed", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(UMordhauWidgetComponent, VisibilityWeightInterpolationSpeed), METADATA_PARAMS(Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_VisibilityWeightInterpolationSpeed_MetaData, ARRAY_COUNT(Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_VisibilityWeightInterpolationSpeed_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_PartakesInSortedVisibilityQueue_MetaData[] = {
+		{ "Category", "MordhauWidgetComponent" },
+		{ "ModuleRelativePath", "MordhauWidgetComponent.h" },
+	};
+#endif
+	void Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_PartakesInSortedVisibilityQueue_SetBit(void* Obj)
+	{
+		((UMordhauWidgetComponent*)Obj)->PartakesInSortedVisibilityQueue = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_PartakesInSortedVisibilityQueue = { UE4CodeGen_Private::EPropertyClass::Bool, "PartakesInSortedVisibilityQueue", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(UMordhauWidgetComponent), &Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_PartakesInSortedVisibilityQueue_SetBit, METADATA_PARAMS(Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_PartakesInSortedVisibilityQueue_MetaData, ARRAY_COUNT(Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_PartakesInSortedVisibilityQueue_MetaData)) };
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_bIsSlowHideOverride_MetaData[] = {
+		{ "Category", "MordhauWidgetComponent" },
+		{ "ModuleRelativePath", "MordhauWidgetComponent.h" },
+	};
+#endif
+	void Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_bIsSlowHideOverride_SetBit(void* Obj)
+	{
+		((UMordhauWidgetComponent*)Obj)->bIsSlowHideOverride = 1;
+	}
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_bIsSlowHideOverride = { UE4CodeGen_Private::EPropertyClass::Bool, "bIsSlowHideOverride", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(UMordhauWidgetComponent), &Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_bIsSlowHideOverride_SetBit, METADATA_PARAMS(Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_bIsSlowHideOverride_MetaData, ARRAY_COUNT(Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_bIsSlowHideOverride_MetaData)) };
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_CachedGameState_MetaData[] = {
 		{ "Category", "MordhauWidgetComponent" },
@@ -316,6 +370,10 @@ void EmptyLinkFunctionForGeneratedCodeMordhauWidgetComponent() {}
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_WorldSpaceZOffset = { UE4CodeGen_Private::EPropertyClass::Float, "WorldSpaceZOffset", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(UMordhauWidgetComponent, WorldSpaceZOffset), METADATA_PARAMS(Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_WorldSpaceZOffset_MetaData, ARRAY_COUNT(Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_WorldSpaceZOffset_MetaData)) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMordhauWidgetComponent_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_VisibilityWeight,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_VisibilityWeightInterpolationSpeed,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_PartakesInSortedVisibilityQueue,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_bIsSlowHideOverride,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_CachedGameState,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_CachedPlayerCameraManager,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMordhauWidgetComponent_Statics::NewProp_FrameSkip,
@@ -358,7 +416,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauWidgetComponent() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMordhauWidgetComponent, 963006550);
+	IMPLEMENT_CLASS(UMordhauWidgetComponent, 1858575599);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UMordhauWidgetComponent(Z_Construct_UClass_UMordhauWidgetComponent, &UMordhauWidgetComponent::StaticClass, TEXT("/Script/Mordhau"), TEXT("UMordhauWidgetComponent"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UMordhauWidgetComponent);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -236,6 +236,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauUtilityLibrary() {}
 	MORDHAU_API UFunction* Z_Construct_UFunction_UMordhauUtilityLibrary_SGreaterThan();
 	MORDHAU_API UFunction* Z_Construct_UFunction_UMordhauUtilityLibrary_SLessThan();
 	MORDHAU_API UFunction* Z_Construct_UFunction_UMordhauUtilityLibrary_Snap180AngleToSteps();
+	MORDHAU_API UFunction* Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers();
 	MORDHAU_API UFunction* Z_Construct_UFunction_UMordhauUtilityLibrary_SpawnBloodDecalAtLocation();
 	ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
 	MORDHAU_API UFunction* Z_Construct_UFunction_UMordhauUtilityLibrary_SteamIDToString();
@@ -411,6 +412,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauUtilityLibrary() {}
 			{ "SGreaterThan", &UMordhauUtilityLibrary::execSGreaterThan },
 			{ "SLessThan", &UMordhauUtilityLibrary::execSLessThan },
 			{ "Snap180AngleToSteps", &UMordhauUtilityLibrary::execSnap180AngleToSteps },
+			{ "SortPlayers", &UMordhauUtilityLibrary::execSortPlayers },
 			{ "SpawnBloodDecalAtLocation", &UMordhauUtilityLibrary::execSpawnBloodDecalAtLocation },
 			{ "SteamIDToString", &UMordhauUtilityLibrary::execSteamIDToString },
 			{ "StripProfile", &UMordhauUtilityLibrary::execStripProfile },
@@ -3449,7 +3451,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauUtilityLibrary() {}
 	{
 		((MordhauUtilityLibrary_eventGetMaxIndexWithDraw_Parms*)Obj)->bFoundDraw = 1;
 	}
-	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::NewProp_bFoundDraw = { UE4CodeGen_Private::EPropertyClass::Bool, "bFoundDraw", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000080, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(MordhauUtilityLibrary_eventGetMaxIndexWithDraw_Parms), &Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::NewProp_bFoundDraw_SetBit, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::NewProp_bFoundDraw = { UE4CodeGen_Private::EPropertyClass::Bool, "bFoundDraw", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000180, 1, nullptr, sizeof(bool), UE4CodeGen_Private::ENativeBool::Native, sizeof(MordhauUtilityLibrary_eventGetMaxIndexWithDraw_Parms), &Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::NewProp_bFoundDraw_SetBit, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::NewProp_inArray = { UE4CodeGen_Private::EPropertyClass::Array, "inArray", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000080, 1, nullptr, STRUCT_OFFSET(MordhauUtilityLibrary_eventGetMaxIndexWithDraw_Parms, inArray), METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FUnsizedIntPropertyParams Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::NewProp_inArray_Inner = { UE4CodeGen_Private::EPropertyClass::Int, "inArray", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0000000000000000, 1, nullptr, 0, METADATA_PARAMS(nullptr, 0) };
 	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::PropPointers[] = {
@@ -3464,7 +3466,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauUtilityLibrary() {}
 		{ "ModuleRelativePath", "MordhauUtilityLibrary.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMordhauUtilityLibrary, "GetMaxIndexWithDraw", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x14022401, sizeof(MordhauUtilityLibrary_eventGetMaxIndexWithDraw_Parms), Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::PropPointers), 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMordhauUtilityLibrary, "GetMaxIndexWithDraw", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x14422401, sizeof(MordhauUtilityLibrary_eventGetMaxIndexWithDraw_Parms), Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::PropPointers), 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -8421,6 +8423,49 @@ void EmptyLinkFunctionForGeneratedCodeMordhauUtilityLibrary() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics
+	{
+		struct MordhauUtilityLibrary_eventSortPlayers_Parms
+		{
+			TArray<AMordhauPlayerState*> Array;
+			TArray<AMordhauPlayerState*> ReturnValue;
+		};
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_ReturnValue;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReturnValue_Inner;
+		static const UE4CodeGen_Private::FArrayPropertyParams NewProp_Array;
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_Array_Inner;
+		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::NewProp_ReturnValue = { UE4CodeGen_Private::EPropertyClass::Array, "ReturnValue", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000580, 1, nullptr, STRUCT_OFFSET(MordhauUtilityLibrary_eventSortPlayers_Parms, ReturnValue), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::NewProp_ReturnValue_Inner = { UE4CodeGen_Private::EPropertyClass::Object, "ReturnValue", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0000000000000000, 1, nullptr, 0, Z_Construct_UClass_AMordhauPlayerState_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::NewProp_Array = { UE4CodeGen_Private::EPropertyClass::Array, "Array", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000080, 1, nullptr, STRUCT_OFFSET(MordhauUtilityLibrary_eventSortPlayers_Parms, Array), METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::NewProp_Array_Inner = { UE4CodeGen_Private::EPropertyClass::Object, "Array", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0000000000000000, 1, nullptr, 0, Z_Construct_UClass_AMordhauPlayerState_NoRegister, METADATA_PARAMS(nullptr, 0) };
+	const UE4CodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::PropPointers[] = {
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::NewProp_ReturnValue,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::NewProp_ReturnValue_Inner,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::NewProp_Array,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::NewProp_Array_Inner,
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::Function_MetaDataParams[] = {
+		{ "Category", "UtilityFunctions" },
+		{ "ModuleRelativePath", "MordhauUtilityLibrary.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UMordhauUtilityLibrary, "SortPlayers", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04022401, sizeof(MordhauUtilityLibrary_eventSortPlayers_Parms), Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::PropPointers), 0, 0, METADATA_PARAMS(Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	struct Z_Construct_UFunction_UMordhauUtilityLibrary_SpawnBloodDecalAtLocation_Statics
 	{
 		struct MordhauUtilityLibrary_eventSpawnBloodDecalAtLocation_Parms
@@ -8943,7 +8988,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauUtilityLibrary() {}
 		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_GetIsPeasant, "GetIsPeasant" }, // 2998312400
 		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_GetLastReceiveTime, "GetLastReceiveTime" }, // 3519034809
 		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_GetMapName, "GetMapName" }, // 3673958459
-		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw, "GetMaxIndexWithDraw" }, // 604473445
+		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_GetMaxIndexWithDraw, "GetMaxIndexWithDraw" }, // 4261985725
 		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_GetMordhauGameSession, "GetMordhauGameSession" }, // 4157390960
 		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_GetMordhauGameUserSettings, "GetMordhauGameUserSettings" }, // 2171974701
 		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_GetMordhauHUD, "GetMordhauHUD" }, // 2901704071
@@ -9046,6 +9091,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauUtilityLibrary() {}
 		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_SGreaterThan, "SGreaterThan" }, // 578626751
 		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_SLessThan, "SLessThan" }, // 4199739660
 		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_Snap180AngleToSteps, "Snap180AngleToSteps" }, // 1141587187
+		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_SortPlayers, "SortPlayers" }, // 1583240006
 		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_SpawnBloodDecalAtLocation, "SpawnBloodDecalAtLocation" }, // 2054352292
 		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_SteamIDToString, "SteamIDToString" }, // 1442663800
 		{ &Z_Construct_UFunction_UMordhauUtilityLibrary_StripProfile, "StripProfile" }, // 425637307
@@ -9086,7 +9132,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauUtilityLibrary() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMordhauUtilityLibrary, 3323389423);
+	IMPLEMENT_CLASS(UMordhauUtilityLibrary, 1195315838);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UMordhauUtilityLibrary(Z_Construct_UClass_UMordhauUtilityLibrary, &UMordhauUtilityLibrary::StaticClass, TEXT("/Script/Mordhau"), TEXT("UMordhauUtilityLibrary"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UMordhauUtilityLibrary);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

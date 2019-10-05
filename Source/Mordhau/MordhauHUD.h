@@ -63,6 +63,10 @@ public:
 		void OnGameStateReplicated();
 	UFUNCTION(BlueprintCallable, BlueprintImplementableEvent, Category = "MordhauHUDFns")
 		void EnqueueMordhauDialog(class UMordhauDialog* Dialog);
+	UFUNCTION(BlueprintCallable, Category = "MordhauHUDFns")
+		void CreateMainMenu();
+	UFUNCTION(BlueprintCallable, Category = "MordhauHUDFns")
+		void HideMainMenu();
 	/*
 
 
@@ -90,9 +94,11 @@ public:
 	void CreateEquipmentDisplay();
 	void CreateNetIndicator();
 	void CreateSpawnInfo();
-	void CreateMainMenu();
+
+
+
 	void IsMainMenuVisible(bool* bIsVisible);
-	void HideMainMenu();
+
 	void ProcessQueuedDialogs();
 	void EnqueueDialog(class UMordhauDialog* Dialog);
 	void CreateWatermark();

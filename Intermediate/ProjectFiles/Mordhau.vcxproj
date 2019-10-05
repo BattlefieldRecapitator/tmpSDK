@@ -124,7 +124,7 @@
 		</ProjectConfiguration>
 	</ItemGroup>
 	<PropertyGroup Label="Globals">
-		<ProjectGuid>{347642BE-4B65-4B47-8A28-130C78B80181}</ProjectGuid>
+		<ProjectGuid>{06F30B19-307E-456A-9E77-57DA28CE82A5}</ProjectGuid>
 		<Keyword>MakeFileProj</Keyword>
 		<RootNamespace>Mordhau</RootNamespace>
 		<PlatformToolset>v141</PlatformToolset>

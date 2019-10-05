@@ -68,7 +68,7 @@ void EmptyLinkFunctionForGeneratedCodeATurret() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AATurret, 3851639284);
+	IMPLEMENT_CLASS(AATurret, 288911129);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AATurret(Z_Construct_UClass_AATurret, &AATurret::StaticClass, TEXT("/Script/Mordhau"), TEXT("AATurret"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AATurret);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
