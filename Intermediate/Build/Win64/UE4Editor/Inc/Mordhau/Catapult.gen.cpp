@@ -68,7 +68,7 @@ void EmptyLinkFunctionForGeneratedCodeCatapult() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(ACatapult, 3059976208);
+	IMPLEMENT_CLASS(ACatapult, 4195938871);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_ACatapult(Z_Construct_UClass_ACatapult, &ACatapult::StaticClass, TEXT("/Script/Mordhau"), TEXT("ACatapult"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ACatapult);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

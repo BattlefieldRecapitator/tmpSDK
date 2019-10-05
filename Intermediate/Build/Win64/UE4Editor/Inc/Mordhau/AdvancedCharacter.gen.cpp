@@ -64,6 +64,7 @@ void EmptyLinkFunctionForGeneratedCodeAdvancedCharacter() {}
 	MORDHAU_API UFunction* Z_Construct_UFunction_AAdvancedCharacter_OnAfterDied();
 	MORDHAU_API UFunction* Z_Construct_UFunction_AAdvancedCharacter_OnCosmeticHit();
 	MORDHAU_API UFunction* Z_Construct_UFunction_AAdvancedCharacter_OnDied();
+	MORDHAU_API UFunction* Z_Construct_UFunction_AAdvancedCharacter_OnExceededTimeOutOfBounds();
 	MORDHAU_API UFunction* Z_Construct_UFunction_AAdvancedCharacter_OnHealthChanged();
 	MORDHAU_API UFunction* Z_Construct_UFunction_AAdvancedCharacter_OnHighlightEnd();
 	MORDHAU_API UFunction* Z_Construct_UFunction_AAdvancedCharacter_OnHighlightStart();
@@ -276,6 +277,11 @@ void EmptyLinkFunctionForGeneratedCodeAdvancedCharacter() {}
 		Parms.Source=Source;
 		Parms.Agent=Agent;
 		ProcessEvent(FindFunctionChecked(NAME_AAdvancedCharacter_OnDied),&Parms);
+	}
+	static FName NAME_AAdvancedCharacter_OnExceededTimeOutOfBounds = FName(TEXT("OnExceededTimeOutOfBounds"));
+	void AAdvancedCharacter::OnExceededTimeOutOfBounds()
+	{
+		ProcessEvent(FindFunctionChecked(NAME_AAdvancedCharacter_OnExceededTimeOutOfBounds),NULL);
 	}
 	static FName NAME_AAdvancedCharacter_OnHealthChanged = FName(TEXT("OnHealthChanged"));
 	void AAdvancedCharacter::OnHealthChanged()
@@ -2138,6 +2144,29 @@ void EmptyLinkFunctionForGeneratedCodeAdvancedCharacter() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AAdvancedCharacter_OnDied_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AAdvancedCharacter_OnExceededTimeOutOfBounds_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AAdvancedCharacter_OnExceededTimeOutOfBounds_Statics::Function_MetaDataParams[] = {
+		{ "Category", "AdvancedCharEvents" },
+		{ "ModuleRelativePath", "AdvancedCharacter.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AAdvancedCharacter_OnExceededTimeOutOfBounds_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AAdvancedCharacter, "OnExceededTimeOutOfBounds", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x0C020800, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AAdvancedCharacter_OnExceededTimeOutOfBounds_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AAdvancedCharacter_OnExceededTimeOutOfBounds_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AAdvancedCharacter_OnExceededTimeOutOfBounds()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AAdvancedCharacter_OnExceededTimeOutOfBounds_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -4452,6 +4481,7 @@ void EmptyLinkFunctionForGeneratedCodeAdvancedCharacter() {}
 		{ &Z_Construct_UFunction_AAdvancedCharacter_OnAfterDied, "OnAfterDied" }, // 2466557204
 		{ &Z_Construct_UFunction_AAdvancedCharacter_OnCosmeticHit, "OnCosmeticHit" }, // 4098611805
 		{ &Z_Construct_UFunction_AAdvancedCharacter_OnDied, "OnDied" }, // 1586106704
+		{ &Z_Construct_UFunction_AAdvancedCharacter_OnExceededTimeOutOfBounds, "OnExceededTimeOutOfBounds" }, // 1578274605
 		{ &Z_Construct_UFunction_AAdvancedCharacter_OnHealthChanged, "OnHealthChanged" }, // 1690192628
 		{ &Z_Construct_UFunction_AAdvancedCharacter_OnHighlightEnd, "OnHighlightEnd" }, // 2618469036
 		{ &Z_Construct_UFunction_AAdvancedCharacter_OnHighlightStart, "OnHighlightStart" }, // 2098536710
@@ -6074,7 +6104,7 @@ void EmptyLinkFunctionForGeneratedCodeAdvancedCharacter() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AAdvancedCharacter, 514645279);
+	IMPLEMENT_CLASS(AAdvancedCharacter, 3462133918);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AAdvancedCharacter(Z_Construct_UClass_AAdvancedCharacter, &AAdvancedCharacter::StaticClass, TEXT("/Script/Mordhau"), TEXT("AAdvancedCharacter"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AAdvancedCharacter);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

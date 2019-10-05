@@ -4,7 +4,7 @@
 	<ItemGroup>
 		<None Include="..\..\Mordhau.uproject" />
 		<Filter Include="Source">
-			<UniqueIdentifier>{9B653BBB-74D6-4861-88A2-766619543967}</UniqueIdentifier>
+			<UniqueIdentifier>{12AC92CD-47DC-444D-A642-DEC3D68DBF60}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Source\Mordhau.Target.cs">
 			<Filter>Source</Filter>
@@ -13,7 +13,7 @@
 			<Filter>Source</Filter>
 		</None >
 		<Filter Include="Config">
-			<UniqueIdentifier>{4114114A-912D-48DF-B9BE-44C34322C4D0}</UniqueIdentifier>
+			<UniqueIdentifier>{11250DF2-88CC-4741-A566-6EB80E0072B8}</UniqueIdentifier>
 		</Filter>
 		<None Include="..\..\Config\DefaultEditor.ini">
 			<Filter>Config</Filter>
@@ -28,7 +28,7 @@
 			<Filter>Config</Filter>
 		</None >
 		<Filter Include="Source\Mordhau">
-			<UniqueIdentifier>{39AE36A1-3197-4761-A008-6898E3234A7A}</UniqueIdentifier>
+			<UniqueIdentifier>{056F7107-7B3F-45E2-B30E-68307D675344}</UniqueIdentifier>
 		</Filter>
 		<ClCompile Include="..\..\Source\Mordhau\AdvancedCharacter.cpp">
 			<Filter>Source\Mordhau</Filter>

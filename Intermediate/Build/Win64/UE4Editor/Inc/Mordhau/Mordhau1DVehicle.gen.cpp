@@ -101,7 +101,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhau1DVehicle() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMordhau1DVehicle, 630820159);
+	IMPLEMENT_CLASS(AMordhau1DVehicle, 1511824490);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AMordhau1DVehicle(Z_Construct_UClass_AMordhau1DVehicle, &AMordhau1DVehicle::StaticClass, TEXT("/Script/Mordhau"), TEXT("AMordhau1DVehicle"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AMordhau1DVehicle);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

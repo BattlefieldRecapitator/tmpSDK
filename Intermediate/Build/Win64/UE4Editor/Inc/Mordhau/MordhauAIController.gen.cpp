@@ -56,6 +56,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauAIController() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
 	MORDHAU_API UClass* Z_Construct_UClass_UBotBehaviorProfile_NoRegister();
 	MORDHAU_API UClass* Z_Construct_UClass_UBotProfile_NoRegister();
+	MORDHAU_API UClass* Z_Construct_UClass_ACustomizationReplicationActor_NoRegister();
 // End Cross Module References
 	static UEnum* ECrowdSimulationState_StaticEnum()
 	{
@@ -299,13 +300,6 @@ static struct FScriptStruct_Mordhau_StaticRegisterNativesFPerceptionInfo
 		return ReturnStruct;
 	}
 	uint32 Get_Z_Construct_UScriptStruct_FPerceptionInfo_CRC() { return 4014609739U; }
-	static FName NAME_AMordhauAIController_GetCurrentlyFacingActor = FName(TEXT("GetCurrentlyFacingActor"));
-	AActor* AMordhauAIController::GetCurrentlyFacingActor()
-	{
-		MordhauAIController_eventGetCurrentlyFacingActor_Parms Parms;
-		ProcessEvent(FindFunctionChecked(NAME_AMordhauAIController_GetCurrentlyFacingActor),&Parms);
-		return Parms.ReturnValue;
-	}
 	static FName NAME_AMordhauAIController_OnAfterUnPossess = FName(TEXT("OnAfterUnPossess"));
 	void AMordhauAIController::OnAfterUnPossess()
 	{
@@ -522,6 +516,10 @@ static struct FScriptStruct_Mordhau_StaticRegisterNativesFPerceptionInfo
 	}
 	struct Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor_Statics
 	{
+		struct MordhauAIController_eventGetCurrentlyFacingActor_Parms
+		{
+			AActor* ReturnValue;
+		};
 		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
 		static const UE4CodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
@@ -539,7 +537,7 @@ static struct FScriptStruct_Mordhau_StaticRegisterNativesFPerceptionInfo
 		{ "ModuleRelativePath", "MordhauAIController.h" },
 	};
 #endif
-	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMordhauAIController, "GetCurrentlyFacingActor", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x0C020C00, sizeof(MordhauAIController_eventGetCurrentlyFacingActor_Parms), Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor_Statics::PropPointers), 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor_Statics::Function_MetaDataParams)) };
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMordhauAIController, "GetCurrentlyFacingActor", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04020401, sizeof(MordhauAIController_eventGetCurrentlyFacingActor_Parms), Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor_Statics::PropPointers, ARRAY_COUNT(Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor_Statics::PropPointers), 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor_Statics::Function_MetaDataParams)) };
 	UFunction* Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor()
 	{
 		static UFunction* ReturnFunction = nullptr;
@@ -1352,6 +1350,10 @@ static struct FScriptStruct_Mordhau_StaticRegisterNativesFPerceptionInfo
 #endif
 		static const UE4CodeGen_Private::FFloatPropertyParams NewProp_RandomFloat;
 #if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_CustomizationReplicationActor_MetaData[];
+#endif
+		static const UE4CodeGen_Private::FObjectPropertyParams NewProp_CustomizationReplicationActor;
+#if WITH_METADATA
 		static const UE4CodeGen_Private::FMetaDataPairParam NewProp_bFirstRun_MetaData[];
 #endif
 		static void NewProp_bFirstRun_SetBit(void* Obj);
@@ -1378,7 +1380,7 @@ static struct FScriptStruct_Mordhau_StaticRegisterNativesFPerceptionInfo
 		{ &Z_Construct_UFunction_AMordhauAIController_GetClosestAlly, "GetClosestAlly" }, // 2624747776
 		{ &Z_Construct_UFunction_AMordhauAIController_GetClosestEnemy, "GetClosestEnemy" }, // 4057573331
 		{ &Z_Construct_UFunction_AMordhauAIController_GetCurrentFacingMode, "GetCurrentFacingMode" }, // 4106928641
-		{ &Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor, "GetCurrentlyFacingActor" }, // 2943639277
+		{ &Z_Construct_UFunction_AMordhauAIController_GetCurrentlyFacingActor, "GetCurrentlyFacingActor" }, // 1583364102
 		{ &Z_Construct_UFunction_AMordhauAIController_GetKthClosestOfThree, "GetKthClosestOfThree" }, // 831229341
 		{ &Z_Construct_UFunction_AMordhauAIController_GetMotionBasedRandom, "GetMotionBasedRandom" }, // 2658185554
 		{ &Z_Construct_UFunction_AMordhauAIController_GetPerceivedAllies, "GetPerceivedAllies" }, // 2847858120
@@ -1605,6 +1607,13 @@ static struct FScriptStruct_Mordhau_StaticRegisterNativesFPerceptionInfo
 #endif
 	const UE4CodeGen_Private::FFloatPropertyParams Z_Construct_UClass_AMordhauAIController_Statics::NewProp_RandomFloat = { UE4CodeGen_Private::EPropertyClass::Float, "RandomFloat", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AMordhauAIController, RandomFloat), METADATA_PARAMS(Z_Construct_UClass_AMordhauAIController_Statics::NewProp_RandomFloat_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMordhauAIController_Statics::NewProp_RandomFloat_MetaData)) };
 #if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMordhauAIController_Statics::NewProp_CustomizationReplicationActor_MetaData[] = {
+		{ "Category", "MordhauAIController" },
+		{ "ModuleRelativePath", "MordhauAIController.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AMordhauAIController_Statics::NewProp_CustomizationReplicationActor = { UE4CodeGen_Private::EPropertyClass::Object, "CustomizationReplicationActor", RF_Public|RF_Transient|RF_MarkAsNative, (EPropertyFlags)0x0010000000000005, 1, nullptr, STRUCT_OFFSET(AMordhauAIController, CustomizationReplicationActor), Z_Construct_UClass_ACustomizationReplicationActor_NoRegister, METADATA_PARAMS(Z_Construct_UClass_AMordhauAIController_Statics::NewProp_CustomizationReplicationActor_MetaData, ARRAY_COUNT(Z_Construct_UClass_AMordhauAIController_Statics::NewProp_CustomizationReplicationActor_MetaData)) };
+#if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AMordhauAIController_Statics::NewProp_bFirstRun_MetaData[] = {
 		{ "Category", "MordhauAIController" },
 		{ "ModuleRelativePath", "MordhauAIController.h" },
@@ -1655,6 +1664,7 @@ static struct FScriptStruct_Mordhau_StaticRegisterNativesFPerceptionInfo
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMordhauAIController_Statics::NewProp_BehaviorProfile,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMordhauAIController_Statics::NewProp_BotProfile,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMordhauAIController_Statics::NewProp_RandomFloat,
+		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMordhauAIController_Statics::NewProp_CustomizationReplicationActor,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMordhauAIController_Statics::NewProp_bFirstRun,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMordhauAIController_Statics::NewProp_LastClosestEnemy,
 		(const UE4CodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AMordhauAIController_Statics::NewProp_ReallyCloseEnemyCached,
@@ -1682,7 +1692,7 @@ static struct FScriptStruct_Mordhau_StaticRegisterNativesFPerceptionInfo
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMordhauAIController, 3747820194);
+	IMPLEMENT_CLASS(AMordhauAIController, 850440538);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AMordhauAIController(Z_Construct_UClass_AMordhauAIController, &AMordhauAIController::StaticClass, TEXT("/Script/Mordhau"), TEXT("AMordhauAIController"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AMordhauAIController);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

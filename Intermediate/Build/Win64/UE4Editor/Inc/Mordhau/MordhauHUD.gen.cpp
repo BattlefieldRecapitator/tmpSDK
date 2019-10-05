@@ -17,8 +17,10 @@ void EmptyLinkFunctionForGeneratedCodeMordhauHUD() {}
 	MORDHAU_API UClass* Z_Construct_UClass_AMordhauHUD();
 	ENGINE_API UClass* Z_Construct_UClass_AHUD();
 	UPackage* Z_Construct_UPackage__Script_Mordhau();
+	MORDHAU_API UFunction* Z_Construct_UFunction_AMordhauHUD_CreateMainMenu();
 	MORDHAU_API UFunction* Z_Construct_UFunction_AMordhauHUD_EnqueueMordhauDialog();
 	MORDHAU_API UClass* Z_Construct_UClass_UMordhauDialog_NoRegister();
+	MORDHAU_API UFunction* Z_Construct_UFunction_AMordhauHUD_HideMainMenu();
 	MORDHAU_API UFunction* Z_Construct_UFunction_AMordhauHUD_OnGameStateReplicated();
 	MORDHAU_API UClass* Z_Construct_UClass_AControlPoint_NoRegister();
 // End Cross Module References
@@ -36,6 +38,35 @@ void EmptyLinkFunctionForGeneratedCodeMordhauHUD() {}
 	}
 	void AMordhauHUD::StaticRegisterNativesAMordhauHUD()
 	{
+		UClass* Class = AMordhauHUD::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "CreateMainMenu", &AMordhauHUD::execCreateMainMenu },
+			{ "HideMainMenu", &AMordhauHUD::execHideMainMenu },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AMordhauHUD_CreateMainMenu_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMordhauHUD_CreateMainMenu_Statics::Function_MetaDataParams[] = {
+		{ "Category", "MordhauHUDFns" },
+		{ "ModuleRelativePath", "MordhauHUD.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMordhauHUD_CreateMainMenu_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMordhauHUD, "CreateMainMenu", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04020401, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMordhauHUD_CreateMainMenu_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AMordhauHUD_CreateMainMenu_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMordhauHUD_CreateMainMenu()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMordhauHUD_CreateMainMenu_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_AMordhauHUD_EnqueueMordhauDialog_Statics
 	{
@@ -71,6 +102,29 @@ void EmptyLinkFunctionForGeneratedCodeMordhauHUD() {}
 		if (!ReturnFunction)
 		{
 			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMordhauHUD_EnqueueMordhauDialog_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AMordhauHUD_HideMainMenu_Statics
+	{
+#if WITH_METADATA
+		static const UE4CodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UE4CodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AMordhauHUD_HideMainMenu_Statics::Function_MetaDataParams[] = {
+		{ "Category", "MordhauHUDFns" },
+		{ "ModuleRelativePath", "MordhauHUD.h" },
+	};
+#endif
+	const UE4CodeGen_Private::FFunctionParams Z_Construct_UFunction_AMordhauHUD_HideMainMenu_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AMordhauHUD, "HideMainMenu", RF_Public|RF_Transient|RF_MarkAsNative, nullptr, (EFunctionFlags)0x04020401, 0, nullptr, 0, 0, 0, METADATA_PARAMS(Z_Construct_UFunction_AMordhauHUD_HideMainMenu_Statics::Function_MetaDataParams, ARRAY_COUNT(Z_Construct_UFunction_AMordhauHUD_HideMainMenu_Statics::Function_MetaDataParams)) };
+	UFunction* Z_Construct_UFunction_AMordhauHUD_HideMainMenu()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UE4CodeGen_Private::ConstructUFunction(ReturnFunction, Z_Construct_UFunction_AMordhauHUD_HideMainMenu_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -122,7 +176,9 @@ void EmptyLinkFunctionForGeneratedCodeMordhauHUD() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_Mordhau,
 	};
 	const FClassFunctionLinkInfo Z_Construct_UClass_AMordhauHUD_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AMordhauHUD_CreateMainMenu, "CreateMainMenu" }, // 1890683324
 		{ &Z_Construct_UFunction_AMordhauHUD_EnqueueMordhauDialog, "EnqueueMordhauDialog" }, // 1762954262
+		{ &Z_Construct_UFunction_AMordhauHUD_HideMainMenu, "HideMainMenu" }, // 4112880381
 		{ &Z_Construct_UFunction_AMordhauHUD_OnGameStateReplicated, "OnGameStateReplicated" }, // 3394742193
 	};
 #if WITH_METADATA
@@ -169,7 +225,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauHUD() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(AMordhauHUD, 1737257704);
+	IMPLEMENT_CLASS(AMordhauHUD, 3070548436);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_AMordhauHUD(Z_Construct_UClass_AMordhauHUD, &AMordhauHUD::StaticClass, TEXT("/Script/Mordhau"), TEXT("AMordhauHUD"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AMordhauHUD);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -36,22 +36,6 @@ struct FHitResult;
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execEnemyGainedPrerequisites) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->EnemyGainedPrerequisites(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execEnemyLostPrerequisites) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->EnemyLostPrerequisites(); \
-		P_NATIVE_END; \
-	} \
- \
 	DECLARE_FUNCTION(execOnCaptureAreaBeginOverlap) \
 	{ \
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComp); \
@@ -142,47 +126,6 @@ struct FHitResult;
 		P_FINISH; \
 		P_NATIVE_BEGIN; \
 		P_THIS->SetCaptureProgress(Z_Param_NewProgress,Z_Param_NewCaptor,Z_Param_bAwardScore); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdateCaptureProgress) \
-	{ \
-		P_GET_PROPERTY(UFloatProperty,Z_Param_DeltaTime); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdateCaptureProgress(Z_Param_DeltaTime); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdatePresenceNumbers) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdatePresenceNumbers(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdateUIMaterialInstance) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdateUIMaterialInstance(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdateUIWidgets) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdateUIWidgets(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdateVisuals) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdateVisuals(); \
 		P_NATIVE_END; \
 	}
 
@@ -207,22 +150,6 @@ struct FHitResult;
 		P_NATIVE_END; \
 	} \
  \
-	DECLARE_FUNCTION(execEnemyGainedPrerequisites) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->EnemyGainedPrerequisites(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execEnemyLostPrerequisites) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->EnemyLostPrerequisites(); \
-		P_NATIVE_END; \
-	} \
- \
 	DECLARE_FUNCTION(execOnCaptureAreaBeginOverlap) \
 	{ \
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_OverlappedComp); \
@@ -314,47 +241,6 @@ struct FHitResult;
 		P_NATIVE_BEGIN; \
 		P_THIS->SetCaptureProgress(Z_Param_NewProgress,Z_Param_NewCaptor,Z_Param_bAwardScore); \
 		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdateCaptureProgress) \
-	{ \
-		P_GET_PROPERTY(UFloatProperty,Z_Param_DeltaTime); \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdateCaptureProgress(Z_Param_DeltaTime); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdatePresenceNumbers) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdatePresenceNumbers(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdateUIMaterialInstance) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdateUIMaterialInstance(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdateUIWidgets) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdateUIWidgets(); \
-		P_NATIVE_END; \
-	} \
- \
-	DECLARE_FUNCTION(execUpdateVisuals) \
-	{ \
-		P_FINISH; \
-		P_NATIVE_BEGIN; \
-		P_THIS->UpdateVisuals(); \
-		P_NATIVE_END; \
 	}
 
 
@@ -374,6 +260,10 @@ struct FHitResult;
 		AActor* Other; \
 		UPrimitiveComponent* OtherComp; \
 		int32 OtherBodyIndex; \
+	}; \
+	struct ControlPoint_eventUpdateCaptureProgress_Parms \
+	{ \
+		float DeltaTime; \
 	};
 
 

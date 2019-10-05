@@ -73,7 +73,9 @@ void EmptyLinkFunctionForGeneratedCodeMordhauEquipmentPart() {}
 	};
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMordhauEquipmentPart_Statics::Class_MetaDataParams[] = {
+		{ "BlueprintSpawnableComponent", "" },
 		{ "BlueprintType", "true" },
+		{ "ClassGroupNames", "Custom" },
 		{ "IncludePath", "MordhauEquipmentPart.h" },
 		{ "IsBlueprintBase", "true" },
 		{ "ModuleRelativePath", "MordhauEquipmentPart.h" },
@@ -172,7 +174,7 @@ void EmptyLinkFunctionForGeneratedCodeMordhauEquipmentPart() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UMordhauEquipmentPart, 38008503);
+	IMPLEMENT_CLASS(UMordhauEquipmentPart, 2777989592);
 	static FCompiledInDefer Z_CompiledInDefer_UClass_UMordhauEquipmentPart(Z_Construct_UClass_UMordhauEquipmentPart, &UMordhauEquipmentPart::StaticClass, TEXT("/Script/Mordhau"), TEXT("UMordhauEquipmentPart"), false, nullptr, nullptr, nullptr);
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UMordhauEquipmentPart);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

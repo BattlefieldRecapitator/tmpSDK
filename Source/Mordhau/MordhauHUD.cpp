@@ -2,6 +2,7 @@
 
 #include "MordhauHUD.h"
 
-
-
-
+void AMordhauHUD::CreateMainMenu()
+{}
+void AMordhauHUD::HideMainMenu()
+{}
